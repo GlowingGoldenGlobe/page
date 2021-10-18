@@ -187,7 +187,7 @@ input {
 </style>
 <div>
 <div id="d302" class="d0002">
-<div style="border: 0px solid white; width: 380px; position: relative; margin: 0 auto; text-align: left;"><p id="p301" style="color: white; opacity: .8; overflow: visible; outline: 0px solid white;"></p><input type="text" id="text301" value="" placeholder="type here" style="outline: 0px solid white;" onkeyup="verify01()" /><!--<textarea id="t001">developer code tests here</textarea>--></div>
+<div style="border: 0px solid white; width: 380px; position: relative; margin: 0 auto; text-align: left;"><p id="p301" style="color: white; opacity: .8; overflow: visible; outline: 0px solid white;"></p><input type="text" id="text301" value="" placeholder="" style="outline: 0px solid white;" onkeyup="verify01()" /><!--<textarea id="t001">developer code tests here</textarea>--></div>
 </div>
 <div id="block01" class="block001"></div>
 </div>
@@ -615,10 +615,11 @@ function textPut01() {
     var val01 = document.getElementById("d302").innerHTML;
     var length01 = val01.length;
     length01 = Number(length01);
-    if(length01 >= 100000) {
+    if(length01 >= 1000000) {
         localStorage.setItem("dataVal01", val01);
     }
-    else if(length01 >= 100001) {
+    else if(length01 >= 1000001) {
+        localStorage.setItem("dataVal01", "0");
         return null;
     }
 }

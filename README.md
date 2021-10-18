@@ -612,10 +612,15 @@ function repeatGSC01(x01) {// repeat "gridStyleChange01"
     setTimeout(function(){gridStyleChange01(x01)}, 50);
 }
 function textPut01() {
-              setTimeout(function(){
     var val01 = document.getElementById("d302").innerHTML;
-    localStorage.setItem("dataVal01", val01);
-              }, 2000);
+    var length01 = val01.length;
+    length01 = Number(length01);
+    if(length01 >= 100000) {
+        localStorage.setItem("dataVal01", val01);
+    }
+    else if(length01 >= 100001) {
+        return null;
+    }
 }
 
 /*Bottom*/

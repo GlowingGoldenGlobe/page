@@ -1,11 +1,6 @@
-# repository1.html
-<!--Draws a pyramid with &lt;polyline> HTML for a website I have.-->
-<!--Is an early work in progress. Don't waist your time reading the HTML file. It's amateur, for now.-->
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css02sim03.css" />
-<link rel="stylesheet" href="css03sim03.css" />
 </head>
 <body id="body301" style="background-color: gray;" onload="onload02()">
 <style>

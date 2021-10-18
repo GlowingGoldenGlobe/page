@@ -208,6 +208,7 @@ function onload02() {
     document.getElementById("text301").value = "";
     localStorage.setItem("ifRunAlready", "0");
     blockHeight01();
+    textPut01();
 }
 function verify01(textToType01, textTyped01) {
 var textToType01 = document.getElementById("p301").innerHTML;
@@ -609,6 +610,12 @@ function gridStyleChange01(x01) {
 }
 function repeatGSC01(x01) {// repeat "gridStyleChange01"
     setTimeout(function(){gridStyleChange01(x01)}, 50);
+}
+function textPut01() {
+              setTimeout(function(){
+    var val01 = document.getElementById("d302").innerHTML;
+    document.getElementById("textareaId01").value = val01;     
+              }, 2000);
 }
 
 /*Bottom*/

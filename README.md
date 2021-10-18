@@ -187,7 +187,7 @@ input {
 </style>
 <div>
 <div id="d302" class="d0002">
-<div style="border: 0px solid white; width: 380px; position: relative; margin: 0 auto; text-align: left;"><p id="p301" style="color: white; opacity: .8; overflow: visible; outline: 0px solid white;"></p><input type="text" id="text301" value="" style="outline: 0px solid white;" onkeyup="verify01()" /><!--<textarea id="t001">developer code tests here</textarea>--></div>
+<div style="border: 0px solid white; width: 380px; position: relative; margin: 0 auto; text-align: left;"><p id="p301" style="color: white; opacity: .8; overflow: visible; outline: 0px solid white;"></p><input type="text" id="text301" value="" placeholder="type here" style="outline: 0px solid white;" onkeyup="verify01()" /><!--<textarea id="t001">developer code tests here</textarea>--></div>
 </div>
 <div id="block01" class="block001"></div>
 </div>

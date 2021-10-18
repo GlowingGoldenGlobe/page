@@ -614,7 +614,7 @@ function repeatGSC01(x01) {// repeat "gridStyleChange01"
 function textPut01() {
               setTimeout(function(){
     var val01 = document.getElementById("d302").innerHTML;
-    document.getElementById("textareaId01").value = val01;     
+    localStorage.setItem("dataVal01", val01);
               }, 2000);
 }
 

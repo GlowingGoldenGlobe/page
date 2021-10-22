@@ -187,10 +187,29 @@ input {
     color: #333;
     font: 20px/1.5 sans-serif;
 }
+.buttonClass01 {
+    width: 380px;
+    margin: 0;
+    color: #333;
+    font: 20px/1.5 sans-serif;
+    border: 8px outset #808080;
+    margin-top: 4px;
+    cursor: pointer;
+}
+.buttonClass01:hover {
+    background-color: white;
+    width: 380px;
+    margin: 0;
+    color: #333;
+    font: 20px/1.5 sans-serif;
+    font-weight: default;
+    border: 8px outset grey;
+    box-shadow: 0px 2px 4px 0px white;
+}
 </style>
 <div>
 <div id="d302" class="d0002">
-<div style="border: 0px solid white; width: 380px; position: relative; margin: 0 auto; text-align: left;"><p id="p301" style="color: white; opacity: .8; overflow: visible; outline: 0px solid white;"></p><input type="text" id="text301" value="" style="outline: 0px solid white;" onkeyup="verify01()" /><!--<textarea id="t001">developer code tests here</textarea>--></div>
+<div style="border: 0px solid white; width: 380px; position: relative; margin: 0 auto; text-align: left;"><p id="p301" style="color: white; opacity: .8; overflow: visible; outline: 0px solid white;"></p><input type="text" id="text301" value="" style="outline: 0px solid white;" onkeyup="verify01()" /><input type="button" id="button301" class="buttonClass01" value="Home" style="display: none;" onclick="homePage01()" /><!--<textarea id="t001">developer code tests here</textarea>--></div>
 </div>
 <div id="block01" class="block001"></div>
 </div>
@@ -592,13 +611,17 @@ function gridStyleChange01(x01) {
 //gridCell0" + i; where i = 1, and the length = 41, so 40 grid cells
 //    for(i = 1; i < length01; i++) {
     if(i >= 41) {
-        document.getElementById("p301").innerHTML = "<p style=\"background-color: black; border: 8px outset #808080; opacity: .9; padding: 4px;\">This simulation is a work in progress. This is the end of this simulation, at this time. Look forward to helping to fund a full time effort.</p>";
+        document.getElementById("p301").innerHTML = "<p style=\"background-color: black; border: 8px outset #808080; opacity: .9; padding: 4px;\">Grade school education upgrade: training for effective rates of behavior to accomplish productive workforce operations; making a robust economy. Did you know that the absence of alternative considerations in your thoughts will yield an effective rate of behavior up to the rate of infinite speed? The presence of reconsiderations of thoughts already created in your mind is the only hindrance to personal speed, operational and learning abilities.<br><br>Wondering = slow. Deciding without reconsidering = fast. Never think about something more than once before acting on the idea. If you do that, you will be fast; even up to the rate of infinite speed. It's true.<br><br>This simulation is a work in progress. This is the end of this simulation, at this time. Look forward to helping to fund a full time effort.</p>";
         var el02 = document.getElementById("text301");
+        var el03 = document.getElementById("button301");
         document.getElementById("d302").style.top = "5%";
         el02.style.border = "8px inset #808080";
-        el02.value = "";
+        //el02.value = "";
+        el02.value = "No script response action, at this time.";
         el02.style.fontSize = "large";
         el02.style.fontWeight = "0";
+        el02.style.display = "none";
+        el03.style.display = "block";
         return null;
     }
     if(i < 41) {
@@ -613,7 +636,9 @@ function gridStyleChange01(x01) {
 function repeatGSC01(x01) {// repeat "gridStyleChange01"
     setTimeout(function(){gridStyleChange01(x01)}, 50);
 }
-
+function homePage01() {
+    window.open("https://glowinggoldenglobeportfolio.godaddysites.com/", "_top");
+}
 /*Bottom*/
 </script>
 </body>

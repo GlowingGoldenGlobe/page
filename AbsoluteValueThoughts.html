@@ -81,7 +81,7 @@ body {
 }
 .div_class_03 {
   background-color: transparent;
-  color: transparent;
+  color: black;
   width: 80%;
   height: 200%;
   overlow-X: hidden;
@@ -173,6 +173,21 @@ body {
   color: black;
   box-shadow: 1px 2px 3px 1px black;
 }
+.buttonClass02 {
+  background-color: white;
+  color: black;
+  display: inline-block;
+  width: 30px;
+  height: auto;
+  border: 2px outset gray; 
+  outline: 0px solid white;
+  color: default;
+  font-size: small;
+  padding: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -182,9 +197,15 @@ body {
 <p id="paragraphId01" class="p_class_01" >0</p>
 <p id="paragraphId02" class="p_class_02" >0</p>
 <p id="paragraphId03" class="p_class_02" >0</p>
+<p id="font_size_id" class="p_class_02" >0</p>
 </div>
 <div id="div_id_02" class="div_class_03" >
 <p id="p_id_05" class="p_class_05" ></p>
+<div>
+<p style="color: black; display: inline-block; font-size: small; margin: 0px 0px 6px 0px;" >Font size </p>
+<input type="button" class="buttonClass02" value=" + " onclick="fontIncr()" /><!--
+--><input type="button" class="buttonClass02" value=" - " onclick="fontDecr()" />
+</div>
 <p id="p_id_04" class="p_class_04" >
 <b><u>Overview</u></b>
 <br>
@@ -195,6 +216,10 @@ Absolute Value Thoughts
 Results
 <br>
 Effective rates of bodily motor skills, up to the rate of infinite speed.
+<br>
+You can literally act on super human power. Immortality, for instance, you can come back to life, if you think that you will come back to life.
+<br>
+Important. Achieve the Universal Objectives. Immortality. Maintainability. Deliberative control. Regulated paradise. Innovation. Education. Training. Value-assignment of definitions of beneficial experiences. <span style="background-color: yellow;" >Immortality can be achieved by humans building nano material anatomy into which they will transfer their conscious, memory and characteristics.</span> Artificial super intelligent computer programs can supply super intelligent humanoid workforce robots with uploads of instructions for motor skills and objectives operations. For example, <span style="background-color: #00ffff;" >the robots will conduct: (1) service operations (warehouse, restaurant, manufacturing, construction, farming, all human job functions, transportation, etc.); (2) research and development of the utilization of infinite options for feasible, immediate application of the elements of the cosmos; (3) resource acquisition; (4) city planning and building; (5) agriculture; (6) building new nano material anatomy for humans, and transferring humans to their new nano material anatomy; (7) regulations enforcement (example: police-robots which ensure: orderliness, propriety and kindness).</span>
 <br><br>
 <b><u>Description</u></b>
 <br><br>
@@ -251,7 +276,9 @@ The Universal Objectives of personhood dictate that the humans are to operate fo
 Is there a God?
 <br>
 Yes. Conscious is God. You have probably heard of the statement, "I think, therefore, I AM."
+<br><br>
 </p>
+<p style="color: darkblue; font-size: 14px; font-weight: bold; font-family: 'Times New Roman', serif;" >The end.</p>
 </div>
 <div id="footer_id_01" class="footer_class_01" >
   <div id="footer_id_02" class="footer_class_02" >
@@ -495,12 +522,13 @@ const setTimeout_4 = function () {
     setTimeout(style_header_3_autoType, 20);
 }
 const style_footer = function () { 
+//  style article height, div height, id="div_id_02"
     var test = "";
     var h = window.innerHeight;
     var t = 120;
     var p = 10;//div_class_03 style padding
     var b = 200;
-    var h_1 = (h * 2.2);
+    var h_1 = (h * 3);
     var h_2 = (h_1 + "px");
     document.getElementById("div_id_02").style.height = h_2;
     h = Number(h);
@@ -511,6 +539,38 @@ const style_footer = function () {
     document.getElementById("footer_id_01").style.top = height_1;
 }
 style_footer();
+const style_font_1 = function() {
+    var val01 = document.getElementById("style01").innerHTML;
+    var str = val01.toString();
+    var str_2 = str.split(".p_class_04");
+    var str_3 = str_2[1];
+    var str_4 = str_3.split("font-size: ");
+    var str_5 = str_4[1];
+    var str_6 = str_5.split("px");
+    var str_7 = str_6[0];
+    document.getElementById("font_size_id").innerHTML = str_7;
+    return null;
+}
+style_font_1();
+function fontIncr() {
+    var val01 = document.getElementById("font_size_id").innerHTML;
+    val01 = Number(val01);
+    val01 = val01 + 1;
+    document.getElementById("font_size_id").innerHTML = val01;
+    val01 = val01 + "px";
+    document.getElementById("p_id_04").style.fontSize = val01;
+    //document.getElementById("p_id_04").style.fontSize = val01;
+    //document.getElementById("div_id_02").style.height = val01;
+}
+function fontDecr() {
+    var val01 = document.getElementById("font_size_id").innerHTML;
+    val01 = Number(val01);
+    val01 = val01 - 1;
+    document.getElementById("font_size_id").innerHTML = val01;
+    val01 = val01 + "px";
+    document.getElementById("p_id_04").style.fontSize = val01;
+    //document.getElementById("p_id_04").style.fontSize = val01;
+}
 </script>
 </body>
 </html

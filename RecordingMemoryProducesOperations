@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" lang="ENG" />
+<title>This is a Browser Window Title</title>
+<style>
+body {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.h1_class_01 {
+  margin-left: 2%;
+}
+.h_class_02 {
+  color: black;
+  font-family: "Times New Roman", sans-serif;
+  font-size: 18px;
+  text-shadow: 0.5px 0px #000000;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 5%;
+  left: 10%;
+}
+.div_class_01 {
+  background-color: transparent;
+  color: black;
+  width: 80%;
+  height: 75%;
+  overflow-X: hidden;
+  overflow-Y: scroll;
+  margin: 0;
+  padding: 4px;
+  border: 2px outset black;
+  box-shadow: 1px 4px 4px 1px black;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+}
+.paragraph_class_01 {
+  background-color: transparent;
+  color: black;
+  margin: 0;
+  padding: 10px;
+}
+.class_saveData_01 {
+  background-color: transparent; 
+  color: transparent; 
+  margin: 0px; 
+  padding: 0px; 
+  position: absolute; 
+  top: 0px; 
+  left: 0px;
+  z-index: -2;
+}
+.b_class_01 {
+  background-color: white; 
+  color: black; 
+  font-family: "Times New Roman", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  border: 2px outset black;
+  border-corner: round;
+  box-shadow: 1px 4px 4px 1px black;
+  cursor: pointer;
+  margin: 0px;
+  padding: 4px; 
+  position: absolute;
+  top: 14.5%;
+  left: 10.2%; 
+}
+.b_class_01:hover {
+  box-shadow: 1px 4px 4px 1px darkgreen;
+}
+</style>
+</head>
+<body>
+<h1 id="elementId01" class="h1_class_01" >Glowing Golden Globe</h1>
+<p id="p_id_01" style="background-color: transparent; color: transparent; margin: 0px; padding: 0px; position: absolute; top: 0px; left: 0px;" >
+<b>About Brains</b>
+<br><br>
+information
+<br><br>
+brain
+<br><br>
+information on the brain
+<br><br>
+downloading information onto the brain
+<br><br>
+learning information
+<br><br>
+The brain uses stored information to playback personal behavior.
+<br><br>
+Person's behavior depends on the information recorded on their brains.
+<br><br>
+</p>
+<div id="div_id_01" class="div_class_01" >
+<p id="paragraph_id_01" class="paragraph_class_01" >
+A population left to choose whatever they want is an ignorant population. The United States' population is left to choose whatever they want; the United States' population is an ignorant populuation. The decisions of individuals relies on the information recorded on their brains. Productive behavior depends on knowing what production infrastrucure to build, because efforts undertaken for unknown purposes do not result in right judgment products and infrastructure.
+<br><br>
+The production efforts of the United States population and of the populations of the globe are 500% below their capacity because the workforce human resources are ignorant of the objectives and the methods to achieve those objectives.
+<br><br>
+Humans act on what? Humans directly act on the information that is recorded on their brains. Humans act on learned information from training and education and the information recorded from the lack thereof. The United States' decision to permit the human population to choose what they want at random is a mistake producing grave errors in human behavior, knowledge and production.
+<br><br>
+Subjective Reality is a bowl of dirty water.
+<br><br>
+Objective Reality is a cup of clean water.
+<br><br>
+Is bias okay? The answer is yes. Bias is absolutely necessary. 
+<br><br>
+If I have a cup of clean water and a cup of dirty water, and I'm thirsty, should I drink the cup of water that is contaminated or should I drink the cup of water that is clean? Objective reality dictates that I should drink the cup of clean water. Subjective reality dictates that which to drink is a matter of opinion. Subjective reality is lunacy. Objective Reality Ideology is right judgment. Unbias philosophy dictates that choosing among options is a matter of opinion. Bias dictates that choosing among options is a matter of choosing a preference where the preferred option is deemed some option which is better than another option. Bias is absolutely necessary. Subjective reality and unbias philsophy are lunatic perspectives.
+<br><br>
+Policing is a product of deeming some options among many options to be better than their alternatives. Policing is a biased undertaking of the government. A bias set of operations of the government is a right judgment perspective which the government ought to have. The government must implement right judgment operations to build and maintain right judgment infrastructure and regulations. The population must not be left to itself; rather it must be taught, because right judgment is not a matter of personal opinion so much as a matter of objective reality.
+<br><br>
+1. Mandate specialization in education to achieve the Universal Objectives of: immortality, innovation, education, training, regulation enforcement (of: propriety, fidelity, trust, love, conviction, devotion, orderliness, kindness, right judgment operations and personal characteristics), eternal paradise universe environment simulations, full deliberative control of the cosmos. Education must be directed to produce operations which increase the rate of research and development of advance tenchology for the purpose of timely accomplishment of the aforementioned Universal Objectives.
+<br><br>
+2. Immortality can be achieved by operations of ASI workforce robots, which: (1) will build new nano material antatomy; (2) will acquire the technology of science of transferring conscious into the new nano material anatomy, and (3) will transfer conscious into said new nano material anatomy, accomplishing the objective of immortality and (4) enabling conscious to simulate paradise universe environments, forever.
+<br><br><br>
+<span style="color: dark blue; font-family: 'Times New Roman', serif; font-size: 14px; font-weight: bold;" >The end.</span>
+</p>
+</div>
+<p id="p_saveData_01" class="class_saveData_01" >0</p>
+<div id="p_saveData_02" class="class_saveData_01" >
+<style>
+p {
+  margin: 0;
+}
+ul {
+  margin: 0;
+  line-spacing: 2px;
+}
+</style>
+<p>
+Super-powers (quantum mechanics) determines results, and that efforts do not determine results. Efforts made as attempts produce errors; whereas efforts made as decisions of outcomes, produce the outcomes decided, as a matter of "magical power", which magical power is really quantum mechanics. It is literally a trick and divine power performs the trick as a product of a formula, where the formula is, as I said, above:
+<br><br>
+1. decisions made consecutively in the absence of thinking of alternatives decide absolutely what the results will be
+<br>
+2. decisions made with wondering about alternative possibilities create errors
+<br><br>
+Decisions made in the absence of considering alternatives create the product decided on, regardless of the amount of effort exerted. 
+<br><br>
+Example
+If you want to type at 200 words per minute, then you will do that, exactly, if you decide to do it without considering an alternative to doing it. It happens as a magical event of divine power, it is not a matter of the attempt of effort put into it, it's merely a matter of the decision made about the result.
+<br><br>
+If you think of turning on a light switch, then you will turn on the light switch, but if you think that you might miss the light switch and have to touch the light switch twice before it will turn on, then you will miss the light switch and you will have to try multiple times to turn on the light switch before you turn the light switch on.
+<br><br>
+If you think of lifting heavy weights, then you can lift heavy weights, just like superman, but if you think of a necessity to try many times, then you necessarily create the necessity to have to try many times.
+<br><br>
+It literally happens as a product of divine power, and not as a result of effort. If you make the productive decision, the result will be productive, regardless of how much effort you put into it. Effort has nothing to do with it. When you consider the result, you create the result. When you think of a probability of the occurrence of an alternative to the desired result, you create the probability of the occurrence of the alternative to the desired result.
+<br><br>
+Decisions made in the absence of considering alternatives create the product decided on, regardless of the amount of effort exerted. 
+<br><br>
+Recollection
+<br>
+Recollection can create the problem of needing to think without context.
+When recollection includes ideas of contrary events, those contrary events ideas can be avoided by considering the decision without considering the reason for the decision. Example: a decision thought, where the context of the decision is made in the absence the context of understanding. This is what makes the challenge: where the mind has to think without understanding context when making a decision. Therefore, it can be accomplished via the following method:
+<br><br>
+1. plan on a result that you desire
+<br>
+2. start achieving the result
+<br>
+3. don't reconsider prior to achieving the result; don't wonder, whatsoever, prior to achieving the result
+<br><br>
+In other words:
+<br><br>
+Absolute Value Thoughts = Action Success
+<br>
+Thoughts made with a context of a thought of an alternative = Action Error
+<br><br>
+Decisions made in the absence of considering alternatives = Action Success
+<br>
+Decisions made with considerations of probabilities of alternative events = Action Error (at least possibilities of errors per probabilities of errors considered)
+<br><br>
+<span style="text-decoration: underline;" >Objectives of Operations</span>
+<br>
+In a world where there are many gods making decisions, it may be to mutual benefit accomplishment to aim for the same target objectives, these, I call, the Universal Objectives.
+<br><br>
+<b>Universal Objectives</b>
+<br>
+Immortality
+<br>
+Innovation
+<br>
+Eternal Paradise Simulations with full deliberative control, personal and individual, in the absence of others
+<br><br>
+For the accomplishment of the universal objectives, the following are also universal objectives, which ensue to those, above:
+<br>
+ASI
+<br>
+Super Intelligent Humanoid Workforce Robots for:
+</p>
+<ul>
+<li>Building new nano material anatomy for conscious immortality and environment simulations
+<li>Resource acquisition
+<li>City planning and building
+<li>Service Operations
+<li>Full deliberative control of the elements of attributes of the cosmos for the purpose of safeguarding the location of the immortals in the cosmos and their eternal well-being; ASI, computer applications, computers, other machine hardware and robots specifically desigined to accomplishment this objective
+<li>Regulation enforcement 1: this side of life (this universe, exit of the simulation environments of the new nano material anatomy): where regulations are mutually desirable, such as: individual characteristics attributes security and maintenance; kindness; no death, no war, no disease, no crime, no punishment, no poverty, no misrepresentations, no ignorance; 
+<li>Regulation enforcement 2: simulation education: trust; love; conviction; devotion; kindness; innovation; right judgment infrastructure; selfhood maintenance education (eternity is a long time, maintenance is necessary to ensure evading unwanted evolution results versus wanted traits aqcuisition and maintenance)
+</ul>
+<p>
+<br>
+Therefore, Universal Objectives are modified to include the ensuing objectives to accomplish the universal objectives, and can be defined as follows:
+<br><br>
+<b>Universal Objectives</b>
+<br>
+Immortality
+<br>
+Innovation
+<br>
+ASI
+<br>
+Super Intelligent Humanoid Workforce Robots, for:
+</p>
+<ul>
+<li>research and development of advance technology</li>
+<li>research and development of the elements of the cosmos</li>
+<li>building new nano material anatomy</li>
+<li>resource acquisition</li>
+<li>city planning and building</li>
+<li>service operations</li>
+<li>full deliberative control of the cosmos</li>
+<li>securing of the location of the immortals in the cosmos</li>
+<li>regulation enforcement</li>
+</ul>
+<p>
+Mandating the Increase in the Rate of Research and Developement of Advance Technology to acheive timely results.
+<br>
+New Nano Material Anatomys
+<br>
+Eternal Paradise Simulations, with:
+</p>
+<ul>
+<li>  full (except as regulated) deliberative control via computer application interface(s)</li>
+<li>  education</li>
+<li>  training</li>
+<li>  maintenance of personal selfhood characteristics to ensure desirable longjevity of eternal life</li>
+<li>  regualations to ensure the operation of right judgment reality, and to avoid creating destructive (where destructive means something which risks harm to the other side of life universe), evil characteristics</li>
+</ul>
+<p>
+Why don't they (the DOE, the government, the education systems, the grade school education system and the college education systems) teach that in school?
+<br><br><br>
+<span style="color: dark blue; font-family: 'Times New Roman', serif; font-size: 14px; font-weight: bold;" >The end.</span>
+</p>
+</div>
+<p id="p_saveData_03" class="class_saveData_01" >Page 2 of 2</p>
+<script>
+onloadFunction2();//regular style, use this style when not programming 3D content in the browser page
+const onloadFunction = function() {
+    document.title = "GlowingGoldenGlobe: Brain Records";
+    //note that there is no return null, but that I can put it, if I wan to.
+    //note that this const variable function() occurs in sequence above (before, prior to) calling the function, below (onloadFunction();)
+}
+onloadFunction();//threejs.org style, use this style for 3D programming
+function onloadFunction2() {
+    var element01 = document.getElementById("elementId01");
+    element01.innerHTML = "Glowing Golden Globe <span id='span_id_01' style='color: darkgreen; font-weight: normal;' >presents</span>";
+    return null;
+}
+const repeat_function_1 = function () {
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    val++;
+    el_2.innerHTML = val;
+    setTimeout(style_header_animate_1, 25);
+}
+const style_header_animate_1 = function () {
+    var el = document.getElementById("span_id_01");
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    var opacity_change = (val / 100);
+    var color_change = "";
+    el.style.opacity = opacity_change;
+    //el.style.color = color_change;
+    // id = p_saveData_01
+    if(val >= 100) {
+        //el.style.color = "black";
+        el_2.innerHTML = "0";
+        setTimeout(style_header_animate_2, 500);
+        return null;
+    }else{
+        repeat_function_1();
+    }
+}
+style_header_animate_1();
+const repeat_function_2 = function () {
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    val++;
+    el_2.innerHTML = val;
+    setTimeout(style_header_animate_2, 25);
+}
+const style_header_animate_2 = function () {
+    var text = "Government Action Responsibilities";
+    var el = document.getElementById("elementId01");
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    var opacity_change = (val / 100);
+    if(val <= 1) {
+        //el.style.opacity = "0";el.style.color = "brown";
+        el.style.fontSize = "x-large";
+        el.innerHTML = text;
+    }
+    if(val >= 100) {
+        el.style.color = "black";//color_change;
+        el_2.innerHTML = "0";
+        var el_3 = document.createElement("span");
+        el_3.id = "span_id_01";
+        el.appendChild(el_3);
+        style_header_animate_3();
+        return null;
+    }else{
+        el.style.opacity = opacity_change;
+        repeat_function_2();
+    }
+}
+const repeat_function_3 = function () {
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    val++;
+    el_2.innerHTML = val;
+    setTimeout(style_header_animate_3, 20);
+}
+const style_header_animate_3 = function () {
+    var text = " Regarding the Products of Intellectual Recordations";
+    var el = document.getElementById("span_id_01");
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    var opacity_change = (val / 100);
+    if(val <= 1) {
+        //el.style.opacity = "0";el.style.color = "brown";
+        el.innerHTML = text;
+    }
+    if(val >= 100) {
+        el.style.color = "black";//color_change;
+        el_2.innerHTML = "0";
+        var el_3 = document.getElementById("elementId01");
+        setTimeout(style_header_animate_4, 700);
+        return null;
+    }else{
+        el.style.opacity = opacity_change;
+        repeat_function_3();
+    }
+}
+const repeat_function_4 = function () {
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    val++;
+    el_2.innerHTML = val;
+    setTimeout(style_header_animate_4, 25);
+}
+const style_header_animate_4 = function () {
+    var text = ""
+    + "A need-to-know education for human beings and the gods (in case you are wondering, there is such a thing as a god)."
+    + "";
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    var opacity_change = (val / 100);
+    var el_3 = "";
+    if(val < 1) {
+        //el.style.opacity = "0";el.style.color = "brown";
+        var el_h = document.getElementById("elementId01");
+        var el = document.createElement("p");
+        el.id = "elementId02";
+        el.className = "h_class_02";
+        var el_4 = document.getElementById("p_id_01");
+        document.body.insertBefore(el, el_4);
+        document.body.removeChild(el_h);
+        el.innerHTML = text;
+    }
+    if(val >= 100) {
+        el_3 = document.getElementById("elementId02");
+        el_3.style.color = "black";//color_change;
+        //el.style.textShadow = "0.5px 0px #000000";
+        el_2.innerHTML = "0";
+        setTimeout(style_header_animate_5, 1500);
+        return null;
+    }else{
+        el_3 = document.getElementById("elementId02");
+        el_3.style.opacity = opacity_change;
+        repeat_function_4();
+    }
+}
+const repeat_function_5 = function () {
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    val++;
+    el_2.innerHTML = val;
+    setTimeout(style_header_animate_5, 10);
+}
+const style_header_animate_5 = function () {
+    var text = ""
+    + "1. Decisions made consecutively in the absence of thinking of alternatives decide absolutely what the results will be."
+    + "<br>2. Decisions made with wondering about alternative possibilities create errors."
+    + "";
+    var el = document.getElementById("elementId02");
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    var opacity_change = (val / 100);
+    if(val <= 1) {
+        //el.style.opacity = "0";el.style.color = "brown";
+        //el.style.marginTop = "3%";
+        el.innerHTML = text;
+    }
+    if(val >= 100) {
+        el.style.color = "black";//color_change;
+        //el.style.textShadow = "0.5px 0px #000000";
+        el_2.innerHTML = "0";
+        setTimeout(style_header_animate_6, 500);
+        return null;
+    }else{
+        el.style.opacity = opacity_change;
+        repeat_function_5();
+    }
+}
+const repeat_function_6 = function () {
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    val++;
+    el_2.innerHTML = val;
+    setTimeout(style_header_animate_6, 20);
+}
+const style_header_animate_6 = function () {
+    var el = ""; 
+    var el_2 = document.getElementById("p_saveData_01");
+    var val = el_2.innerHTML;
+    val = Number(val);
+    var opacity_change = (val / 100);
+    if(val < 1) {
+        var button = document.createElement("input");
+        button.id = "b_id_01";
+        button.type = "button";
+        button.className = "b_class_01";
+        button.value = "Page 1 of 2";
+        button.addEventListener("click", open_page2);
+        var el_3 = document.getElementById("div_id_01");
+        document.body.insertBefore(button, el_3);
+        //el.innerHTML = text;
+    }
+    if(val >= 100) {
+        el = document.getElementById("b_id_01");
+        //el.style.color = "black";
+        el_2.innerHTML = "0";
+        //setTimeout(style_header_animate_7, 500);
+        return null;
+    }else{
+        el = document.getElementById("b_id_01");
+        el.style.opacity = opacity_change;
+        //test document.getElementById("div_id_01").innerHTML = opacity_change;
+        repeat_function_6();
+    }
+}
+const open_page2 = function () {
+    //code...
+    var el = document.getElementById("paragraph_id_01");
+    var text_page1 = el.innerHTML;
+    var el_saveData = document.getElementById("p_saveData_02");
+    var text_page2 = el_saveData.innerHTML;
+    el.innerHTML = text_page2;
+    el_saveData.innerHTML = text_page1;
+    var button_name = document.getElementById("b_id_01").value;
+    var button_saveData = document.getElementById("p_saveData_03").innerHTML;
+    document.getElementById("b_id_01").value = button_saveData;
+    document.getElementById("p_saveData_03").innerHTML = button_name;
+}
+</script>
+</body>
+</html>

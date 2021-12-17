@@ -1,63 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charcode="UTF-8" lang="ENG" />
-<title>Do This GlowingGoldenGlobe</title>
-<style>
+<meta charset="UTF-8" lang="ENG" />
+<title>Script Didn't Execute</title>
+<style id="style01" >
 body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  overflow-y: scroll;
-  overflow-x: none;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    overflow-Y: scroll;
 }
-.hidden_01 {
+.headerClass01 {
   background-color: transparent;
-  color: tansparent;
-  font-size: 0px;
-  border: 0px solid transparent;
-  resize: none;
+  color: black;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.headerClass02 {
+  background-color: transparent;
+  color: transparent;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+/*  top : [val]; must be in "px" according to function, see script  */
+  top: 50px;
+  left: 10px;
+}
+/*  button style countdown p element  */
+.p_class_01 {
+  background-color: black;
+  color: white;
+  width: auto;
+  height: auto;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: 4px outset white;
+  box-shadow: 1px 2px 4px 1px black;
+  opacity: 1;
+  margin: 0;
+  padding: 4px;
+  position: absolute;
+  top: 50px;
+  left: 5px;
+  z-index: 2;
+}
+.div_class_01 {
+/*  
+  if you update this class name from "div_class_01" to something else, then you have to update it in the following function, too: 
+  style_header_2_autoType()  
+*/
+  background-color: rgb(0, 191, 255);
+  color: transparent;
+  width: 100%;
+/*  height : [val]; must be in "px" according to function, see script  */
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  box-shadow: 1px 2px 2px 2px rgb(0, 153, 204);
+}
+.div_class_02 {
+  background-color: transparent;
+  color: transparent;
+  width: 0px;
+  height: 0px;
+  margin: 0;
+  padding: 0;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -3;
+  right: 0;
 }
-.div_class_01 {
-  background-color: "white";
-  color: "black";
-  width: 60%;
-  height: 80%;
-  font-family: "Times New Roman";
-  font-size: 18px;
-  box-shadow: 5px 5px 20px 5px black;
-  overflow-y: none;
-  overflow-x: none;
-  margin: 0px 0px 0px 0px;
-  padding: 10px 20px 10px 20px;
+.div_class_03 {
+  background-color: transparent;
+  color: black;
+  width: 80%;
+  height: 200%;
+  overlow-X: hidden;
+  overflow-Y: auto;
+  margin: 0% 10% 0% 10%;
+  padding: 0px 10px 0px 10px;
   position: absolute;
-  top: 10%;
-  left: 20%;
-  z-index: -3;  
+  box-shadow: 0px 8px 8px -1px black;
+  top: 120px;
+  left: 0;
+  right: 0;
 }
-.paragraph_class_01 {
-  background-color: "white";
-  color: "black";
-  font-family: "Times New Roman", sans-serif;
+.p_class_04 {
+  background-color: white;
+  color: black;
+  width: auto;
+  height: auto;
+  font-family: "Times New Roman", Times, serif;
   font-size: 16px;
-  letter-spacing: .75px;
   font-weight: normal;
-  text-shadow: .2px .2px .2px black;
+  text-align: left;
+  border: 0px outset white;
+  opacity: 1;
+  position: relative;
+  margin: 20px 0px 0px 0px;
+  padding: 0;
+  z-index: 2;
+}
+.p_class_05 {
+  background-color: white;
+  color: black;
+  width: auto;
+  height: auto;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: left;
+  border: 0px outset white;
+  opacity: 1;
+  position: relative;
   margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  z-index: -3;  
+  padding: 0px;
+  z-index: 2;
 }
 .footer_class_01 {
   background-color: transparent;
   color: transparent;
-  width: 60%;
+  width: 80%;
   height: 100px;
-  margin: 0% 20% 0% 20%;
-  padding: 0px;
+  margin: 0% 10% 0% 10%;
+  padding: 10px;
   position: absolute;
   box-shadow: 0px 4px 6px -1px transparent;
   top: auto;
@@ -98,100 +173,354 @@ body {
   color: black;
   box-shadow: 1px 2px 3px 1px black;
 }
+.buttonClass02 {
+  background-color: white;
+  color: black;
+  display: inline-block;
+  width: 30px;
+  height: auto;
+  border: 2px outset gray; 
+  outline: 0px solid white;
+  color: default;
+  font-size: small;
+  padding: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
-<div style="margin: 0; padding: 0;" >
-<textarea id="texatrea_id_01" class="hidden_01" >
-<p id="paragraph_id_01" class="paragraph_class_01" >
-  <b><i>What you can do right now!!!</b></i>
-<br><br>
-File for a FAFSA - Get an Education in one of the following:
-</p>
-<ul>
-<li>1.  Computer Programming: ML (machine learning/artificial super intelligence/)</li>
-<li>2.  robotics engineering of micro robots and micro-composite humanoid workforce robots</li>
-<li>3.  robot workforce app scripting (example: robot camera learning script-writing program, 
-  where camera feed of workforce operations of various types of jobs are read by the script-writing
-  program and which app writes robot-behavior scripts for workforce jobs operations based on those 
-  camera feeds and based on: policy-and-procedures documents, human communications documents, etc.)
-  </li>
-</ul>
-<p id="paragraph_id_02" class="paragraph_class_01" >
-Write a letter to your senator to get a mandatory education system.
-<br><br>
-Contact a corporation (AI R&D corporations) and demand that they sell shares to obtain funding for 
-free employee education programs. That will increase the rate of research and development of advance technology.
-<br><br>
-Contact a corporation (AI ) to demand to sell shares to obtain funding to build a humanoid gigafactory (a gigafactory where humanoid workforce robots are built). 
-<br><br>
-Demand that a corporation for the Writing of Standards of Affiliations between related corporations of creating 
-a: corporation alliance, logistics and standards organization for the purpose of directing a unified effective 
-effort to achieve the universal objectives of: (1) immortality via new nano material anatomy and the transfer 
-of conscious into it, (2) complete deliberative control of the cosmos (its elements, etc.) to secure the eternal 
-safety of life in the cosmos, (3) to ensure the safe, maintainable, regulated conducting of eternal paradise 
-universe simulations for each individual conscious person (the gods, the humans, and God (I'm God, in case you 
-were wondering)).
-
-<br><br>
-Demand an organization for direction of human resources; said organization will provide instructions to humans for the procedures they must take to obtain a 
-specialized education, so that they can be productive and survive during their education experience. You can make this demand toward: corporations; your senators. 
-
-<br><br>
-Corporations have the power to make committees to obtain funding for projects and to create new corporations, 
-such as the "Corporation for Humanoid Workforce Standards and Universal Objectives" and the "Corporation for 
-Direction of Human Resources and Robust Economy" and the "Corporation for Workforce Apps" and the "Corporation 
-for Workforce Robots Manufacturing".
-<br><br>
-  <span style="font-size: 12px; font-weight: bold; letter-spacing: 2px;" >Links</span>
-<br>
-[] FAFSA program
-<br>
-  [] Corportations: AI (ASI; ML) R&D / Micro-Composite Humanoid Workforce Robots
-<br>
-  [] US Senator Contact Information; Example Letter
-<br>
-<style>a:link {text-decoration: none;}a:hover {text-decoration: underline;}</style>
-  [] <a href="https://glowinggoldenglobeportfolio.godaddysites.com/" location="_top" >Glowing Golden Globe url</a>
-<br>
-  [] Education programs urls to school webpages of said careers, direct links to those pages
-<br>
-  -->  MIT: AI ML Computer programming and robotics
-<br>
-  -->  Software development career programs for humanoid robots apps: architecture; indoor agriculture; city planning and development systems; etc.
-<br>
-  [] Free Education Sites: AI; ML; Software App Scripting; 3-D programs; etc.
-<br>
-  --> w3schools.com (the World Wide Web Consortium on web programming standards, website)
-<br>
-[]  Modern Technology Examples websites:
-<br>
---> Evtol vehicles
-<br>
-  --> robots
-<br>
-  --> electro-magnetic engines
-<br>
-  --> service operations robots; corporations urls of corporations that do this work
-</textarea>
+<div id="div_id_01" class="div_class_01" >
+<h1 id="headerId01" class="headerClass01" >Education Update for Humans</h1>
+<h2 id="headerId02" class="headerClass02" >Effective Decisions, where Rate = Super Power</h2>
+<p id="paragraphId01" class="p_class_01" >0</p>
+<p id="paragraphId02" class="p_class_02" >0</p>
+<p id="paragraphId03" class="p_class_02" >0</p>
+<p id="font_size_id" class="p_class_02" >0</p>
 </div>
-<div id="div_display_01" class="div_class_01" >Loading...</div>
+<div id="div_id_02" class="div_class_03" >
+<p id="p_id_05" class="p_class_05" ></p>
+<div>
+<p style="color: black; display: inline-block; font-size: small; margin: 0px 0px 6px 0px;" >Font size </p>
+<input type="button" class="buttonClass02" value=" + " onclick="fontIncr()" /><!--
+--><input type="button" class="buttonClass02" value=" - " onclick="fontDecr()" />
+</div>
+<p id="p_id_04" class="p_class_04" >
+<b><u>Overview</u></b>
+<br>
+Method
+<br>
+Absolute Value Thoughts
+<br><br>
+Results
+<br>
+Effective rates of bodily motor skills, up to the rate of infinite speed.
+<br>
+You can literally act on super human power. Immortality, for instance, you can come back to life, if you think that you will come back to life.
+<br>
+Important. Achieve the Universal Objectives. Immortality. Maintainability. Deliberative control. Regulated paradise. Innovation. Education. Training. Value-assignment of definitions of beneficial experiences. <span style="background-color: yellow;" >Immortality can be achieved by humans building nano material anatomy into which they will transfer their conscious, memory and characteristics.</span> Artificial super intelligent computer programs can supply super intelligent humanoid workforce robots with uploads of instructions for motor skills and objectives operations. For example, <span style="background-color: #00ffff;" >the robots will conduct: (1) service operations (warehouse, restaurant, manufacturing, construction, farming, all human job functions, transportation, etc.); (2) research and development of the utilization of infinite options for feasible, immediate application of the elements of the cosmos; (3) resource acquisition; (4) city planning and building; (5) agriculture; (6) building new nano material anatomy for humans, and transferring humans to their new nano material anatomy; (7) regulations enforcement (example: police-robots which ensure: orderliness, propriety and kindness).</span>
+<br><br>
+<b><u>Description</u></b>
+<br><br>
+<b>Method</b>
+<br>
+Absolute Value Thought = Action Success
+<br>
+Consideration of an Alternative Possibility = Action Error
+<br><br>
+<b>Procedure</b>
+<br>
+Thoughts made in the absence of thoughts regarding alternatives compose absolute value thoughts. Decisions made as absolute values are absolute in execution of bodily behavior.
+<br><br>
+<b>Example: Body Balance</b>
+<br>
+If you consider balancing, you will balance, without a problem.
+<br>
+If you consider falling, you will fall. 
+<br><br>
+Thoughts can be forgotten. It is possible to think things without knowing about thinking it. Example: playing an instrument. You may have to learn once, but afterward, you don't have to start from beginner each time you try to play the instrument you learned. Example 2: Reading: a child learns to read. After learning, you read, without knowing it.
+<br><br>
+If you think: I'm thinking about falling, but I'm balancing, instead, well, then, how is the theory correct? Solution: you're really thinking about balancing, but you don't know that you're doing it.
+<br><br>
+<b>Typing 200 Words Per Minute</b>
+<br>
+If you think of typing something, then you can type it at the rate that you think of typing it. If you think of typing a typo, then you create the possibility of typing a typo, and it becomes less probable that you will type perfectly. Errors are merely actuations of your thoughts. If you think of no errors, you make no errors. If you think of errors, you make errors. If you thinking of typing at the rate of 200 words per minute, you will type at the rate of 200 words per minute. If you think of a possibility of not typing at a rate of 200 words per minute, then you create the possibility of not typing at 200 words per minute. If you do not think of remembering, you may forget, but if you think of remembering, you can remember.
+<br><br>
+If you think of success, success is what follows. If you consider the possibility of failure, then you create the possibility of failure.
+<br><br>
+<b>Speed Reading</b>
+<br>
+If you think of reading fast, then you can read fast. 
+<br><br>
+If you think of reading, you can read; if you think of remembering, you can remember.
+<br><br>
+If you think you can read a page a second, then you can read a page a second. 
+<br><br>
+If you consider that you might not be able to read a page per second, then you might not be able to read a page per second, because that's what you thought of.
+<br><br>
+If, when you read, you think of remembering what you read, then you can remember what you read. 
+<br><br>
+<b>Creating the Universe</b>
+<br>
+Did you know? A person created the universe. The universe is a collection of scheduled events or memory which are played back as things perceived by conscious. Conscious thought of the universe, detail by detail, and it was thinking it at a rate of infinite speed (more or less infinite speed). The action of conscious thinking at a rate of infinite speed, recording perceptions to be played back for conscious to perceive, is called "super state". Super state is a one-to-one ratio of thought-to-recordation output, created by the nature of quantum mechanics, where quantum mechanics is the natural state of bilocation of nothing as something, at the rate of infinite speed; that state of bilocation creates self-awareness. That speed of change from one location to another creates a recordation, a copying of one state of being onto another state of being at rate of infinite speed. That recordation at infinite speed, of conscious, is how conscious created the recall of the recordations of the perceptions of the universe, as we know it. Therefore, it can be understood that conscious person has the ability to conduct perceptions at a rate of infinite speed, whenever conscious thinks of absolute value thoughts, in the absence of thinking about alternatives to those absolute values.
+<br><br>
+Can the Universe be re-created?
+<br>
+Answer: Yes. It definitely can be re-created; it can be destroyed; it can be erased; another universe can be created, different from this universe.
+<br><br>
+Is it profitable to re-create the universe?
+<br>
+The Universal Objectives of personhood dictate that the humans are to operate for the obtainance of beneficial experiences. Build a nice universe, let God worry about re-creating the universe.
+<br><br>
+Is there a God?
+<br>
+Yes. Conscious is God. You have probably heard of the statement, "I think, therefore, I AM."
+<br><br>
+</p>
+<p style="color: darkblue; font-size: 14px; font-weight: bold; font-family: 'Times New Roman', serif;" >The end.</p>
+</div>
 <div id="footer_id_01" class="footer_class_01" >
   <div id="footer_id_02" class="footer_class_02" >
-    <input type="button" id="b_id_01" class="b_class_01" value="Glowing Golden Globe" onclick="window.open
-
-('https://glowinggoldenglobeportfolio.godaddysites.com/','_top')" />
+    <input type="button" id="b_id_01" class="b_class_01" value="Glowing Golden Globe" onclick="window.open('https://glowinggoldenglobeportfolio.godaddysites.com/', '_top')" />
   </div>
 </div>
 <script>
-function onloadFunction() {
-    var el = document.getElementById("texatrea_id_01");
-    var val = el.value;
-    //val = val.replaceAll("\n\n+", "");
-    var output_element = document.getElementById("div_display_01");
-    output_element.innerHTML = val;
+//  title: browser title
+const onloadFunction = function() {
+    document.title = "Education GlowingGoldenGlobe";
 }
 onloadFunction();
+//  styles
+//  styles: sub-header, <h2>
+const onloadFunction_2 = function() {
+    //this is a test.
+    var element01 = document.getElementById("headerId01");
+    var styleVal01 = element01.clientWidth;
+    var styleVal02 = element01.clientHeight;
+    var output = styleVal01 + "<br>" + styleVal02;
+    //document.getElementById("headerId02").innerHTML = output;
+}
+onloadFunction_2();
+const setTimeout_1 = function() {
+    setTimeout(onloadFunction_3, 300);
+}
+const edit_p_styles_1 = function() {
+    var element01 = document.getElementById("paragraphId01");
+    element01.innerHTML = ""; 
+    element01.style.backgroundColor = "transparent";
+    element01.style.color = "transparent";
+    element01.style.border = "transparent";
+    element01.style.boxShadow = "0px 0px 0px 0px transparent";
+    //element01.style.width = "0px";
+    //element01.style.height = "0px";
+}
+//  countdown 3, 2, 1, ""
+const onloadFunction_3 = function() {
+    var element01 = document.getElementById("paragraphId01");
+    var getValue = element01.innerHTML;
+    getValue = Number(getValue);
+    if(getValue == 0) {
+        getValue = 3;
+    }
+    else if(getValue >= 1) {
+        getValue -= 1;
+    }
+    var newValue = getValue;
+    element01.innerHTML = newValue;
+    if(newValue >= 1) {
+        setTimeout_1();
+    }else{
+        //setTimeout(edit_p_styles_1, 1000);
+        edit_p_styles_1();
+        automaticTyping_1();
+        return null;
+    }
+}
+   onloadFunction_3();
+const automaticTyping_1 = function () {
+//  (1) save element information
+//  original text
+   var el = document.getElementById("headerId02");
+   var el_textValues = el.innerHTML;
+   var str = el_textValues.toString();
+   var text_length = str.length;
+   var element_storage_text = document.getElementById("paragraphId01");
+   element_storage_text.innerHTML = str;
+   
+//  original text length
+   var element_storage_length = document.getElementById("paragraphId02");
+   element_storage_length.innerHTML = text_length;
+
+//  (2) set element.innerHTML to "" (empty)
+   el.innerHTML = "E";
+   el.style.color = "black";
+   automaticTyping_2();
+}
+const automaticTyping_2 = function () {
+    var element_storage_text_original = document.getElementById("paragraphId01");
+    var text = element_storage_text_original.innerHTML;
+    var str = text.toString();
+    var element_storage_length_original = document.getElementById("paragraphId02").innerHTML;
+    element_storage_length_original = Number(element_storage_length_original);
+
+    var el_2 = document.getElementById("paragraphId03");
+    var text_length_on_screen = el_2.innerHTML;
+    var num = Number(text_length_on_screen);
+    var new_text_length_on_screen = (num + 1);
+    el_2.innerHTML = new_text_length_on_screen;
+
+    var length = (element_storage_length_original - new_text_length_on_screen);
+    var el_textValues = document.getElementById("headerId02");
+//alert("001 \n\n" + length);
+    if(length <= 0) {
+        el_textValues.innerHTML = text; 
+        element_storage = 0;
+        setTimeout(style_header_1, 500);
+        return null;
+    }else{
+        var myTruncatedString = str.substring(0,new_text_length_on_screen);
+        el_textValues.innerHTML = myTruncatedString; 
+//    alert("ok " + myTruncatedString + "\n\n" + new_text_length_on_screen);
+        setTimeout_2();
+    }
+}
+const setTimeout_2 = function() {
+    setTimeout(automaticTyping_2, 20);
+}
+const style_header_1 = function () {
+    var el = document.getElementById("headerId01").innerHTML;
+    document.getElementById("paragraphId01").innerHTML = el;
+    style_header_1_autoType();
+}
+const style_header_1_autoType = function () {
+    var text = document.getElementById("headerId01").innerHTML;
+    var str = text.toString();
+    var length = str.length;
+    var num = Number(length);
+    num--;
+//alert(num);
+    var new_text_length_on_screen = num;
+    if(num >= 0) {
+        var myTruncatedString = str.substring(0, new_text_length_on_screen);
+        document.getElementById("headerId01").innerHTML = myTruncatedString;
+        setTimeout_3();
+    }else{
+       style_header_2_autoType();
+       return null;
+   }
+}
+const setTimeout_3 = function () {
+    setTimeout(style_header_1_autoType, 100);
+}
+const style_header_2_autoType = function () {
+//  if you update this function name, then you have to update the comment in the <style> section, at class ".div_class_01 {...}"
+    var val = document.getElementById("style01").innerHTML;
+    var str = val.toString();
+    var str_2 = str.split(".div_class_01");
+    var str_3 = str_2[1];
+    var str_4 = str_3.split("height: ");
+    var str_5 = str_4[1];
+//alert("t 1000" + str_5);
+    var str_6 = str_5.split("px");
+    var num = str_6[0];
+    document.getElementById("paragraphId01").innerHTML = num;
+   
+    str_2 = str.split(".headerClass02");
+    str_3 = str_2[1];
+    str_4 = str_3.split("top: ");
+    str_5 = str_4[1];
+    str_6 = str_5.split("px");
+    num = str_6[0];
+    document.getElementById("paragraphId02").innerHTML = num;
+
+    str_2 = str.split(".div_class_01");
+    str_3 = str_2[1];
+    str_4 = str_3.split("top: ");
+    str_5 = str_4[1];
+    str_6 = str_5.split("px");
+    num = str_6[0];
+    document.getElementById("paragraphId03").innerHTML = num;
+
+    style_header_3_autoType();
+}
+const style_header_3_autoType = function () {
+//    alert("test");
+    var el = document.getElementById("div_id_01");
+    var el_2 = document.getElementById("paragraphId01");
+    var el_3 = document.getElementById("headerId02");
+    var el_4 = document.getElementById("paragraphId02");
+    var el_5 = document.getElementById("paragraphId03");
+    var val = el_2.innerHTML;
+//alert("test 0001 " + val);
+    var num = Number(val);
+    num--;
+    el_2.innerHTML = num;
+    var h = num + "px";
+    var val_2 = el_4.innerHTML;
+    var num_2 = Number(val_2);
+    num_2--;
+    el_4.innerHTML = num_2;
+    var t = num_2 + "px";
+    var val_3 = el_5.innerHTML;
+    var num_3 = Number(val_3); 
+    num_3++;
+    el_5.innerHTML = num_3;
+    var t_2 = num_3 + "px";
+    if(num >= 70) {
+        el.style.height = h;
+    }
+    if(num_2 >= 25) {
+        el_3.style.top = t
+    }
+    var var_1 = ((100-70)/1.5);
+    var_1 = Number(var_1);
+    if(num_3 <= var_1) {
+//alert(num_3 + " " + var_1);
+        el.style.top = t_2; 
+    }
+//alert("test 0001 " + num + " " + num_2 + " " + num_3 + "\n\n" + var_1);
+    if(num <= 70 && num_2 <= 25 && num_3 >= var_1) {
+        setTimeout(function() {
+                document.getElementById("p_id_04").style.marginTop = "10px";
+                document.getElementById("p_id_05").style.boxShadow = "2px 2px 10px 2px black";
+                document.getElementById("p_id_05").style.padding = "4px";
+                document.getElementById("p_id_04").style.marginTop = "20px";
+            },
+        100);
+        setTimeout(function() {
+                document.getElementById("p_id_05").innerHTML = ""
+                + "Article Date: November 28, 2021"
+                + "";
+            }, 
+        300);
+        setTimeout(function() {
+                document.getElementById("p_id_05").style.fontWeight = "bold";
+            }, 
+        700);
+        setTimeout(function() {
+                document.getElementById("p_id_05").style.boxShadow = "2px 2px 10px 2px transparent";
+            }, 
+        1100);
+        setTimeout(function() {
+                document.getElementById("p_id_05").style.fontWeight = "normal";
+                document.getElementById("p_id_05").style.fontSize = "14px";
+                document.getElementById("p_id_05").style.padding = "0px";
+            }, 
+        1500);
+        setTimeout(function() {
+                document.getElementById("p_id_04").style.marginTop = "5px";
+            }, 
+        2000);
+        return null;
+    }else{
+//alert("true");
+        setTimeout_4();
+    }
+}
+const setTimeout_4 = function () {
+    setTimeout(style_header_3_autoType, 20);
+}
 const style_footer = function () { 
 //  style article height, div height, id="div_id_02"
     var test = "";
@@ -199,9 +528,9 @@ const style_footer = function () {
     var t = 120;
     var p = 10;//div_class_03 style padding
     var b = 200;
-    var h_1 = (h * 1.65);
+    var h_1 = (h * 3);
     var h_2 = (h_1 + "px");
-    document.getElementById("div_display_01").style.height = h_2;
+    document.getElementById("div_id_02").style.height = h_2;
     h = Number(h);
     t = Number(t);
     p = Number(p);
@@ -210,6 +539,38 @@ const style_footer = function () {
     document.getElementById("footer_id_01").style.top = height_1;
 }
 style_footer();
+const style_font_1 = function() {
+    var val01 = document.getElementById("style01").innerHTML;
+    var str = val01.toString();
+    var str_2 = str.split(".p_class_04");
+    var str_3 = str_2[1];
+    var str_4 = str_3.split("font-size: ");
+    var str_5 = str_4[1];
+    var str_6 = str_5.split("px");
+    var str_7 = str_6[0];
+    document.getElementById("font_size_id").innerHTML = str_7;
+    return null;
+}
+style_font_1();
+function fontIncr() {
+    var val01 = document.getElementById("font_size_id").innerHTML;
+    val01 = Number(val01);
+    val01 = val01 + 1;
+    document.getElementById("font_size_id").innerHTML = val01;
+    val01 = val01 + "px";
+    document.getElementById("p_id_04").style.fontSize = val01;
+    //document.getElementById("p_id_04").style.fontSize = val01;
+    //document.getElementById("div_id_02").style.height = val01;
+}
+function fontDecr() {
+    var val01 = document.getElementById("font_size_id").innerHTML;
+    val01 = Number(val01);
+    val01 = val01 - 1;
+    document.getElementById("font_size_id").innerHTML = val01;
+    val01 = val01 + "px";
+    document.getElementById("p_id_04").style.fontSize = val01;
+    //document.getElementById("p_id_04").style.fontSize = val01;
+}
 </script>
 </body>
 </html>

@@ -446,6 +446,7 @@ function hide_header() {
         document.getElementById("header_id").style.height = "auto";
         document.getElementById("button_id_01").value = "Hide";
         document.getElementById("div_display_01").style.opacity = ".6";
+        document.getElementById("div_display_02").style.opacity = ".6";
       saveData.innerHTML = 0;
       return null;
     }
@@ -481,6 +482,7 @@ function animate_header() {
             document.getElementById("header_id").style.border = b;
             if(num == 95) {
                document.getElementById("div_display_01").style.opacity = "1";
+               document.getElementById("div_display_02").style.opacity = "1";
             }
         }
     }

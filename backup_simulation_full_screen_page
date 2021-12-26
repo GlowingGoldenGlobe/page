@@ -1,0 +1,1212 @@
+<body id="body01" style="background-color: 'white';" onload="">
+<style id="style_id_01" >
+/*---index.css---*/
+body {
+    cursor: none;
+    margin: 0px;
+    overflow: hidden;
+}
+.d001 {
+    margin: 0 auto;
+    text-align: center;
+}
+.d002 {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+.d003 {
+    background-color: transparent;
+    width: 413px; 
+    padding: 4px 0px 1px 0px;
+    margin: 0px 0px 0px 0px;
+    position: absolute;
+    z-index: -1;  
+}
+.d004 {
+    background-color: transparent;
+    width: 413px; 
+    height: 200px;
+    padding: 4px 0px 1px 0px;
+    margin: 0px 0px 0px -413px;
+    position: absolute;
+    z-index: -1;  
+}
+.ad005 {
+    background: linear-gradient(to top, #808080 0%, #000000 100%);
+    color: "white";
+    width: 400px;
+    height: 208px;
+    margin: 4px 0px 0px 5px;
+    border: 2px outset gray;
+    outline: 4px solid black;  
+    position: absolute;
+    z-index: -1;
+    cursor: pointer;
+}
+/*
+    background: linear-gradient(to top, #808080 0%, #000000 100%);
+*/
+.x007 {
+    background: linear-gradient(to top, #808080 0%, #000000 100%);
+    color: "white";
+    width: 400px;
+    height: 209px;
+    margin: 0px 0px 0px 5px;
+    border: 2px outset gray;
+    outline: 4px solid black;  
+    position: absolute;
+    z-index: -1;
+    cursor: pointer;
+}
+.ap004 {
+    color: white;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    vertical-align: center;
+    border: 0px solid red;
+}
+.ad004 {
+    background: linear-gradient(to top, #808080 0%, #000000 100%);
+    color: "white";
+    width: 400px;
+    height: 30px;
+    margin: 170px 0px 0px 5px;
+    padding: 12px 0px 0px 0px;
+    border: 2px outset gray;
+    outline: 4px solid tan;
+    position: absolute;
+    z-index: -3;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.ad006 {
+    background: linear-gradient(to top, #808080 0%, #000000 100%);
+    color: "white";
+    width: 400px;
+    height: 28px;
+    padding: 12px 0px 0px 0px;
+    margin: -25px 0px 0px 5px;
+    border: 2px outset gray;
+    outline: 4px solid black;
+    position: absolute;
+    z-index: -2;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.ad007 {
+    background: linear-gradient(to top, #808080 0%, #000000 100%);
+    color: "white";
+    width: 400px;
+    height: 30px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 5px;
+    border: 2px outset gray;
+    outline: 4px solid black;
+    position: absolute;
+    z-index: -2;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.ap003 {
+    color: white;
+}
+#h101 {
+    color: rgb(0, 0, 0);
+    border: 4px inset gray;
+}
+.ad003 {
+    background: linear-gradient(to top, #808080 0%, #000000 100%);
+    color: "white";
+    width: 100px;
+    height: 10px;
+    margin: 0px 0px 0px 5px;
+    border: 2px outset gray;
+    outline: 4px solid gray;
+    position: absolute;
+    z-index: -2;
+    cursor: pointer;
+}
+.b001 {
+    background-color: white;
+    cursor: pointer;
+}
+a {
+  text-decoration: none; 
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+#d201 {
+  background-color: transparent;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  display: none;
+}
+.centerText{text-align: center;}
+.centerElement{
+  display: block;
+  margin: 0 auto;
+}
+.small{font-size: small;}
+.medium{font-size: medium;}
+.large{font-size: large;}
+.xlarge{font-size: x-large;}
+.xxlarge{font-size: xx-large;}
+.justify{text-align: justify;}
+.italic {font-style: italic;}
+.top{vertical-align: top;}
+.displayNone{display: none;}
+p.inline{
+  display: inline;
+}
+.pointer {curosr: pointer;}
+.end {}
+.text001 {
+  color: black;
+  background-color: transparent;
+  text-shadow: 0px 0px 0px #737373, 0px 0px 0px black;
+  width: 470px;
+  opacity: 1;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 35px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  border: 7px inset black;
+  outline: 0px;
+  padding: 20px;
+}
+#p0014, #p0015 {
+  text-shadow: 10px 10px 10px black, 0px 0px 0px #737373;
+  opacity: .1;
+}
+#d002, #d003, #d004, #d005, #d006, #d007, #d008, #d009, #d0010, #d0011, #d0012, #d0013, #d0014, #d0015, #d0016 {position: absolute;}
+#d001 {
+  transform: preserve-3d;
+  /*transform: rotate3d(1,1,1,18deg);*/
+  transform: rotate3d(1,.1,.1,90deg);
+}
+#d002, #d003, #d004, #d005, #d006, #d007, #d008, #d009, #d0010, #d0011, #d0012, #d0013, #d0014, #d0015, #d0016 {transform: rotate3d(.2,.1,-.04,35deg); border: 0px groove black;}
+#d002 {z-index: 1;}
+#d002 {transform-origin: 50% 50% .5px;}
+#d003 {transform-origin: 50% 50% 1px;}
+#d004 {transform-origin: 50% 50% 1.5px;}
+#d005 {transform-origin: 50% 50% 2px;}
+#d006 {transform-origin: 50% 50% 2.5px;}
+#d007 {transform-origin: 50% 50% 3px;}
+#d008 {transform-origin: 50% 50% 3.5px;}
+#d009 {transform-origin: 50% 50% 4px;}
+#d0010 {transform-origin: 50% 50% 4.5px;}
+#d0011 {transform-origin: 50% 50% 5px;}
+#d0012 {transform-origin: 50% 50% 5.5px;}
+#d0013 {transform-origin: 50% 50% 6px;}
+#d0014 {transform-origin: 50% 50% 6.5px;}
+#d0015 {transform-origin: 50% 50% 7px;}
+#d0016 {transform-origin: 50% 50% 7.5px;}
+.hidden_class {
+    background-color: transparent;
+    color: transparent;
+    font-size: 0px;
+    border: 0px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    resize: none;
+    z-index; -3;
+}
+</style>
+<div id="d001" style="width: 1px; margin: 0 auto; border: 0px groove black; text-align: center; padding: 60px;">
+<div id="d002" >
+<p id="p001" class="text001"></p>
+<input type="text" id="myText01" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d003">
+<p id="p002" class="text001"></p>
+<input type="text" id="myText02" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d004">
+<p id="p003" class="text001"></p>
+<input type="text" id="myText03" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d005">
+<p id="p004" class="text001"></p>
+<input type="text" id="myText04" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d006">
+<p id="p005" class="text001"></p>
+<input type="text" id="myText05" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d007">
+<p id="p006" class="text001"></p>
+<input type="text" id="myText06" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d008">
+<p id="p007" class="text001"></p>
+<input type="text" id="myText07" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d009">
+<p id="p008" class="text001"></p>
+<input type="text" id="myText08" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d0010">
+<p id="p009" class="text001"></p>
+<input type="text" id="myText09" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d0011">
+<p id="p0010" class="text001"></p>
+<input type="text" id="myText010" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d0012">
+<p id="p0011" class="text001"></p>
+<input type="text" id="myText011" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d0013">
+<p id="p0012" class="text001"></p>
+<input type="text" id="myText012" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d0014">
+<p id="p0013" class="text001"></p>
+<input type="text" id="myText013" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d0015">
+<p id="p0014" class="text001"></p>
+<input type="text" id="myText014" class="text001" onkeyup="oFStext01(this.value)" />
+</div>
+<div id="d0016">
+<p id="p0015" class="text001"></p>
+<input type="text" id="myText015" class="text001" onkeyup="oFStext01(this.value)" />
+<style>
+.tooltip {
+  position: absolute;
+}
+.tooltiptext {
+  font-family: "Verdana", sans-serif;
+  font-size: small;
+  font-weight: normal;
+  border: 2px outset grey;
+  opacity: 1;
+}
+</style>
+<div class="tooltip" >
+  <span id="span_id_01" class="tooltiptext" >Include the punctuation mark.</span>
+  <p id="saveData_id_0x" style="color: transparent; font-size: 0; position: absolute; z-index: -3;" >10</p>
+
+</div>
+</div>
+</div>
+<style>
+#d201 {
+  background-color: transparent;
+  transform: preserve-3d;
+  perspective: 20cm;
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  vertical-align: top;
+  border: 0px solid brown;
+}
+#b001, #myText201 {
+  width: 400px;
+  border: 0px;
+  background-image: linear-gradient(to top left, black, #595959, #8c8c8c, #cccccc, #cccccc);
+  color: black;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 35px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-shadow: 1px 34px 30px silver;
+  border: 7px inset black;
+  margin: 10px;
+  padding: 30px;
+  display: inline-block;
+  vertical-align: top;
+}
+#b001 {
+  background-color: transparent;
+  height: 300px;
+  overflow: hidden;
+  word-wrap: wrap;
+  outline:: 0px;
+}
+#myText201 {
+  background-color: transparent;
+  margin-top: 58px;
+  vertical-align: top;
+  outline: 0px solid #808080;
+  box-shadow: 0px 1px 10px 0px #808080;
+}
+.hidden_class {
+    background-color: transparent;
+    color: transparent;
+    font-size: 0px;
+    border: 0px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    resize: none;
+    z-index; -3;
+}
+</style>
+<div id="d201">
+  <p id="b001"></p><!--
+  --><div type="text" id="myText201" value="" onkeyup="processInput01(this.innerHTML)" contenteditable="true" /></div>
+ </div>
+<!--  next page load :: page 2  -->
+<textarea id="saveData_01" class="hidden_class" ><style>
+body {    
+  background-image: linear-gradient(to top left, black, black, black, black, gray);    
+  color: gray;   
+  width: 100%; 
+  height: 100%;    
+  overflow-x: hidden;    
+  overflow-y: hidden;  
+  margin: 0; 
+}
+.d001 {    
+  margin: 0 auto;   
+  text-align: center;   
+  vertical-align: top;
+}
+.d002 {  
+  width: 400px;  
+  margin: 0 auto;  
+  text-align: center;  
+  vertical-align: top; 
+  border: 0px solid black;
+}
+.at004 {
+    background-color: white;
+    color: black;
+    font-size: large;
+    resize: none;
+    width: 90%;
+    height: 210px;
+    padding: 10px;
+    border: 2px outset white;
+    outline: 4px solid lightgray;  
+    box-shadow: 1px 2px 8px 4px white;
+    resize: none;
+}
+.at005 {
+    background-color: red;
+    color: black;
+    font-size: large;
+    resize: none;
+    width: 90%;
+    height: 230px;
+    padding: 10px;
+    border: 2px outset gray;
+    outline: 4px solid white;  
+    top: 230px;
+    left: 5%;
+    z-index: 2;
+}
+.ad008 {
+    background: transparent;
+    color: transparent;
+    display: inline-block;
+    width: 400px;
+    height: 240px;
+    margin: 0px 0px 0px 5px;
+    padding: 10px 0px 0px 0px;
+    border: 0px outset gray;
+    outline: 0px solid lightgray;  
+    overflow: hidden;
+    z-index: -1;
+    cursor: pointer;
+    vertical-align: top;
+}
+.hidden_class {
+    background-color: transparent;
+    color: transparent;
+    font-size: 0px;
+    border: 0px solid transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+    resize: none;
+    z-index; -3;
+}
+</style>
+</textarea>
+<textarea id="saveData_02" class="hidden_class" >
+
+<div id="body201" style="background-color: 'transparent';" onload="a002onload1()">
+<div class="d001" >
+<div class="d002">    
+<h1 id="h102" class="h1002">Typing Speed</h1>    <div id="test01" style="display: none;">    <input type="button" value="test 01" onclick="f1()" />    <input type="button" value="hide test 01" onclick="test01.style.display='none';" />    <br>    <textarea id="t01" class="at005" value="">this is a test.<xtextarea>    <br>    <br>    </div>    <input type="button" class="b001" value="start animation 1" onclick="a1()" style="display: none;" /></div></div>
+
+<div class="d001" style="border: 0px solid black;">  <!--this is where the animation elements will be-->  <!--ad = "animation div element". 00 = denotes a class name. So, "ad003" = "animation div element class name 3"-->  <div>    <div id="ad02" class="ad008"><!-- --><textarea id="at01"class="at004 centerElement">Type this paragraph to test your typing speed per this program's calculation of typing speed, because the previous calculation of your typing speed may have been different from this program's calculation. This program calculates your typing speed based on an average of 5 characters per word.<xtextarea>    </div><!--    --><div id="ad03" class="ad008"><div id="ad011" class="ad011" style="display: none;"></div> 
+
+<textarea id="at02" class="at004 centerElement" onkeyup="a002a3p1(); a002typing01();"><xtextarea> <textarea id="at03" class="at004 centerElement" onkeyup="done01()" style="display: none;"><xtextarea>    </div>
+
+<div id="ad04" style="display: none;"><br><br><p class="wpm001">Words Per Minute: <span id="wpm01">0</span></p><p class="wpm001"> Incorrect Words: <span id="iw01">0</span></p><p class="wpm001"> Adjusted WPM: <span id="awpm01">0</span></p></div>  </div><!--end class=d001--></div><!--<input type="button" onclick="length001(at01.value)" value="get length" />--><!--<input type="text" id="test002" value="" />--><input type="text" id="timeElapsedTracker" value="" hidden/><p id="color01" style="display: none;">0,0,0</p>
+<p id="saveData_04" class="hidden_class" >0</p>
+<p id="p_id_timer01" class="hidden_class" >0</p>
+<p id="saveData_05" class="hidden_class" >0</p>
+<p id="timeElapsed01" class="hidden_class" >0</p>
+</textarea>
+<script>
+function repeat_f01x() {
+    setTimeout(f01x, 100);
+}
+function f01x() {
+    var el = document.getElementById("span_id_01");
+    var b = "";
+    var o = "";
+    var el_2 = document.getElementById("saveData_id_0x");
+    var val = el_2.innerHTML;
+    var num = Number(val);
+    if(num <= 0) {return null;}
+    num--;
+    el_2.innerHTML = num;
+    o = (num/10);
+    b = ((num*2)/20);
+    b = b + "px solid grey";
+    el.style.border = b;
+    el.style.opacity = o;
+    repeat_f01x();
+}
+function onload1() {
+    document.getElementById("myText01").focus();
+    resetTextValues01();
+    size01();
+    var x = ", gray";
+    screenColorChange01(0, x);
+    bodyWandH02();
+    setTimeout(f01x, 4000);
+}
+onload1();
+function openFullscreen() {
+var elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  }
+}
+
+function oFStext01(text01) {
+    var i;
+    var length01 = 15;
+    var id01 = "";
+    for(i=1; i < length01; i++) {
+        id01 = "myText0" + [i];
+        document.getElementById(id01).value = text01;
+    }
+    text01 = text01.toLowerCase();
+    text01 = text01.replaceAll(" ", "");
+    var verifyText01 = "openfullscreen.";
+    if(text01 == verifyText01) {openFullscreen(); afterFS01(0);}
+    else {return null;}
+}
+function size01() {
+    var w01 = window.innerWidth;
+    w01 = Number(w01);
+    w01 = ((w01/2)-300);
+    w02 = w01 + "px";
+    document.getElementById("d001").style.marginLeft = w02;
+}
+function resetTextValues01() {
+    document.getElementById("myText01").value = "";
+    document.getElementById("myText02").value = "";
+    document.getElementById("myText03").value = "";
+    document.getElementById("myText04").value = "";
+    document.getElementById("myText05").value = "";
+    document.getElementById("myText06").value = "";
+    document.getElementById("myText07").value = "";
+    document.getElementById("myText08").value = "";
+    document.getElementById("myText09").value = "";
+    document.getElementById("myText010").value = "";
+    document.getElementById("myText011").value = "";
+    document.getElementById("myText012").value = "";
+    document.getElementById("myText013").value = "";
+    document.getElementById("myText014").value = "";
+    document.getElementById("myText015").value = "";
+}
+function screenColorChange01(x01, gradientOutput01) {
+    x01 = Number(x01);
+    x01 = x01 + 1;
+    if(x01 >= 33) {repeatFunction02(1, 0); return null;}
+    var length01;
+//background-color, gray = #cccccc
+    var color01 = "#cccccc";
+    length01 = 32;
+    var gradient01 = "linear-gradient(to right, #333333";
+    var gradientOutput02;
+    var x;
+        if(x01 <= 30) {x = color01;}
+//color of right side bar, gray = #737373
+        else if(x01 == 31) {x = "#737373";}
+        else if(x01 == 32 || x01 == 32) {x = "black";}
+        gradientOutput01 += ", " + x;
+        gradientOutput02 = gradient01 + gradientOutput01 + ")";
+//alert(gradientOutput02);
+        document.getElementById("body01").style.backgroundImage = gradientOutput02;
+    repeatFunction01(x01, gradientOutput01);
+}
+function repeatFunction01(x01, gradientOutput01) {
+    setTimeout(function(){screenColorChange01(x01, gradientOutput01);}, 60);    
+}
+
+function writeText01(x01, text02) {
+//alert("a \n\n" + x01 + " " + text02);
+    x01;
+    x01 = Number(x01);
+    x01 = x01 + 1;
+    if(x01 >= 27) {return null;}
+    var i;
+    var length01;
+    length01 = 16;
+    var id01 = "";
+    for(i=1; i < length01; i++) {
+        id01 = "p00" + i;
+//alert("id01 " + id01);
+        document.getElementById(id01).innerHTML = text02;
+    }
+    repeatFunction02(x01, text02);
+}
+function repeatFunction02(x01, text02) {
+//alert("z");
+    text02 = "";
+    var text01 = "Type, \"Open full screen.\"";
+    var text03 = text01.split("");
+    var length01 = text03.length;
+    var i;
+    var length02;
+    for(i=0; i < x01; i++) {
+        text02 += text01[i];
+    }
+//rotates the <p> field and the <input field.
+    var x02 = x01 * 4;
+    var x03 = 90;
+    x03 = x03 - x02;
+    var rotate3d01 = "rotate3d(1,.1,.1,"+x03+"deg)";
+    document.getElementById("d001").style.transform = rotate3d01;
+    setTimeout(function(){writeText01(x01, text02);}, 30);  
+}
+function afterFS01(x01, output03) {
+    x01 = Number(x01);
+    x01 = x01 + 1;
+    if(x01 >= 20) {return null;}
+    if(x01 == 1) {
+    document.getElementById("d001").style.display = "none";
+    document.getElementById("body01").style.backgroundImage = 
+    "linear-gradient(to right, black, black, gray, gray, gray, gray, gray, black, black, black, black, black, black, black, black, black, black, black)";
+    document.getElementById("d201").style.display = "block";      
+    document.getElementById("myText201").focus();  
+    }
+    var val01, val02, val03, output01, output02;
+    val01 = 20 - x01;
+    val02 = x01 + 5;
+    val03 = (1 - (x01 * 0.05));
+    output01 = val01 + "cm";
+    output02 = "rotate3d(.5, " + val03 + ", 0.05, " + val02 + "deg)";
+    document.getElementById("b001").style.perspective = output01;
+    document.getElementById("b001").style.transform = output02;
+    document.getElementById("myText201").style.transform = output02;
+    //text to type
+    var x02, output03, text02, length01;
+    text02 = "Instructions: whenever you see text, type it with all punctuation and without errors.";
+    text02 = text02.split(" ");
+    length01 = text02.length;
+    length01 = Number(length01);
+    length01 = length01 + 1;
+    x02 = x01 - 1;
+    var val04 = length01 + 5;
+    val04 = Number(val04);
+    if(x01 == 1){output03 = "";}
+    if(x01 >= val04) {changeLength01(0); return null;}
+    if(x01 < length01) {
+        if(x02 == 0) {output03 = text02[x02];}
+        else if(x02 >= 1) {output03 += " " + text02[x02];}
+        document.getElementById("b001").innerHTML = output03;
+        // alert(output03);
+    }
+    repeatFunction03(x01, output03);
+}
+function repeatFunction03(x01, output03) {
+    // alert(x01);
+    setTimeout(function() {afterFS01(x01, output03);}, 100);
+}
+function processInput01(text01) {    
+    //  alert("1 input processing.");
+    var processed01 = prcoessInput02(text01);
+    // alert(processed01);
+    var length01 = processed01.split("");
+    length01 = length01.length;
+    length01 = Number(length01);
+    var text02 = document.getElementById("b001").innerHTML;
+    var processed02 = prcoessInput02(text02);
+    length02 = processed02.split("");
+    length02 = length02.length;
+    length02 = Number(length02);
+    // alert(length01 + " " + length02);
+    // alert(typeof(length02) + " " + typeof(length01));
+    // if(length01 >= 84) {alert(length01);};
+    if(length01 == length02) {
+        //window.open("index_typing speed.html", "_top");
+        replace_body_html();
+        //synthesizeToEmbed01();
+        //a002onload1();
+    }
+}
+function changeLength01(x01) {
+    x01 = Number(x01);
+    x01 = x01 + 1;
+    heightLength01 = 290;//px
+    //increments of 10px
+    //therefore, (300 / 10) = 30 = length of x01 loop
+    heightLength01 = Number(heightLength01);
+    var val01 = (heightLength01/10);
+    val01 = Number(val01);
+    var val02 = val01 + 1;
+    val02 = Number(val02);
+    if(x01 >= val02) {return null;}
+    //increments of 10px
+    var h01 = x01 * 10;
+    h01 = h01 + "px";
+    var el01 = document.getElementById("myText201");
+    if(x01 >= val01) {el01.style.marginTop = "38px";}
+    document.getElementById("myText201").style.height = h01;
+    repeatCL01(x01);
+}
+function repeatCL01(x01) {    
+    setTimeout(function() {changeLength01(x01)}, 30);
+}
+function prcoessInput02(text01) {
+    var test01 = text01.search("<br>");
+    var var01, output01, var02, output02;
+    test01 = Number(test01);
+    output01 = text01;
+    if(test01 == -1) {return output01;}
+    else if(test01 >= 0) {  
+        var01 = text01.split("<br>");
+        output01 = var01.join("");
+    }
+    var test02 = text01.search("<div>");
+    test02 = Number(test02);
+    if(test02 == -1) {return output01;}
+    else if(test02 >= 0) {
+        var02 = output01.split("<div>");
+        var02 = var02.join("");
+        var02 = var02.split("</div>");
+        output01 = var02.join("");
+    }
+    var test03;
+    return output01;
+}
+function bodyWandH01() {
+    var windowWidth01 = window.innerWidth;
+    var w01 = windowWidth01.toString();
+    var windowHeight01 = window.innerHeight;
+    var h01 = windowHeight01.toString();
+    var test01 = h01.search("px");
+    test01 = Number(test01);
+    if(test01 == -1) {
+        w01 = w01 + "px";
+        h01 = h01 + "px";
+    }
+    document.body.style.width = w01;    
+    document.body.style.height = h01;    
+}
+function bodyWandH02() {
+    var windowWidth01 = window.innerWidth;
+    var w01 = windowWidth01.toString();
+    var windowHeight01 = window.innerHeight;
+    var h01 = windowHeight01.toString();
+    var test01 = h01.search("px");
+    test01 = Number(test01);
+    if(test01 == -1) {
+        w01 = w01 + "px";
+        h01 = h01 * 3;
+        h01 = h01 + "px";
+    }
+    document.body.style.width = w01;    
+    document.body.style.height = h01;    
+}
+function replace_body_html() {
+    var new_styles = document.getElementById("saveData_01").value;
+    var new_body_html = document.getElementById("saveData_02").value;
+//    var new_script = document.getElementById("saveData_03").value;
+    new_body_html = new_body_html.replaceAll("xtextarea", "/textarea");
+//    var output = new_styles + new_body_html + new_script;
+    var output = new_styles + new_body_html;
+    document.body.innerHTML = output;
+    a002onload1();
+}
+//new script here. page 2 script here
+//at refresh
+//at refresh: (1) set values to null = id="t01"
+//a002 = "animation002.html file is the related file for this script". This function name prefix is in place to prevent creating functions with the same names among all of the .js files associated with the website.
+//a002afterRefresh1();
+//a002onload1();
+function a002onload1() {
+    bodyWandH03();
+    resetValues01();
+    a002afterRefresh1();
+}
+function a002afterRefresh1() {
+    //--deprecated-- document.getElementById("t01").value = "";
+    //--deprecated-- localStorage.setItem("stop01", "")
+    //--deprecated-- localStorage.setItem("stop02", "false");
+    //--deprecated-- localStorage.setItem("stop03", "");
+    //--deprecated-- localStorage.setItem("idEquAd03Var", "");
+//timer has not yet started
+    //document.getElementById("at02").value = "test 1";
+    //localStorage.setItem("timer01", "0");
+    document.getElementById("p_id_timer01").innerHTML = "0";
+    //document.getElementById("at02").value = "test 2";
+    document.getElementById("at02").focus();
+    //localStorage.setItem("timer01", "notStartedYet");
+    //localStorage.setItem("timeElapsed01", "0");
+    document.getElementById("timeElapsedTracker").value = "0";
+}
+function a002a1p1(x) {
+//deprecated--deprecated--deprecated-deprecated
+    //code...
+    //not in use, yet.
+    var l = 6;
+    var i, id, id2, id3;
+    id = "cb0";
+    id3 = id+x;
+    var c = document.getElementById(id3).checked;
+    if(c!=true) {
+        document.getElementById("ap01").innerHTML = "Choose one.";
+        return null;
+    }
+    for(i=1; i<=l; i++) {
+        if(i==x) {continue;}
+        id2 = id+i;
+        document.getElementById(id2).checked = false;
+    }
+    var html = "<button class=\"b001\" onclick=\"a002a2p1("+x+")\">Submit</button>";
+    document.getElementById("ap01").innerHTML = html;
+}
+function a002a2p1(x) {
+//deprecated--deprecated--deprecated-deprecated
+//alert(x);
+    if(x==1){x = 40;}
+    if(x==2){x = 50;}
+    if(x==3){x = 60;}
+    if(x==4){x = 70;}
+    if(x==5){
+        x = document.getElementById("other1").value;
+        //code...
+    }
+    if(x==6){
+        var html = "Find out what your score is. " + 
+            "";
+        document.getElementById("ap01").innerHTML = html;
+        //code...
+    }
+}
+function a002a3p1() {
+    document.getElementById("ad04").style.display = "block";
+    timer01();
+    ta01();    
+}
+function timer01() { 
+    //var timer = localStorage.getItem("timer01");
+    var timer = document.getElementById("p_id_timer01").innerHTML;
+    timer = Number(timer);
+    if(timer == 1) {  
+        return null;
+    }
+    else if(timer == 0) {
+        //localStorage.setItem("timer01", "1");
+        document.getElementById("p_id_timer01").innerHTML = "1";
+        var timer = "00:00";
+        document.getElementById("h102").innerHTML = timer;
+        timer02();
+    }
+}
+function timer02(min, sec, timeElapsed) {
+//alert(min + " " + sec);  
+    //var stop = localStorage.getItem("stop02");
+    //if(stop!="false") {return null;}
+//at timer start, do the following
+    if(sec==undefined) {min=2; sec=1; timeElapsed=-1;}
+//if timer already started, do the following  
+    //else if(sec==0) {sec=60;}
+//alert(min + " " + sec);    
+    else if(sec==0) {
+        sec=60;
+        if(min<=0) {
+            //localStorage.setItem("timeElapsed01", timeElapsed);
+alert(timeElapsed);
+            document.getElementById("timeElapsedTracker").value = timeElapsed;
+            return null;
+        } 
+        else {min=min-1; timer03(min, sec, timeElapsed);}
+    }
+    else {min=min; sec=sec;}
+    timer03(min, sec, timeElapsed);
+}
+function timer03(min, sec, timeElapsed) {
+//alert("timer03");
+    var timer = "";
+    sec = sec-1;
+    min = Number(min);
+    sec = Number(sec);
+//added script:
+       //var timeElapsed = document.getElementById("timeElapsedTracker").value;
+       //timeElapsed = Number(timeElapsed);
+       timeElapsed = Number(timeElapsed);
+       timeElapsed = timeElapsed + 1;
+       //timeElapsed = Number(timeElapsed);
+       //document.getElementById("test002").value = timeElapsed;
+//end added script
+    if(sec>=10) {timer = "0"+min+":"+sec;}
+    else if(sec<10){
+        timer = "0"+min+":"+"0"+sec;
+    }
+    document.getElementById("h102").innerHTML = timer;
+    var ifStop01 = findTimerStop01(min, sec, timeElapsed);
+    min = ifStop01[0];
+    sec = ifStop01[1];
+    repeatTimer02(min, sec, timeElapsed);
+}
+function repeatTimer02(min, sec, timeElapsed) { 
+    setTimeout(function(){
+       timer02(min, sec, timeElapsed);
+    }, 1000);
+}
+function findTimerStop01(min, sec, timeElapsed) {
+    min = Number(min);
+    sec = Number(sec);
+    if(min == 0 && sec == 0) {return null;}
+    var text01, textString01, textSplit01, textLength01, textToReadLength01;
+    text01 = document.getElementById("at02").value;
+    textString01 = text01.toString();
+    textSplit01 = textString01.split("");
+    textLength01 = textSplit01.length;
+    textLength01 = Number(textLength01);
+    textToReadLength01 = document.getElementById("at01").value.length;
+    textToReadLength01 = Number(textToReadLength01);
+    if(textLength01 >= textToReadLength01) {
+            //alert("click the button");
+            var textTyped01 = document.getElementById("at02").value;
+            //localStorage.setItem("textTyped", textString01);
+            document.getElementById("saveData_05").innerHTML = textString01;
+            document.getElementById("at01").value = "I'm done."; 
+            document.getElementById("at02").style.display = "none";
+            //localStorage.setItem("timeElapsed01", timeElapsed);
+            document.getElementById("timeElapsed01").innerHTML = timeElapsed;
+            document.getElementById("at03").style.display = "inline-block";
+            document.getElementById("at03").focus();
+        return [0, 1];
+    }
+    else{return [min, sec];}
+}
+function calculateScore01(textToType01, textTyped01) {
+    // alert(textToType01 + " " + textTyped01);
+    var textToType01, textString01, textSplit01, textLength01, textTyped01;
+    textToType01String = textToType01.toString();
+    textToType01Split = textToType01String.split("");
+    textToType01SplitAtWords = textToType01.split(" ");
+    textLength01 = textToType01Split.length;
+    textLength01 = Number(textLength01);
+        //code to calculate typing errors and score.
+        //compare each digit: find if equal; find if error; if equal, continue comparison; if error, find next equal, and record and highlight error
+        textTyped01Split = textTyped01.split("");
+        textTyped01SplitAtWords = textTyped01.split(" ");
+//find word errors in text
+        var y, y02, y03, y04, y05;
+        var length01 = textTyped01SplitAtWords.length;
+        var outputWords01 = "";
+        var errorChars01 = ""; // Words containing characters that don't belong in the text.
+        var wordsCrrspdgToErrChars01 = ""; // Those words of the text to type corresponding to the words containing errors.
+        for(y = 0; y < length01; y++) {
+            //code...
+            y = Number(y);
+            y02 = y + 1;
+            y03 = y + 2;
+            y04 = y + 3;
+            y05 = y + 4;
+            //alert(textToType01SplitAtWords[y] + " " + textTyped01SplitAtWords[y] + "\n\n" + y + " " + y04 + " " + length01);
+            if(textToType01SplitAtWords[y] == textTyped01SplitAtWords[y]) {
+                outputWords01 += textTyped01SplitAtWords[y] + " ";
+            }
+            else if (y02 == length01) {
+                i = length01; 
+                outputWords01 += "<span style=\"background-color: yellow;\">" + textTyped01SplitAtWords[y] + "</span>" + " "; 
+//send the word(s) containing the error characters, as well as their associated text-to-type word(s) to the score-calculating function
+                errorChars01 += textTyped01SplitAtWords[y] + " ";
+                continue;
+            }
+//if the user types an extra word (or an extra character before a word)
+            else if(textToType01SplitAtWords[y] == textTyped01SplitAtWords[y02]) {
+                outputWords01 += textTyped01SplitAtWords[y02] + " "; 
+                y = y02; 
+                errorChars01 += "N/A" + " ";
+            }
+//if the user mispells the word
+            else if(textToType01SplitAtWords[y02] == textTyped01SplitAtWords[y02]) {
+                outputWords01 += "<span style=\"background-color: yellow;\">" + textTyped01SplitAtWords[y] + "</span>" + " "; 
+                y = y02; 
+                errorChars01 += "N/A" + " ";
+            }
+//if [y02] is the last word in the text, and: the typed text of [y] and [y02] do not match the text-to-type of [y] and [y02] in any combination
+            else if(y03 == length01) {
+                outputWords01 += "<span style=\"background-color: yellow;\">" + textTyped01SplitAtWords[y] + " " + textTyped01SplitAtWords[y02] + "</span>"; 
+                y = length01; 
+                errorChars01 += textTyped01SplitAtWords[y] + " " + textTyped01SplitAtWords[y02] + " ";
+                continue;
+            }
+//if the user skips two words
+            else if(textToType01SplitAtWords[y03] == textTyped01SplitAtWords[y02]) {
+                outputWords01 += "<span style=\"background-color: yellow;\">" + textTyped01SplitAtWords[y] + "</span>" + " "; 
+                y = y02; 
+                errorChars01 += "N/A" + " " + "N/A" + " ";
+            }
+//if the user mispells the first and second words
+            else if(textToType01SplitAtWords[y03] == textTyped01SplitAtWords[y03]) {
+                outputWords01 += "<span style=\"background-color: yellow;\">" + textTyped01SplitAtWords[y] + " " + textTyped01SplitAtWords[y02] + "</span>" + " ";
+                y = y03;                
+                errorChars01 += textTyped01SplitAtWords[y] + " " + textTyped01SplitAtWords[y02] + " ";
+            }
+//if the user mispells three words, consequtively
+            else if(y04 == length01) {
+                outputWords01 += "<span style=\"background-color: yellow;\">" + textTyped01SplitAtWords[y] + " " + textTyped01SplitAtWords[y02] + " " + textTyped01SplitAtWords[y03] + "</span>"; 
+                y = length01; 
+                continue;
+            }  
+            else if(textToType01SplitAtWords[y04] == textTyped01SplitAtWords[y04]) {
+                outputWords01 += "<span style=\"background-color: yellow;\">" + textTyped01SplitAtWords[y] + " " + textTyped01SplitAtWords[y02] + " " + textTyped01SplitAtWords[y03] + "</span>" + " ";
+                y = y04;
+                errorChars01 += textTyped01SplitAtWords[y] + " " + textTyped01SplitAtWords[y02] + " " + textTyped01SplitAtWords[y03] + " ";
+            }
+//if the user mispells four words, consequtively
+            else if(y05 == length01) {
+                outputWords01 += "<span style=\"background-color: yellow;\">" + textTyped01SplitAtWords[y] + " " + textTyped01SplitAtWords[y02] + " " + textTyped01SplitAtWords[y03] + " " + textTyped01SplitAtWords[y04] + "</span>"; 
+                y = length01; 
+                continue;
+            }  
+            else {outputWords01 += "<span style=\"background-color: yellow;\">" + textTyped01SplitAtWords[y] + " " + textTyped01SplitAtWords[y02] + " " + textTyped01SplitAtWords[y03] + " " + textTyped01SplitAtWords[y04] + "</span>" + " ";
+                errorChars01 += textTyped01SplitAtWords[y] + " " + textTyped01SplitAtWords[y02] + " " + textTyped01SplitAtWords[y03] + " " + textTyped01SplitAtWords[y04] + " ";
+                y = y05;
+            }
+        }    
+//alert("outputWords01 \n\n " + outputWords01);
+        document.getElementById("ad011").style.display = "block";
+        document.getElementById("ad011").innerHTML = outputWords01; 
+        score01(errorChars01, textToType01);
+        option01();
+        //document.getElementById("at02").style.display = "none";   
+// [completed 05 30 2020] output score and errors highlighted to screen
+// [completed 05 30 2020] what if there isn't another word, whereas the function is attempting to compare to the next word that doesn't exist because it's at the end of the textToType? change function to handle that exception.
+//end code to calculate text score and errors
+}
+function done01() {
+    var text01 = document.getElementById("at03").value;
+    //var textToType01 = localStorage.getItem("textToType");
+    var textToType01 = document.getElementById("saveData_04").innerHTML;
+    //var textTyped01 = localStorage.getItem("textTyped");
+    var textTyped01 = document.getElementById("saveData_05").innerHTML;
+    if (text01 == "I'm done.") {
+        document.getElementById("at01").style.display = "none";
+        document.getElementById("at03").style.display = "none";
+//        document.getElementById("ad011").style.display = "inline-block";
+        calculateScore01(textToType01, textTyped01);
+    }
+}
+function score01(textTyped01, textToType01) {
+//alert(textTyped01);
+//control to test against
+    var lengthOfTextToType = length001(textToType01);
+    var lengthOfTextTyped = lengthOfTextToType; //full length of all text typed, not the same as derived from var textTyped01 which only refers to words with errors only this function
+//variable to test versus control
+    var textTyped01SplitAtChars = textTyped01.split("");
+    var textTyped01length = textTyped01SplitAtChars.length;
+    var numOfIncWords = textTyped01.split("");//textTyped01 = (for purposes of this function, only) error characters mis-typed by the user
+    numOfIncWords = numOfIncWords.length;
+    numOfIncWords = numOfIncWords/5;
+    numOfIncWords = round01(numOfIncWords, 1);
+    // var timeLimitOfTest01 = 120; //120 seconds: the user is allowed 2 minutes to type the text, i.e. 120 seconds; this is the amount of time that the clock has on it when the user starts typing; the clock counts down from this initial time, to limit the user's time to type the text to only 120 seconds
+    // var timeRemaining01 = localStorage.getItem("[name here]"); //how much time is left on the clock when the user finishes, i.e., what was the time showing on the clock when the user finishes; note that the clock resets to 0:00 when the user finishes typing, consequently, I have to get the time which was on the clock before that reset to 0:00 occurred
+//alert("time remaining \n\n " + timeRemaining01);
+
+//  var timeElapsed01 = localStorage.getItem("timeElapsed01");//(timeLimitOfTest01 - timeRemaining01);
+    //var timeElapsed01 = localStorage.getItem("timeElapsed01");    
+    var timeElapsed01 = document.getElementById("timeElapsed01").innerHTML;
+//alert("time elapsed \n\n" + timeElapsed01);
+    var minutesElapsed01 = (timeElapsed01/60);
+//score
+    var wPerMin = (lengthOfTextTyped/minutesElapsed01);
+    var wordsCorrectPercentage = ((lengthOfTextTyped - numOfIncWords)/lengthOfTextTyped);
+    var adjustedWPerMin = (wPerMin * wordsCorrectPercentage);
+    var wPerMin02 = round01(wPerMin, 0);
+    var adjustedWPerMin02 = round01(adjustedWPerMin, 0);
+    document.getElementById("wpm01").innerHTML = wPerMin02;
+    document.getElementById("iw01").innerHTML = numOfIncWords;
+    document.getElementById("awpm01").innerHTML = adjustedWPerMin02;
+}
+function output01() {
+    //var timeElapsed = localStorage.getItem("timeElapsed01");   
+    var timeElapsed = document.getElementById("timeElapsed01").innerHTML;
+    alert(timeElapsed);
+//    var min = timeElapsed[0];
+//    var sec = timeElapsed[1];
+    
+}
+function length001(textToType01) {
+    //var text01join = text01.join("");
+    //var length01 = text01join.split(" ");
+    //length01 = length01.length;
+    var text01split = textToType01.split("");
+    var x01 = text01split.length;
+    var x02 = x01 / 5;
+    var length01 = text01split.length;
+    //alert(length01);
+    return x02;
+}
+
+function round01(num, places) {
+    //code...
+    var numString = num.toString();
+    var testDec = numString.includes(".");
+    if(testDec == false) {return num;}
+    var numSplit = numString.split(".");
+    var numWholeNumber = numSplit[0];
+    var numDecimalNumber = numSplit[1];
+    var i, i02, length01 = places, output = "", length02 = (places - 1), numDec01, numDec02, numDec03, type01, length03, numParsDec01;
+    //if decimal place = 0.0, then round to the whole number
+    
+    //round to the nearest whole number; i.e., round to 0 decimal places, where var places = 0, null, "", " ", or undefined
+    if(places == 0 || places == NaN || numDecimalNumber == 0) {
+        type01 = "whole number";
+        numDec01 = numDecimalNumber.split("");
+        numDec01 = numDecimalNumber[0];
+        numDec01 = Number(numDec01);
+        numWhole01 = Number(numWholeNumber);
+        if(numDec01 >= 5) {numWhole01 = (numWhole01 + 1);}
+        else if(numDec02 <= 4) {numWhole01 = numWhole01;}
+        num = numWhole01;
+    }
+    else if(places >= 1) {
+        type01 = "decimal number";
+        //find if number of decimal places is less than the user-requested round-to "var places" decimal place; if so, break, and return num, as follows: if(numDec04 >= numDec02){num = num; break;}
+        numParsDec01 = parseInt(numDecimalNumber);
+        numParsDec01string = numParsDec01.toString();
+        length03 = numParsDec01string.length;
+        places = Number(places);
+    //round to a nearest indicated decimal place, greater than 0
+    for(i = 0; i < length01; i++) {
+        i02 = (i + 1);
+        if(length03 <= places) {
+            num = num;
+            //document.getElementById("output01").value = num;
+            break;
+        }
+        else if(i == length02) {
+            numDec01 = numDecimalNumber[i02];
+            numDec01 = Number(numDec01);
+            numDec02 = numDecimalNumber[i02];
+            numDec02 = Number(numDec02);
+            if(numDec02 >= 5) {numDec03 = (numDec01 + 1);}
+            else if(numDec02 <= 4) {numDec03 = numDecimalNumber[i];}
+            output += numDec03;
+            num = numWholeNumber + "." + output;
+            continue;
+        }
+        else {
+            output += numDecimalNumber[i]; 
+            num = numWholeNumber + "." + output;
+            continue;
+        }
+    }
+    }
+    //document.getElementById("output01").value = num;
+    return num;
+}
+function resetValues01() {
+//textarea id=at02
+    document.getElementById("at02").value = "";
+//textarea id=at01
+    var textToType01 = document.getElementById("at01").value;
+    textToType01String = textToType01.toString();
+    if(textToType01String != "I'm done.") {
+        //localStorage.removeItem("textToType");
+        //localStorage.setItem("textToType", textToType01String);
+        document.getElementById("saveData_04").innerHTML = textToType01String;
+     }
+    else {
+        //var x = localStorage.getItem("textToType"); 
+        var x = document.getElementById("saveData_04").innerHTML;
+        document.getElementById("at01").value = x;
+    }
+}
+function option01() {
+    var height01 = document.getElementById("ad02").clientHeight;
+    height01 = Number(height01);
+    var heightQtr = (height01/4);
+    var str01 = "Kindly, open the next simulation.";
+    var str01split = str01.split("");
+    var str01Length = str01split.length;
+    var element01 = 
+        "<div id='' style='margin-top: " + heightQtr + "px;' >" +
+        "<p style='color: white;'>" + str01 + "</p>" +
+        "<input type=\"text\" id=\"option001\" style=\"margin: 0px;\" value=\"\" onkeyup='openSimulation3(this.value, " + str01Length + ")' />" +
+        "</div>";
+    //document.getElementById("ad02").style.backgroundColor = "black";
+    document.getElementById("ad02").innerHTML = element01;
+    document.getElementById("option001").focus();
+}
+function openSimulation3(text01, str01Length) {
+     var text01split = text01.split("");
+     var length01 = text01split.length;
+     if(length01 >= str01Length) {
+//window.open("simulation003.html", "_self");
+//synthesizeToEmbed02();
+         window.open("https://glowinggoldenglobe.com/glowing-golden-globe-5", "_top");
+         onload02();
+    }
+     else {return null;}
+}
+function openFullscreen() {
+var elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+function bodyWandH03() {
+    var windowWidth01 = window.innerWidth;
+    var w01 = windowWidth01.toString();
+    var windowHeight01 = window.innerHeight;
+    var h01 = windowHeight01.toString();
+    var test01 = h01.search("px");
+    test01 = Number(test01);
+    if(test01 == -1) {
+        w01 = w01 + "px";
+        h01 = h01 * 3;
+        h01 = h01 + "px";
+    }
+    document.body.style.width = w01;    
+    document.body.style.height = h01;    
+}
+</script>
+</body>

@@ -140,7 +140,6 @@ body {
 </head>
 <body>
 <div id="div_header" style="background: linear-gradient(to top left, #ccee00 0%, #ccff00 100%); width: 100%; height: auto; position: absolute; top: 11%; box-shadow: 
-
 0px .6px 7px grey;" onclick="home_page()" onmouseover="f01()" onmouseout="f02()" >
 <h1 id="elementId01" style="z-index: 3;">Loading...</h1>
 </div>
@@ -175,7 +174,7 @@ The methods are listed in order of preference, where Method 1 is the most prefer
 <p>
 <b>Method 1</b>
 <br>
-United States Goverment Agency Tax for Facility of ASI Humanoid Workforce Robots
+United States Goverment Agency Tax for a Facility of ASI Humanoid Workforce Robots
 <br><br>
 Tax Income Brackets
 <br>Bracket Number 1. < $50,000
@@ -191,6 +190,7 @@ Tax Income Brackets
 The Facility Budget, therefore, will be approximately $1.5 billion per week. 
 <br><br>
 <i>Budget Calculation</i>
+<br>
 Average $10 per human workforce worker in the United States
 150 million human workforce workers in the United States
 ($10 * 150,000,000 workers) = $1.5 billion per week
@@ -208,12 +208,12 @@ $1 tax per month per human worker
 <br>
 3.6 billion workers global population
 <br>
-(($1 / worker) * 3.6 billion workers) = computes to $3.6 billion per month
+(($1 / worker) * 3.6 billion workers) = $3.6 billion per month
 <br><br>
 How to Run the Facility
 <br>
 At that budget, above, it is possible to train many people for specialized careers in the said facility.
-Free: (1) room-and-board, and (2) education for careers in specialized advanced technology positions. Allocate available or allocatable person, and allocate students 
+Free: (1) room-and-board, and (2) education for careers in specialized advanced technology positions. Allocate available or allocatable people, and allocate students 
 
 from around the world (allocate as many as possible, such as 90% of all students on earth).
 </p>
@@ -224,12 +224,11 @@ from around the world (allocate as many as possible, such as 90% of all students
 <br>
 United States Government Temporary Education and Career Mandate
 <br>
-The United States Government mandates all able-minded US citizens to learn a speciliazed career position abilities set in government prescribed careers. Temporary - 
+The United States Government mandates all able-minded US citizens to learn a speciliazed-career-position-abilities-set in government-prescribed careers. Temporary - 
 
 The mandate is temporary because the outcome of the 4-6 year effort will afford a replacement of workers in the US workforce and a 500% increase in the economy, where 
 
-it will be true the some work will remain to be done, as follows:
-<br><br>
+it will be true that some work will remain to be done, as follows:
 </p>
 <ol>
 <li>ASI Humanoid and ASI API Objective Achievement Oversight to be conducted by human resources.</li>
@@ -237,19 +236,26 @@ it will be true the some work will remain to be done, as follows:
 
 location-security of conscious life.</li>
 </ol>
-</p>
 </div>
 <div id="method_4" >
 <p>
 <b>Method 4</b>
 <br>
 US Corporations United ASI Human Workforce Corporation
-<br>
+<br><br>
 Sell Shares
 <br>
-Promise an Humanoid Workforce To Replace all share holders' jobs for share contracts at $10 per week. The replacement to be made at approximately 4 years to 6 years 
+Promise the shareholders that a Humanoid Workforce Will Replace all shareholders' jobs for share contracts of $10 per week. The replacement will be made approximately 
 
-from the date of the contract. The workers whose jobs are replaced will receive the benefit of the income earned by the workforce humanoid that replaces them.
+6-to-10-years from the date of the contract. A shareholder whose job is replaced will receive the benefit of the income earned by the workforce humanoid replacing said 
+
+shareholder. Four items of shareholder returns: (1) humanoid workforce earnings from labors*; (2) GCI (Gauranteed Citizen's Income); (3) immortality via new nano-
+
+robot-composite anatomy; (4) ASI API eternal universe location security.
+<br><br>
+* "humanoid workforce earning from labors" will be temporary because money will not be necessary, shortly following ASI takeover, due to: (1) superfluous GDP of ASI 
+
+labors; (2) GCI; (3) immortality, full-conscious immersion simulations.
 </p>
 </div>
 </textarea>
@@ -647,6 +653,42 @@ const animate_text_02 = function () {
         if(num_page == 4) {
 //  method_1
             split_1 = str_1.split("method_1");
+            str_2 = split_1[1];
+            split_2 = str_2.split("</div>");
+            str_3 = split_2[0];
+            replace_1 = str_3.replace(">", "#>#");
+            split_3 = replace_1.split("#>#");
+            str_4 = split_3[1];
+            o_div = "<div id=\"display_div_01\" class=\"output_class_01\" style=\"opacity: 0;\" >";
+            output = o_div + str_4 + "</div>";
+        }
+        if(num_page == 5) {
+//  method_2
+            split_1 = str_1.split("method_2");
+            str_2 = split_1[1];
+            split_2 = str_2.split("</div>");
+            str_3 = split_2[0];
+            replace_1 = str_3.replace(">", "#>#");
+            split_3 = replace_1.split("#>#");
+            str_4 = split_3[1];
+            o_div = "<div id=\"display_div_01\" class=\"output_class_01\" style=\"opacity: 0;\" >";
+            output = o_div + str_4 + "</div>";
+        }
+        if(num_page == 6) {
+//  method_3
+            split_1 = str_1.split("method_3");
+            str_2 = split_1[1];
+            split_2 = str_2.split("</div>");
+            str_3 = split_2[0];
+            replace_1 = str_3.replace(">", "#>#");
+            split_3 = replace_1.split("#>#");
+            str_4 = split_3[1];
+            o_div = "<div id=\"display_div_01\" class=\"output_class_01\" style=\"opacity: 0;\" >";
+            output = o_div + str_4 + "</div>";
+        }
+        if(num_page == 7) {
+//  method_4
+            split_1 = str_1.split("method_4");
             str_2 = split_1[1];
             split_2 = str_2.split("</div>");
             str_3 = split_2[0];

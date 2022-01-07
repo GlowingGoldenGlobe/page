@@ -52,6 +52,20 @@ body {
   top: 10%;
   left: 10%;
 }
+.output_class_02 {
+  width: 80%;
+  height: auto;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  font-family: "Times New Roman", sans-serif;
+  font-size: 16px;
+  letter-spacing: .75px;
+  font-weight: normal;
+  text-shadow: .2px .2px .2px black;
+  position: absolute;
+  top: auto;
+  left: 10%;
+}
 .div_class_02 {
   width: 10%;
   height: 10%;
@@ -256,6 +270,98 @@ robot-composite anatomy; (4) ASI API eternal universe location security.
 * "humanoid workforce earning from labors" will be temporary because money will not be necessary, shortly following ASI takeover, due to: (1) superfluous GDP of ASI 
 
 labors; (2) GCI; (3) immortality, full-conscious immersion simulations.
+</p>
+</div>
+<div id="methods_ASIFacilityPlans">
+<p>
+<b>Funding: Plans: ASI Facility: Operations: Overview</b>
+<br><br>
+ASI Humanoid Workforce Robots
+<br><br>
+Contents
+<br>9 Year Plan
+<br>5 Year Plan
+<br><br>
+9 Year Plan
+</p>
+<ul>
+<li>($100 tax average per month × 150 mn human resources) = $15 bn per mo</li>
+<li>Result 21 million ASI Humanoid Workforce Robots</li>
+<li>How :: Fed mandate edu / R&D Facility, mandate allocates human resources of students, unnecessary stores, sports, educators, others, etc. to the facility for the 
+
+following schedule:</li>
+<ul>
+<li>Years 1 thru 4: 4 year edu experience, specializing in ASI</li>
+<li>Years 3 thru 5: robotics technology R&D of nano-robot-composite anatomy</li>
+<li>Years 4 and 5: ASI APIs research and development</li>
+<li>Years 6 thru 8: 6 Megafactories = (2 Megafactories per 6 mo × 3 years)</li>
+<li>Years 6 thru 9: 28 million robots produced</li>
+</ul>
+</ul>
+<p>
+(Ref. qty in milllions of robots)
+<br>
+Yr 1 thru 5, 0
+<br>
+Yr 6, 1
+<br>
+Yr 7, 2 + 2 + 1
+<br>
+Yr 8, 4 + 4 + 1
+<br>
+Yr 9, 12
+<br><br>
+<br>5 Year Plan
+</p>
+<ul>
+<li>($100 tax average per month × 150 mn human resources) = $15 bn per mo</li>
+<li>Result 28 million ASI Humanoid Workforce Robots</li>
+<li>How :: Fed mandate allocates educators of AI and corporateemployees of AI positions to a research laboratory. 1 year: (1) ASI APIs, (2) anatomy engineered, (3) AI 
+
+API for building Infinity 3D Objects on user demand with all element attributes including physics (user inputs text or data description, API returns a results of 
+
+desired objects - anything imaginable), and this API is provided to GPT API for infinite options results upon user demand per user text or data description. Year 5, 
+
+end: 12 Megafactories (4 per year * 4 years, in other words, build 2 megafactories every six months for 3 years) producing 1 mn ASI humanoid workforce robots per year 
+
+accomplish production quantity of 21 million 
+</li>
+</ul>
+<p>
+ASI humanoid workforce robots in a 4 year duration, production calculated as:
+<br><br>
+(Ref. qty in milllions of robots)
+<br>
+Yr 1, 0
+<br>
+Yr 2, 1
+<br>
+Yr 3, 2 + 2 + 1
+<br>
+Yr 4, 4 + 4 + 1
+<br>
+Yr 5, 12
+<br><br>
+Total  28 million
+<br><br>
+28 million ASI workforce robots is the equivalent of the human workforce of 150 million
+<br><br>
+Year 6
+<br>
+28 million + (12 mn × 2 years) = 52 million
+<br><br>
+Allocated as follows
+</p>
+<ul>
+<li>32 million ASI humanoid workforce robots as service and regular operations resources</li>
+<li>20 million ASI umanoid workforce robots as cosmos scientists conducting research and development of full deliberative control of the cosmos, its elements and 
+
+parts, securing conscious presence in creation for the rest of eternity </li>
+</ul>
+<p>
+<br>
+<!--<span style='color:darkblue;'>The end.</span>-->
+<br><br>
 </p>
 </div>
 </textarea>
@@ -698,12 +804,33 @@ const animate_text_02 = function () {
             o_div = "<div id=\"display_div_01\" class=\"output_class_01\" style=\"opacity: 0;\" >";
             output = o_div + str_4 + "</div>";
         }
+        if(num_page == 8) {
+//  methods_ASIFacilityPlans
+            split_1 = str_1.split("methods_ASIFacilityPlans");
+            str_2 = split_1[1];
+            split_2 = str_2.split("</div>");
+            str_3 = split_2[0];
+            replace_1 = str_3.replace(">", "#>#");
+            split_3 = replace_1.split("#>#");
+            str_4 = split_3[1];
+            o_div = "<div id=\"display_div_01\" class=\"output_class_02\" style=\"opacity: 0;\" >";
+            output = o_div + str_4 + "</div>";
+        }
         el_display.innerHTML = output;
     }
     var num_count_to_animate = saveNum.innerHTML;
     num_count_to_animate = Number(num_count_to_animate);
     num_count_to_animate = (num_count_to_animate - 1);
     saveNum.innerHTML = num_count_to_animate; 
+    if(num_page != 8) {
+        el_display.style.height = "60%";
+    }
+    else if(num_page == 8) {
+        var height_1 = get_height_1();
+        var height_px = height_1 + "px";
+//alert(height_px);
+        el_display.style.height = height_px;
+    }
 //  i left off here [_________here________]
 /*  test
 document.body.innerHTML += 
@@ -764,6 +891,14 @@ const page_onclick = function() {
     }
 //  return page number selected by user
         return new_val;
+}
+const  get_height_1 = function () {
+    var el = document.getElementById("display_div_01");
+    var el_height = el.clientHeight;
+    var num = Number(el_height);
+    num = (num - 20);
+    el_height = num; 
+    return el_height;
 }
 </script>
 </body>

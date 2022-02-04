@@ -513,7 +513,8 @@ const animate_text_01 = function () {
     str_text_1 = str_text_1.split("<x");
     var for_output = "<b>Absolute Value Thoughts: Control</b><br><br>Consecutive decision making in the absence of considerations of alternatives.<br><br>How to avoid problems. How to control results.";
     var text_bold_header = "Absolute Value Thoughts: Control";
-    var text_para_1 = "<br><br>Consecutive decision making in the absence of considerations of alternatives.<br><br>How to avoid problems. How to control results.";
+    var text_para_1 = "Consecutive decision making in the absence of considerations of alternatives.";
+    var text_para_2 = "How to avoid problems. How to control results.";
 //  "tbh" is an abbr. for, "text_bold_header"
     var tbh_length = text_bold_header.length;
     var tbh_num = Number(tbh_length);
@@ -535,11 +536,13 @@ const animate_text_01 = function () {
     }
     var num_next_2 = "";
     var tp1_length = text_para_1.length; tp1_num = Number(tp1_length);
+    var tp2_length = text_para_2.length; tp2_num = Number(tp2_length);
     var br_2 = "<br><br>";
     var br2_length = br_2.length; var br2_num = Number(br2_length);
     tp1_num = (tbh_num + (tp1_num + br2_num));
     var compare_num = (tbh_num + 1);
     num_next_2 = (num_displayed + 1);
+    var compare_num_3 = (tp1_num + 1);// compare_num_2 var is below
     if(num_next_2 >= compare_num) {
 //  "tp1" is an abbreviation for, "var text_para_1 = [...];"
 // substract text_para_1 string displayed from text_para_1 string to display
@@ -557,6 +560,23 @@ const animate_text_01 = function () {
         text_to_display = text_para_1.substr(0, substr_num);
         var header_plus_bold = text_1 + text_bold_header + text_2;
         output = header_plus_bold + br_2 + text_to_display;
+    }
+    if(num_next_2 >= compare_num_2) {
+// objective - substract text_para_2 string displayed from text_para_2 string to display
+// step 1. find text_para_2 string length displayed
+        tp1_num = (tbh_num + (tp1_num + br2_num));
+        var tp2_displayed_length = (num_displayed - (tp1_num + br2_num));
+// step 2. substract step 1 result from tp2_length;
+        var tp2_num_2 = Number(tp2_length);
+        var compare_num_4 = (tp2_num_2 - tp2_displayed_length);
+        substr_num = (tp2_displayed_length + 1);
+        var s_2 = text_para_1.search("&");
+        var ampersand_num_4 = Number(s_2);
+        ampersand_num_4 = ((ampersand_num_4 + 1) + (tbh_num + br2_num));
+        if(num_displayed >= ampersand_num_4) {substr_num = ((tp1_displayed_length - 4) + 1);}
+        text_to_display = text_para_2.substr(0, substr_num);
+        var header_plus_bold_2 = text_1 + text_bold_header + text_2;
+        output = header_plus_bold_2 + br_2 + text_para_1 + br_2 + text_to_display;
     }
     el.innerHTML = output;
     var length_2 = for_output.length;

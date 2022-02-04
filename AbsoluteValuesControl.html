@@ -150,6 +150,23 @@ body {
   left: 0;
   z-index: -3;
 }
+.button_class_04 {
+  background-color: white;
+  width: 50%;
+  height: 50%;
+  font-size: 14px;
+  margin-top: 5%;
+  margin-left: 25%;
+  border: 4px groove grey;
+  cursor: default;
+}
+.button_class_04:hover {
+  background-color: white;
+  border: 4px groove yellow;
+  box-shadow: 1px 1px 1px 1px yellow;
+  opacity: .9;
+  cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -272,6 +289,13 @@ re-spawning, immediate ressurection after death), etc.
 </p>
 </div>
 <div id="method_3" >
+<button 
+    class="button_class_04"  
+    onclick="avtai_page()" 
+><span style="font-size: 12px;" >Additional Information</span><br><b><i>Absolute Value Thoughts: Education; Economy; Immortality; Eternal Paradise Simulations; 
+
+AI</b></i> 
+</button>
 </div>
 <div id="method_4" >
 </div>
@@ -283,7 +307,7 @@ re-spawning, immediate ressurection after death), etc.
   <p id="para_output_01" class="output_class_01" >0</p>
 </div>
 <div id="div_id_02" class="div_class_02" >
-  <input id="button_id_01" type="button" class="button_class_03" value="1 of 8" onclick="#" />
+  <input id="button_id_01" type="button" class="button_class_03" value="1 of 6" onclick="#" />
 <img src="left arrow_yellow.jpg" alt=">>" width="50%" height="50%" style="position: absolute; top: 50%; left: 0; z-index: 3;" >
   <input type="button" class="button_class_01" value="" onclick="onclick_01()" />
 <img src="right arrow_yellow.jpg" alt=">>" width="50%" height="50%" style="position: absolute; top: 50%; left: 50%; z-index: 3;" >
@@ -383,6 +407,9 @@ function bodyWandH01() {
 const home_page = function() {
     window.open("https://glowinggoldenglobe.com/", "_top");
 }
+const avtai_page = function() {//  acronym:  avtai - absolute value thoughts: additional information 
+    window.open("https://richard338.github.io/repository1/AbsoluteValueThoughts.html", "_top");
+}
 const style_header_01 = function () {
 //alert("1");
     var el = document.getElementById("div_header");
@@ -423,7 +450,7 @@ const onclick_01 = function() {
     var new_val = page_onclick();
     new_val = Number(new_val);
     if(new_val <= 1) {new_val = 1;}else if(new_val >= 2) {new_val = (new_val - 1);}
-    button_el.value = new_val + " of 8";
+    button_el.value = new_val + " of 6";
     setTimeout(function() {
         document.getElementById("paragraph_saveData_02").innerHTML = "0";
         if(new_val == 1) {el.innerHTML = "<p id=\"para_output_01\" class=\"output_class_01\" ></p>"; animate_text_01();}
@@ -450,8 +477,8 @@ const onclick_02 = function() {
     var button_el = document.getElementById("button_id_01");
     var new_val = page_onclick();
     new_val = Number(new_val);
-    if(new_val >= 9) {new_val = 8;}else if(new_val <= 7) {new_val = (new_val + 1);}
-    button_el.value = new_val + " of 8";
+    if(new_val >= 7) {new_val = 6;}else if(new_val <= 5) {new_val = (new_val + 1);}
+    button_el.value = new_val + " of 6";
     setTimeout(function() {
         document.getElementById("paragraph_saveData_02").innerHTML = "0";
         if(new_val == 1) {el.innerHTML = "<p id=\"para_output_01\" class=\"output_class_01\" ></p>"; animate_text_01();}
@@ -571,7 +598,7 @@ const animate_text_01 = function () {
     var num = Number(length_2);
     var chars_remaining = (num - num_displayed);
     if(chars_remaining == (num-1)) {
-        document.getElementById("button_id_01").value = "1 of 8";
+        document.getElementById("button_id_01").value = "1 of 6";
     }
     if(chars_remaining == 0) {
     setTimeout(function() {
@@ -581,7 +608,7 @@ const animate_text_01 = function () {
         x_var = Number(x_var);
         if(page_num >= 2 || x_var >= 1) {return null;}else{
             el.innerHTML = " ";
-            document.getElementById("button_id_01").value = "2 of 8";
+            document.getElementById("button_id_01").value = "2 of 6";
             document.getElementById("div_id_01").innerHTML = " ";
             animate_text_02();
         }
@@ -750,7 +777,7 @@ const animate_text_02 = function () {
     num_count_to_animate = Number(num_count_to_animate);
     num_count_to_animate = (num_count_to_animate - 1);
     saveNum.innerHTML = num_count_to_animate; 
-    if(num_page != 8) {
+    if(num_page != 6) {
         el_display.style.height = "60%";
     }
     else if(num_page == 8) {
@@ -801,7 +828,7 @@ const para_get_id = function() {
 //  return page number selected by user
         return new_val;
     }
-    //button_el.value = new_val + " of 8";
+    //button_el.value = new_val + " of f";
 }
 const page_onclick = function() {
     var button_el = document.getElementById("button_id_01");

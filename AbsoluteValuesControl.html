@@ -194,9 +194,8 @@ Additional instructions are needed for others to understand how to use
 
 divine power the way that won't cause disturbances in the force. No, I'm 
 
-not joking; I will explain, below. The universe can be created by super-
-
-state in as little of a duration as a week. The universe can be destroyed 
+not joking; I will explain, below. The universe can be created by super-state 
+in as little of a duration as a week. The universe can be destroyed 
 
 by super-state in as little of a duration as a day. All things are 
 
@@ -271,7 +270,7 @@ scheduled events to be experienced, infrustructure, architecture,
 
 efficiency, communication, documentation, regulations of orderliness and 
 
-propritey, feasible control of bodily behavior and acceptable limits on 
+propriety, feasible control of bodily behavior and acceptable limits on 
 
 pain and suffering (some examples: moderate invulnerability, immediate 
 
@@ -511,7 +510,9 @@ const animate_text_01 = function () {
     str_text_1 = str_text_1.split("</div>");
     str_text_1 = str_text_1[0];
     str_text_1 = str_text_1.split("<x");
-    var for_output = "<b>Absolute Value Thoughts: Control</b><br><br>Consecutive decision making in the absence of considerations of alternatives.<br><br>How to avoid problems. How to control results.";
+    var for_output = "<b>Absolute Value Thoughts: Control</b><br><br>Consecutive decision making in the absence of considerations of alternatives.<br><br>How to avoid 
+
+problems. How to control results.";
     var text_bold_header = "Absolute Value Thoughts: Control";
     var text_para_1 = "Consecutive decision making in the absence of considerations of alternatives.";
     var text_para_2 = "How to avoid problems. How to control results.";
@@ -548,15 +549,11 @@ const animate_text_01 = function () {
 // substract text_para_1 string displayed from text_para_1 string to display
 // step 1. find text_para_1 string length displayed
         var tp1_displayed_length = (num_displayed - (tbh_num + br2_num));
+//alert(num_displayed + " " + tbh_num + " " + br2_num);
 // step 2. substract step 1 result from tp1_length;
         var tp1_num_2 = Number(tp1_length);
         var compare_num_2 = (tp1_num_2 - tp1_displayed_length);
         var substr_num = (tp1_displayed_length + 1);
-        var s_1 = text_para_1.search("&");
-        var ampersand_num_3 = Number(s_1);
-        ampersand_num_3 = ((ampersand_num_3 + 1) + (tbh_num + br2_num));
-        if(num_displayed >= ampersand_num_3) {substr_num = ((tp1_displayed_length - 4) + 1);}
-//alert("substr_num \n\n" + substr_num);
         text_to_display = text_para_1.substr(0, substr_num);
         var header_plus_bold = text_1 + text_bold_header + text_2;
         output = header_plus_bold + br_2 + text_to_display;
@@ -564,16 +561,14 @@ const animate_text_01 = function () {
     if(num_next_2 >= compare_num_3) {
 // objective - substract text_para_2 string displayed from text_para_2 string to display
 // step 1. find text_para_2 string length displayed
-        tp1_num = (tbh_num + (tp1_num + br2_num));
+        var tp1_num_3 = Number(tp1_length);
+        tp1_num = (tbh_num + (tp1_num_3 + br2_num));
         var tp2_displayed_length = (num_displayed - (tp1_num + br2_num));
 // step 2. substract step 1 result from tp2_length;
         var tp2_num_2 = Number(tp2_length);
         var compare_num_4 = (tp2_num_2 - tp2_displayed_length);
         substr_num = (tp2_displayed_length + 1);
-        var s_2 = text_para_1.search("&");
-        var ampersand_num_4 = Number(s_2);
-        ampersand_num_4 = ((ampersand_num_4 + 1) + (tbh_num + br2_num));
-        if(num_displayed >= ampersand_num_4) {substr_num = ((tp1_displayed_length - 4) + 1);}
+//alert(substr_num);
         text_to_display = text_para_2.substr(0, substr_num);
         var header_plus_bold_2 = text_1 + text_bold_header + text_2;
         output = header_plus_bold_2 + br_2 + text_para_1 + br_2 + text_to_display;

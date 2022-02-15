@@ -202,32 +202,6 @@ const function_onload = function() {
   el_02.innerHTML = el_01_text;
 }
 //function_onload();
-const onload_func = function() {
-  date_func();
-}
-onload_func();
-const incr = function() {
-  var el_01 = document.getElementById("id_div_03");
-  var font = el_01.style.fontSize;
-  var str = font.toString();
-  var spl = str.split("px");
-  var str_2 = spl[0];
-  var num = Number(str_2);
-  var new_num = num + 1;
-  var output = new_num + "px";
-  el_01.style.fontSize = output;
-}
-const decr = function() {
-  var el_01 = document.getElementById("id_div_03");
-  var font = el_01.style.fontSize;
-  var str = font.toString();
-  var spl = str.split("px");
-  var str_2 = spl[0];
-  var num = Number(str_2);
-  var new_num = num - 1;
-  var output = new_num + "px";
-  el_01.style.fontSize = output;
-}
 const spellMonth = function(month_var) {
   var num = Number(month_var);
   var return_month = "";
@@ -253,8 +227,34 @@ const date_func = function(){
   var day_var = date_var.getDate();
   var year_var = date_var.getFullYear();
   var month_name = spellMonth(month_var);
-  var date_formatted = month_name + day_var + ", " + year_var;
+  var date_formatted = month_name + " " + day_var + ", " + year_var;
   el.innerHTML = date_formatted;
+}
+const onload_func = function() {
+  date_func();
+}
+onload_func();
+const incr = function() {
+  var el_01 = document.getElementById("id_div_03");
+  var font = el_01.style.fontSize;
+  var str = font.toString();
+  var spl = str.split("px");
+  var str_2 = spl[0];
+  var num = Number(str_2);
+  var new_num = num + 1;
+  var output = new_num + "px";
+  el_01.style.fontSize = output;
+}
+const decr = function() {
+  var el_01 = document.getElementById("id_div_03");
+  var font = el_01.style.fontSize;
+  var str = font.toString();
+  var spl = str.split("px");
+  var str_2 = spl[0];
+  var num = Number(str_2);
+  var new_num = num - 1;
+  var output = new_num + "px";
+  el_01.style.fontSize = output;
 }
 </script>
 </body>

@@ -83,13 +83,13 @@ body {
 <br>
 <span class="class_span_01" >Regarding: </span> &nbsp;  Artificial Intelligence
 <br>
-<span class="class_span_01" >February 10, 2022</span>
+<span id="span_id_01" class="class_span_01" >February 10, 2022</span>
 <br>
 <span class="class_span_01" >Purpose: </span> &nbsp; Legislation, for the Implementation of 21st Century Productivity, per the Potential of Advance Techonlogy
 <br>
-<span class="class_span_01" >Contents: </span> &nbsp; Information describing procedures and events which will ensure desirable economic results.
+<span class="class_span_01" >Contents: </span> &nbsp; Information describing procedures and events which will ensure desirable economic results
 <br>
-<span class="class_span_01" >Affiliation: </span> &nbsp; Not affiliated; individual.
+<span class="class_span_01" >Affiliation: </span> &nbsp; Not affiliated; individual
 </p>
 </div>
 <hr style="width: 90%; position: absolute; top: 19%; left: 5%;" >
@@ -202,6 +202,10 @@ const function_onload = function() {
   el_02.innerHTML = el_01_text;
 }
 //function_onload();
+const onload_func = function() {
+  date_func();
+}
+onload_func();
 const incr = function() {
   var el_01 = document.getElementById("id_div_03");
   var font = el_01.style.fontSize;
@@ -223,6 +227,34 @@ const decr = function() {
   var new_num = num - 1;
   var output = new_num + "px";
   el_01.style.fontSize = output;
+}
+const spellMonth = function(month_var) {
+  var num = Number(month_var);
+  var return_month = "";
+  if(num == 0) {return_month = "January";}
+  else if(num == 1) {return_month = "February";}
+  else if(num == 2) {return_month = "March";}
+  else if(num == 3) {return_month = "April";}
+  else if(num == 4) {return_month = "May";}
+  else if(num == 5) {return_month = "June";}
+  else if(num == 6) {return_month = "July";}
+  else if(num == 7) {return_month = "August";}
+  else if(num == 8) {return_month = "September";}
+  else if(num == 9) {return_month = "October";}
+  else if(num == 10) {return_month = "November";}
+  else if(num == 11) {return_month = "December";}
+  return return_month;
+}
+const date_func = function(){
+//   span_id_01
+  var el = document.getElementById("span_id_01");
+  var date_var = Date();
+  var month_var = date_var.getMonth();
+  var day_var = date_var.getDate();
+  var year_var = date_var.getFullYear();
+  var month_name = spellMonth(month_var);
+  var date_formatted = month_name + day_var + ", " + year_var;
+  el.innerHTML = date_formatted;
 }
 </script>
 </body>

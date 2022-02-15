@@ -202,33 +202,55 @@ const function_onload = function() {
   el_02.innerHTML = el_01_text;
 }
 //function_onload();
-const spellMonth = function(month_var) {
-  var num = Number(month_var);
+const get_month = function() {
+  var date_var = Date();
+  var str = date_var.toString();
+  var spl = str.split(" ");
+  var month_3chars = spl[1];
+  str = month_3chars.toString();
+  month_3chars = str.substr(0, 3);
+  month_3chars = month_3chars.toLowerCase();
   var return_month = "";
-  if(num == 0) {return_month = "January";}
-  else if(num == 1) {return_month = "February";}
-  else if(num == 2) {return_month = "March";}
-  else if(num == 3) {return_month = "April";}
-  else if(num == 4) {return_month = "May";}
-  else if(num == 5) {return_month = "June";}
-  else if(num == 6) {return_month = "July";}
-  else if(num == 7) {return_month = "August";}
-  else if(num == 8) {return_month = "September";}
-  else if(num == 9) {return_month = "October";}
-  else if(num == 10) {return_month = "November";}
-  else if(num == 11) {return_month = "December";}
+  if(month_3chars == "jan") {return_month = "January";}
+  else if(month_3chars == "feb") {return_month = "February";}
+  else if(month_3chars == "mar") {return_month = "March";}
+  else if(month_3chars == "apr") {return_month = "April";}
+  else if(month_3chars == "may") {return_month = "May";}
+  else if(month_3chars == "jun") {return_month = "June";}
+  else if(month_3chars == "jul") {return_month = "July";}
+  else if(month_3chars == "aug") {return_month = "August";}
+  else if(month_3chars == "sep") {return_month = "September";}
+  else if(month_3chars == "oct") {return_month = "October";}
+  else if(month_3chars == "nov") {return_month = "November";}
+  else if(month_3chars == "dec") {return_month = "December";}
   return return_month;
 }
-const date_func = function(){
+const get_day = function() {
+  var date_var = Date();
+  var str = date_var.toString();
+  var spl = str.split(" ");
+  var day_var = spl[2];
+  return day_var;
+}
+const get_year = function() {
+  var date_var = Date();
+  var str = date_var.toString();
+  var spl = str.split(" ");
+  var year_var = spl[3];
+  return year_var;
+}
+const get_date = function(){
+  var month_var = get_month();
+  var day_var = get_day();
+  var year_var = get_year();
+  var date_formatted = month_var + " " + day_var + ", " + year_var;
+  return date_formatted;
+}
+const date_func = function() {
 //   span_id_01
   var el = document.getElementById("span_id_01");
-  var date_var = Date();
-  var month_var = date_var.getMonth();
-  var day_var = date_var.getDate();
-  var year_var = date_var.getFullYear();
-  var month_name = spellMonth(month_var);
-  var date_formatted = month_name + " " + day_var + ", " + year_var;
-  el.innerHTML = date_formatted;
+  var d = get_date();
+  el.innerHTML = d;
 }
 const onload_func = function() {
   date_func();

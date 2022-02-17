@@ -1071,8 +1071,8 @@ function grid01b() {
     height01 = height01 / 4;
     var height01px = height01 + "px";
     //alert("alert1 \n\n width " + width01 + "\n\n height " + height01);
-    var style01 = "style=\"width: " + width01px + "; height: " + height01px + 
-    "; background-color: black; opacity: .7; border: 0px dotted gray; position: absolute; margin: 0px; padding: 0px; z-index: 2;";
+    var style01 = "style=\"width: " + width01px + "; height: " + height01px
+    + "; background-color: black; opacity: .7; border: 0px dotted gray; position: absolute; margin: 0px; padding: 0px; z-index: 2;";
     //(width01 / 10) * 4;  add 40 + 1 = 41 because I want the id to start with i = 1, verus i = 0 which would make the id be : 
     //"id = gridCell00;" whereas, as I said, I want the id to start at the number 1, not at the number 0.
     length01 = 41; 
@@ -1130,8 +1130,9 @@ alert("1");
     height01 = height01 / 4;
     var height01px = height01 + "px";
     //alert("alert1 \n\n width " + width01 + "\n\n height " + height01);
-    var style01 = "style=\"width: " + width01px + "; height: " + height01px + 
-    "; background-color: black; opacity: .7; border: 0px dotted gray; position: absolute; margin: 0px; padding: 0px; z-index: 2;";
+    var style01 = "style=\"width: " + width01px + "; height: "
+    + height01px
+    + "; background-color: black; opacity: .7; border: 0px dotted gray; position: absolute; margin: 0px; padding: 0px; z-index: 2;";
     //(width01 / 10) * 4;  add 40 + 1 = 41 because I want the id to start with i = 1, verus i = 0 which would make the id be : 
     //"id = gridCell00;" whereas, as I said, I want the id to start at the number 1, not at the number 0.
     length01 = 41; 
@@ -1234,9 +1235,8 @@ function appendAttempt01(grid01html) {
 //  document.getElementById("t001").value = elements01;
 
     var style01 = "style=\"border: 0px solid yellow; background-color: transparent; z-index: 3; position: absolute;\"";
-    var newDiv01 = "<div id=\"door01rotater\" style=\"border: 0px solid orange; position: absolute; z-index: 2;\"><div id=\"door01\" " + style01 + ">" + elements01 + 
-
-"</div></div>";
+    var newDiv01 = "<div id=\"door01rotater\" style=\"border: 0px solid orange; position: absolute; z-index: 2;\"><div"
+    + " id=\"door01\" " + style01 + ">" + elements01 + "</div></div>";
     grid01html = gridPart01 + newDiv01 + gridPart02  + gridPart03;
     document.getElementById("block01").innerHTML = grid01html;
 //document.getElementById("t001").value = grid01html;
@@ -1417,15 +1417,12 @@ function gridStyleChange01(x01) {
 //gridCell0" + i; where i = 1, and the length = 41, so 40 grid cells
 //    for(i = 1; i < length01; i++) {
     if(i >= 41) {
-        document.getElementById("p301").innerHTML = "Education upgrade: training for effective rates of behavior is a skill used to accomplish productive workforce 
-
-operations. Did you know that the absence of considerations of alternatives will yield an effective rate of behavior up to the rate of infinite speed? The presence of 
-
-reconsiderations, prior to implementation of initial thoughts, is the only hindrance to speed, learning, and bodily motion abilities.<br><br>Wondering = slow. Deciding 
-
-without reconsidering = fast. Never think about something more than once before acting on the idea. If you ommit reconsiderations, you will be fast, even up to the 
-
-rate of infinite speed. It's true.";
+        document.getElementById("p301").innerHTML = "Education upgrade: training for effective rates of behavior is a skill"
+        + " used to accomplish productive workforce operations. Did you know that the absence of considerations of alternatives"
+        + " will yield an effective rate of behavior up to the rate of infinite speed? The presence of reconsiderations, prior to"
+        + " implementation of initial thoughts, is the only hindrance to speed, learning, and bodily motion abilities.<br><br>"
+        + "Wondering = slow. Deciding without reconsidering = fast. Never think about something more than once before acting on the"
+        + " idea. If you ommit reconsiderations, you will be fast, even up to the rate of infinite speed. It's true.";
         var el02 = document.getElementById("text301");
         var el03 = document.getElementById("button301");
         var el04 = document.getElementById("button302");

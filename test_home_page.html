@@ -321,10 +321,13 @@ alt="Donate with PayPal button" />
 </div>
 </div>
 <script>
+function openForPhoneScreenSize() {
+        window.open("https://glowinggoldenglobe.github.io/page/test_home_page.html", "_top");
+}
 function responsive_design_phone() {
     var w = window.innerWidth;
     var h = window.innerHeight;
-    alert(w + " " + h);
+    //alert(w + " " + h);
     // test if device is a smartphone screen size
     // ref. "Most mobile phones have a device-width of 480px or lower..."
     // ref. http://www.javascriptkit.com
@@ -333,8 +336,11 @@ function responsive_design_phone() {
         //  device has a smartphone screen size
         var el_1 = document.getElementById("menu_bar_id_02");
         var el_2 = document.getElementById("content_text_id_01");
-        el_1.style.display = "none";
-        el_2.style.display = "none";
+        //el_1.style.display = "none";
+        //el_2.style.display = "none";
+        setTimeout(openForPhoneScreenSize(), 3000);
+    }else{
+        return null;
     }
 }
 responsive_design_phone();
@@ -352,19 +358,19 @@ function openPage7() {
     window.open("https://glowinggoldenglobeportfolio.godaddysites.com/page-7/", "_top");
 }
 function openPage8() {
-    window.open("https://richard338.github.io/repository1/AbsoluteValuesControl.html", "_top");
+    window.open("https://GlowingGoldenGlobe.github.io/page/AbsoluteValuesControl.html", "_top");
 }
 function openPage9() {
-    window.open("https://richard338.github.io/repository1/WhatYouMustDo.html", "_top");
+    window.open("https://GlowingGoldenGlobe.github.io/page/WhatYouMustDo.html", "_top");
 }
 function openPage10() {
-    window.open("https://richard338.github.io/repository1/RecordingMemoryProducesOperations.html", "_top");
+    window.open("https://GlowingGoldenGlobe.github.io/page/RecordingMemoryProducesOperations.html", "_top");
 }
 function openPage11() {
-    window.open("https://richard338.github.io/repository1/UniversalObjectivesSummary.html", "_top");
+    window.open("https://GlowingGoldenGlobe.github.io/page/UniversalObjectivesSummary.html", "_top");
 }
 function openPage12() {
-    window.open("https://richard338.github.io/repository1/ASI_Funding.html", "_top");
+    window.open("https://GlowingGoldenGlobe.github.io/page/ASI_Funding.html", "_top");
 }
 function openContactPage() {
     window.open("https://glowinggoldenglobeportfolio.godaddysites.com/contact-us/", "_top");

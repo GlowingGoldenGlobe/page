@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <title>GlowingGoldenGlobe</title>
-</head>
-<body>
+
 <style>
 body {
-  background-color: black;
+  background-color: white;
   width: 100%;
   height: 2300px;
   overflow: scroll;
@@ -15,22 +14,25 @@ body {
   padding: 0;
 }
 div {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   width: 100%;
   margin: 0;
 }
 .div01class01 {
-  width: 18%;
+  background-color: white;
+  width: 100%;
   height: 100%;
-  padding-left: 0;
-  margin: 0% 0% 0% 3%;
+  vertical-align: top;
+  margin: 0% 0% 0% 0%;
+  padding-left: 3%;
   border: 0px solid white;
+  z-index: -2;
 }
 .pClass02 {
   background-color: white;
   color: black;
-  font-size: 16px;
+  font-size: x-large;
   text-align: justify;
   text-justify: inter-word;
   margin: 0;
@@ -38,17 +40,17 @@ div {
   box-shadow: 1px 2px 2px 2px ;
 }
 .divClass01 {
-  background-color: black;
-  width: 97%;
-  height: 4%;
-  padding: 5px 20px 5px 5px;
+  background-color: white;
+  width: 100%;
+  height: 2%;
+  padding: 20px 20px 5px 5px;
   text-align: right;
 }
 .divClass02 {
-  width: 56%;
+  width: 96%;
   position: absolute; 
-  top: 10%;
-  left: 22%;
+  top: 460px;
+  left: 2%;
 }
 .divClass03 {
   background-color: transparent;
@@ -62,15 +64,24 @@ div {
   padding: 20px; 
 }
 .bIdClass01 {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
+  font-size: 24px;
   border: 0px solid white;
   cursor: pointer;
+  z-index: 1;
 }
 .bIdClass01:hover {
-  background-color: black;
+  background-color: white;
   color: gray;
   border: 0px solid white;
+}
+.bIdClass02 {
+  background-color: white;
+  color: black;
+  font-size: 24px;
+  border: 0px solid white;
+  cursor: pointer;
 }
 .buttonClass01 {
   background-color: default;
@@ -96,74 +107,101 @@ div {
   cursor: pointer;
 }
 .buttonClass03 {
-  background-color: default;
-  width: 95%;
-  height: 100px;
-  margin-top: 10%;
+  background-color: white;
+  width: 17%;
+  height: 200px;
+  margin-top: 220px;
   border: default;
   color: default;
   font-size: default;
   word-wrap: normal;
   overflow: hidden;
+  position: absolute;
+  top: 30px;
   border: 3px outset gold;
   box-shadow: 2px 1px 42px 1px white;
   cursor: pointer;
 }
-</style>
+</style>  
+</head>
+<body>
 <div id="divId01" class="divClass01" >
-<input type="button" class="bIdClass01" value="Home" onclick="openHomePage()" />
-<!--<input type="button" class="bIdClass01" value="Simulation" onclick="openPage2()" />-->
-<input type="button" class="bIdClass01" value="Absolute Value Thoughts" onclick="openPage8()" />
-<input type="button" class="bIdClass01" value="Contact Us" onclick="openContactPage()" />
+  <input type="button" class="bIdClass01" value="Contact Us" onclick="openContactPage()" />
 </div>
+  <div style="width: 70%; height: auto; text-align: left; padding: 20px 20px 5px 5px; position: absolute; top: 0;" >
+    <input type="text" class="bIdClass02" value="Glowing Golden Globe" />
+    <br>
+    <p type="text" class="bIdClass02" >
+      <span style="margin: 0px 10px 0px 5px" >Immortality</span>
+<br>
+      <span style="margin: 0px 10px 0px 5px" >Eternal Paradise Simulations</span>
+<br>
+      <span style="margin: 0px 10px 0px 5px" >Artificial Super Intelligence (ASI)</span>
+<br>
+      <span style="margin: 0px 10px 0px 5px" >ASI Humanoid Workforce Robots</span>
+<br>
+      <span style="margin: 0px 10px 0px 5px" >Vastly Improve Global Products and Infrastructure</span>
+    </p>
+  </div>
 <!--buttons: beginning of buttons section div element-->
 <div id="menu_bar_id_02" class="div01class01" >
 <!-- buttons: section header -->
-<h3>Richard Craddock</h1>
-<!--button 1-->
+<!--
+<style>
+h3 {
+  color: white; 
+  font-family: "Times New Roman", Times, serif; 
+  font-weight: bold; 
+  white-space: nowrap;
+  margin: 25px 0px 0px 0px;
+  padding: 0;
+}
+</style>
+<h3>Richard Craddock</h3>--><!--
+--><!--button 1-->
 <!--<input type="button" class="buttonClass01" value="Simulation" onclick="page2()" />-->
-<!--button 2-->
-<div>
-  <button class="buttonClass03" onclick="openPage9()" >
+<!--button 2--><!--
+--><div style="display: inline;" ><!--
+  --><button class="buttonClass03" style="left: 3%;" onclick="openPage9()" >
     <span style="font-size: small;" >To Do List</span> 
     <br>
-    <span style="font-size: 16px;" >What You Must Do</span>
+    <span style="font-size: 26px;" >What You Must Do</span>
     <br>
     <span style="color: grey; font-size: small;" ><i>For All People</i></span> 
   </button>
-</div>
-<!--button 3-->
-<div>
-  <button class="buttonClass03" onclick="openPage8()" >
+</div><!--
+--><!--button 3--><!--
+--><div style="display: inline;" ><!--
+  --><button class="buttonClass03" style="left: 22%;" onclick="openPage8()" >
     <span style="font-size: small;" >Education</span> 
     <br>
-    <span style="font-size: 16px;" >Absolute Value Thoughts</span>
+    <span style="font-size: 26px;" >Absolute Value Thoughts</span>
     <br>
     <span style="color: grey; font-size: small;" ><i>Super-human Abilities</i></span> 
-  </button>
-</div>
+  </button><!--
+--></div>
 <!--button 4-->
-<div>
-  <button class="buttonClass03" onclick="openPage10()" >
+<div style="display: inline;" >
+  <button class="buttonClass03" style="left: 42%;" onclick="openPage10()" >
     <span style="font-size: small;" >Human Brains</span> 
     <br>
-    <span style="font-size: 16px;" >Recording Memory to Create Effective Production Operations</span>
+    <span style="font-size: 26px;" >Recording Memory to Create Effective Production Operations</span>
   </button>
 </div>
 <!--button 5-->
-<div>
-  <button class="buttonClass03" onclick="openPage11()" >
+<div style="display: inline;" >
+  <button class="buttonClass03" style="left: 62%;" onclick="openPage11()" >
     <span style="font-size: small;" >Summary</span> 
     <br>
-    <span style="font-size: 16px;" >Universal Objectives</span>
+    <span style="font-size: 26px;" >Universal Objectives</span>
   </button>
 </div>
 <!--button 6-->
-<div>
-  <button class="buttonClass03" onclick="openPage12()" >
+<div style="display: inline;" >
+  <button class="buttonClass03" style="left: 82%;" onclick="openPage12()" >
     <span style="font-size: small;" >Methods to Fund Artificial Super Intelligence (ASI)</span> 
     <br>
-    <span style="font-size: 16px;" >National and International Funding of an ASI World</span>
+    <span style="font-size: 26px;" >National and International Funding of an ASI World</span>
   </button>
 </div>
 <!--<div style="background-color: transparent; color: transparent; width: 30%; height: 1700px;">-->
@@ -172,7 +210,7 @@ div {
 </div><!--buttons: end of buttons section div element-->
 <div id="content_text_id_01" class="divClass02">
 <div class="divClass03">
-<p style="color: white; font-size: small; line-height: 1.2; margin: 0px 0px 6px 0px;" >Published to the web: 10-21-2021
+<p style="color: black; font-size: small; line-height: 1.2; margin: 0px 0px 6px 0px;" >Published to the web: 10-21-2021
 <br>
 Updated: October 21, 2021
 <br></p>
@@ -181,7 +219,7 @@ Updated: October 21, 2021
 <input type="button" class="buttonClass02" value=" + " onclick="fontIncr()" /><!--
 --><input type="button" class="buttonClass02" value=" - " onclick="fontDecr()" />
 </div>
-<p id="para01" class="pClass02" style="font-size: 16px; padding: 4px;" >
+<p id="para01" class="pClass02" style="font-size: 40px; padding: 4px;" >
   Every individual will have a personal, eternal, paradise, universe environment.
   <br><br>
   AI will build nano material anatomy for every individual into which human conscious, memory and personal 
@@ -206,7 +244,7 @@ nano material anatomy into which conscious can be transferred. Immortality can b
 </div>
 
 <div class="divClass03">
-<p style="color: white; font-size: small; line-height: 1.2; margin: 0px 0px 6px 0px;" >Published to the web: 10-16-2021
+<p style="color: black; font-size: small; line-height: 1.2; margin: 0px 0px 6px 0px;" >Published to the web: 10-16-2021
 <br>
 Updated: October 16, 2021
 <br></p>
@@ -215,7 +253,7 @@ Updated: October 16, 2021
 <input type="button" class="buttonClass02" value=" + " onclick="fontIncr()" /><!--
 --><input type="button" class="buttonClass02" value=" - " onclick="fontDecr()" />
 </div>
-<p id="para02" class="pClass02" style="font-size: 16px; padding: 4px;" >
+<p id="para02" class="pClass02" style="font-size: 40px; padding: 4px;" >
 
 1. One World Government
 <br><br>
@@ -326,14 +364,13 @@ alt="Donate with PayPal button" />
 </form>
 </div>
   <br><br>
-  <div style="">    
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" 
-     data-type="VERTICAL" data-vanity="richard-craddock-0893027a" data-version="v1">
-    <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/richard-craddock-0893027a?trk=profile-badge">
-    </a>
-    </div>          
-  </div>
+    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark"  data-type="VERTICAL" data-vanity="richard-craddock-0893027a" 
+
+data-version="v1">
+    <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/richard-craddock-0893027a?trk=profile-badge"></a>
+    </div>  
+  <div style="margin-top: 20px;" >&nbsp;</div>
 </div>
 <script>
 function openForPhoneScreenSize() {

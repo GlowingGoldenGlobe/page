@@ -36,7 +36,7 @@ I'm interested in:
   <li>conduct research and development - creating ASI APIs</li>
   <li>build gigafactories to produce micro-robot-composite ASI humanoids</li>
   <li>afterward:<ul>
-    <li>afford themselves the benefit of immortal anatomy</li>
+    <li>be afforded, via ASI R&D, the benefit of immortal anatomy</li>
   <li>implement a full-conscious-immersion simulation of an eternal, paradise, universe environment</li>
     </ul></li>
 </ol>

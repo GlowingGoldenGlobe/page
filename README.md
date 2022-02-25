@@ -44,11 +44,11 @@ I'm interested in:
     </ul></li>
 </ol>
 <b>
-<p style="font-size: 18px;" >
+<h3>
   Methods for Objective Achievement
   <br>
   Some tentative methods for achieveing the objectives, listed above, are as follows:
-</p>
+</h3>
 <ul>
   <li>Each of the 150M humans in the U.S. workforce must: (1) obtain a loan of an amount in the range of $20K to $100K to (2) buy ASI humanoid workforce robots (of type: micro-robot-composite anatomy); (3) receive the income produced by their robots' labors</li>
   <li>Legislation of Requirements for Education and Work:<ul>

@@ -43,3 +43,15 @@ I'm interested in:
   <li>implement a full-conscious-immersion simulation of an eternal, paradise, universe environment</li>
     </ul></li>
 </ol>
+<p>
+  <b>Methods for Objective Achievement<b>
+  <br>
+  Some tentative methods for achieveing the objectives, listed above, are as follows:
+</p>
+<ul>
+  <li>Each of the 150M humans in the U.S. workforce must: (1) obtain a loan of an amount in the range of $20K to $100K to (2) buy ASI humanoid workforce robots (of type: micro-robot-composite anatomy); (3) receive the income produced by their robots' labors</li>
+  <li>Legislation of an Education and Work Requirement:<ul>
+    <li>The U.S. Fed Government must mandate specialized education in advance technology careers, such as: AI machine learning</li>
+  <li>The humans must be taught and understand the significance of the temporariness of the required labors - it will only take 5 to 10 years of directed workforce operations to achieve ultimate freedom of (1) a robot-run economy; (2) acquisition of immortal anatomy; (3) full-conscious-immersion, eternal, paradise environment simulations</li>
+    </ul></li>
+</ul>

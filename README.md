@@ -1,6 +1,6 @@
 <h1>Welcome!</h1>
 <h2>I'm @GlowingGoldenGlobe<h2>
-  <h3>My website is, <a href="https://glowinggoldenglobe.com" location="_blank" >https://glowinggoldenglobe.com</a></h3>
+<h3>My website is, <a href="https://glowinggoldenglobe.com" location="_blank" >https://glowinggoldenglobe.com</a></h3>
 <p>
 I'm interested in: 
 </p>

@@ -55,6 +55,6 @@ I'm interested in:
     <li><h3>The U.S. Fed Government must mandate specialized education in advance technology careers, such as: AI machine learning</h3></li>
   <li><h3>The humans must be taught and understand the significance of the temporariness of the required labors - it will only take 5 to 10 years of directed workforce operations to achieve ultimate freedom of: (1) a robot-run economy; (2) acquisition of immortal anatomy; (3) full-conscious-immersion, eternal, paradise environment simulations</h3></li>
     </ul></li>
-  <li><h3>The U.S. Fed Government must mandate allocation of funds, material resources and human resources toward increasing the rate of research and development of ASI.<</h3>/li>
+  <li><h3>The U.S. Fed Government must mandate allocation of funds, material resources and human resources toward increasing the rate of research and development of ASI.</h3></li>
 </ul>
 </b>

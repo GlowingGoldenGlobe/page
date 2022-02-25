@@ -44,10 +44,7 @@ I'm interested in:
     </ul></li>
 </ol>
 <b>
-<style>
-p, ul {font-size: 18px;}    
-</style>
-<p>
+<p style="font-size: 18px;" >
   Methods for Objective Achievement
   <br>
   Some tentative methods for achieveing the objectives, listed above, are as follows:

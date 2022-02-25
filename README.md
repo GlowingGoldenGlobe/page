@@ -33,7 +33,7 @@ I'm interested in:
   Humans' roles will be to:
 </p>
 <ul>
-  <li>condcut research and development - creating ASI APIs</li>
+  <li>conduct research and development - creating ASI APIs</li>
   <li>build gigafactories to produce micro-robot-composite ASI humanoids</li>
   <li>afterward, afford themselves the benefit of immortal anatomy</li>
   <li>implement a full-conscious-immersion simulation of an eternal, paradise, universe environment</li>

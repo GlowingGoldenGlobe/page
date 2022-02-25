@@ -44,6 +44,9 @@ I'm interested in:
     </ul></li>
 </ol>
 <b>
+<style>
+p, ul {font-size: 18px;}    
+</style>
 <p>
   Methods for Objective Achievement
   <br>

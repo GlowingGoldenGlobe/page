@@ -12,4 +12,18 @@ I'm interested in:
   <li>Immortality; Innovation; Robust Economy</li>
   <li>ASI Regulation Enforcement</li>
   <li>Mandating Specialized Education for Increasing the Rate of Research and Development of Advance Technology</li>
+  <li>ASI security control via full utilization and modification power of the elments and parts of the cosmos</li>
+  <li>New, advance, innovative, efficient, ultimate looking infrastructure</li>
+</ul>
+<p>
+  <b>ASI (artificial super intelligence)</b>
+  <br>
+  ASI humanoid workforce robots will conduct:
+</p>
+<ul>
+  <li>mining</li>
+  <li>manufacturing</li>
+  <li>workforce operations</li>
+  <li>service operations</li>
+  <li>research and development</li>
 </ul>

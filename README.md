@@ -56,7 +56,7 @@ I'm interested in:
   <li><h3>The humans must be taught and understand the significance of the temporariness of the required labors - it will only take 5 to 10 years of directed workforce operations to achieve ultimate freedom of: (1) a robot-run economy; (2) acquisition of immortal anatomy; (3) full-conscious-immersion, eternal, paradise environment simulations</h3></li>
     </ul></li>
   <li><h3>The U.S. Fed Government must mandate allocation of funds, material resources and human resources toward increasing the rate of research and development of ASI.</h3></li>
-  <li>Mandate cessation of missallocation of funds, metarials and human resources</li>
+  <li>Mandate cessation of missallocation of funds, metarials and human resources. Examples of operations to be ceased: sports; pastry stores; music careers; superfluous restaurants</li>
   <li>Direct high school graduates to choose degree options from a list of needed degree paths of higher education; especially, direct the majority of students to choose a computer science degree</li>
 </ul>
 </b>

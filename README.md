@@ -57,6 +57,6 @@ I'm interested in:
     </ul></li>
   <li><h3>The U.S. Fed Government must mandate allocation of funds, material resources and human resources toward increasing the rate of research and development of ASI.</h3></li>
   <li>Mandate cessation of missallocation of funds, metarials and human resources. Examples of operations to be ceased: sports; pastry stores; music careers; superfluous restaurants</li>
-  <li>Direct high school graduates to choose degree options from a list of needed degree paths of higher education; especially, direct the majority of students to choose a computer science degree</li>
+  <li>Direct high school graduates to choose degree options from a list of needed degree paths of higher education; especially, direct the majority of students to choose a computer science degree of AI/ML</li>
 </ul>
 </b>

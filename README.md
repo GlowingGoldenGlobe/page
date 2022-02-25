@@ -30,7 +30,7 @@ I'm interested in:
 <p>
   <b>Humans</b>
   <br>
-  Humans roles will be to:
+  Humans' roles will be to:
 </p>
 <ul>
   <li>condcut research and development - creating ASI APIs</li>

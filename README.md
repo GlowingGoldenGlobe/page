@@ -26,6 +26,9 @@ I'm interested in:
   <li>workforce operations</li>
   <li>service operations</li>
   <li>research and development</li>
+  <li>city planning and building</li>
+  <li>space travel</li>
+  <li>longjevity security - full control of the elements and parts of the cosmos</li>
 </ul>
 <p>
   <b>Humans</b>

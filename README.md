@@ -51,10 +51,10 @@ I'm interested in:
 </h3>
 <ul>
   <li><h3>Each of the 150M humans in the U.S. workforce must: (1) obtain a loan of an amount in the range of $20K to $100K to (2) buy ASI humanoid workforce robots (of type: micro-robot-composite anatomy); (3) receive the income produced by their robots' labors</h3></li>
-  <li>Legislation of Requirements for Education and Work:<ul>
-    <li>The U.S. Fed Government must mandate specialized education in advance technology careers, such as: AI machine learning</li>
-  <li>The humans must be taught and understand the significance of the temporariness of the required labors - it will only take 5 to 10 years of directed workforce operations to achieve ultimate freedom of: (1) a robot-run economy; (2) acquisition of immortal anatomy; (3) full-conscious-immersion, eternal, paradise environment simulations</li>
+  <li><h3>Legislation of Requirements for Education and Work:</h3><ul>
+    <li><h3>The U.S. Fed Government must mandate specialized education in advance technology careers, such as: AI machine learning</h3></li>
+  <li><h3>The humans must be taught and understand the significance of the temporariness of the required labors - it will only take 5 to 10 years of directed workforce operations to achieve ultimate freedom of: (1) a robot-run economy; (2) acquisition of immortal anatomy; (3) full-conscious-immersion, eternal, paradise environment simulations</h3></li>
     </ul></li>
-  <li>The U.S. Fed Government must mandate allocation of funds, material resources and human resources toward increasing the rate of research and development of ASI.</li>
+  <li><h3>The U.S. Fed Government must mandate allocation of funds, material resources and human resources toward increasing the rate of research and development of ASI.<</h3>/li>
 </ul>
 </b>

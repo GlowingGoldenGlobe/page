@@ -43,8 +43,9 @@ I'm interested in:
   <li>implement a full-conscious-immersion simulation of an eternal, paradise, universe environment</li>
     </ul></li>
 </ol>
+<b>
 <p>
-  <b>Methods for Objective Achievement<b>
+  Methods for Objective Achievement
   <br>
   Some tentative methods for achieveing the objectives, listed above, are as follows:
 </p>
@@ -55,3 +56,4 @@ I'm interested in:
   <li>The humans must be taught and understand the significance of the temporariness of the required labors - it will only take 5 to 10 years of directed workforce operations to achieve ultimate freedom of: (1) a robot-run economy; (2) acquisition of immortal anatomy; (3) full-conscious-immersion, eternal, paradise environment simulations</li>
     </ul></li>
 </ul>
+</b>

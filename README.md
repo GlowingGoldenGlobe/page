@@ -27,3 +27,14 @@ I'm interested in:
   <li>service operations</li>
   <li>research and development</li>
 </ul>
+<p>
+  <b>Humans</b>
+  <br>
+  Humans roles will be to:
+</p>
+<ul>
+  <li>condcut research and development - creating ASI APIs</li>
+  <li>build gigafactories to produce micro-robot-composite ASI humanoids</li>
+  <li>afterward, afford themselves the benefit of immortal anatomy</li>
+  <li>implement a full-conscious-immersion simulation of an eternal, paradise, universe environment</li>
+</ul>

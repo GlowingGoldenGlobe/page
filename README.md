@@ -2,8 +2,13 @@
 <h2>I'm @GlowingGoldenGlobe<h2>
 <p>
 I'm interested in: 
-  </p>
-  <ul>
-    <li>Artificial Super Intelligence</li>
-      <li>Super Intelligent Humanoid Workforce Robots</li>
-  </ul>Transfer of Conscious to New Nano Material Anatomy; Full-Deliberative-Control, Paradise-Universe-Environment Simulations; Immortality; Innovation; Robust Economy; ASI Regulation Enforcement; Mandating Specialized Education for Increasing the Rate of Research and Development of Advance Technology
+</p>
+<ul>
+  <li>Artificial Super Intelligence</li>
+  <li>Super Intelligent Humanoid Workforce Robots</li>
+  <li>Transfer of Conscious to New Nano Material Anatomy</li>
+  <li>Full-Deliberative-Control, Paradise-Universe-Environment Simulations</li>
+  <li>Immortality; Innovation; Robust Economy</li>
+  <li>ASI Regulation Enforcement</li>
+  <li>Mandating Specialized Education for Increasing the Rate of Research and Development of Advance Technology</li>
+</ul>

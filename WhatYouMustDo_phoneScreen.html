@@ -404,7 +404,31 @@ chemical warfare
 <div id="div_footer_03" ><p>&nbsp;</p></div>
 <p id="saveData_01" class="hidden_01">0</p>
 <script>
-function onloadFunction() {
+function openForPhoneScreenSize() {
+        window.open("https://glowinggoldenglobe.github.io/page/WhatYouMustDo_phoneScreen.html", "_top");
+}
+function responsive_design_phone() {
+  alert("1");
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    //alert(w + " " + h);
+    // test if device is a smartphone screen size
+    // ref. "Most mobile phones have a device-width of 480px or lower..."
+    // ref. http://www.javascriptkit.com
+    var num = Number(w);
+    if(num <= 700) {lert("true phone screen is on!");
+        //  device has a smartphone screen size
+        //var el_1 = document.getElementById("menu_bar_id_02");
+        //var el_2 = document.getElementById("content_text_id_01");
+        //el_1.style.display = "none";
+        //el_2.style.display = "none";
+        setTimeout(openForPhoneScreenSize(), 3000);
+    }else{
+        return null;
+    }
+}
+function onloadFunction() {lert("onload f()");
+    responsive_design_phone();
     var el = document.getElementById("texatrea_id_01");
     var val = el.value;
     //val = val.replaceAll("\n\n+", "");

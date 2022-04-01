@@ -416,7 +416,7 @@ function responsive_design_phone() {
     // ref. "Most mobile phones have a device-width of 480px or lower..."
     // ref. http://www.javascriptkit.com
     var num = Number(w);
-    if(num <= 700) {lert("true phone screen is on!");
+    if(num <= 700) {alert("true phone screen is on!");
         //  device has a smartphone screen size
         //var el_1 = document.getElementById("menu_bar_id_02");
         //var el_2 = document.getElementById("content_text_id_01");
@@ -427,7 +427,7 @@ function responsive_design_phone() {
         return null;
     }
 }
-function onloadFunction() {lert("onload f()");
+function onloadFunction() {alert("onload f()");
     responsive_design_phone();
     var el = document.getElementById("texatrea_id_01");
     var val = el.value;

@@ -405,10 +405,9 @@ chemical warfare
 <p id="saveData_01" class="hidden_01">0</p>
 <script>
 function openForPhoneScreenSize() {
-        window.open("https://glowinggoldenglobe.github.io/page/WhatYouMustDo_phoneScreen.html", "_top");
+        window.open("https://glowinggoldenglobe.github.io/page/WhatYouMustDo.html", "_top");
 }
 function responsive_design_phone() {
-  alert("1");
     var w = window.innerWidth;
     var h = window.innerHeight;
     alert(w + " " + h);
@@ -416,22 +415,22 @@ function responsive_design_phone() {
     // ref. "Most mobile phones have a device-width of 480px or lower..."
     // ref. http://www.javascriptkit.com
     var num = Number(w);
-    alert(num + " " + typeof num);
+    //  alert(num + " " + typeof num);
       var device_type = window.navigator.userAgent;
-      alert("device type \n\n " + device_type);
+      //  alert("device type \n\n " + device_type);
     if(num <= 1150) {
         //  device has a smartphone screen size
         device_type = device_type.toLowerCase();
         if(device_type.search("mobi") >= 0) {
-            setTimeout(openForPhoneScreenSize(), 3000);
+            return null;
         }else{
           return null;
         }
     }else{
-        return null;
+        setTimeout(openForPhoneScreenSize(), 3000);
     }
 }
-function onloadFunction() {alert("onload f()");
+function onloadFunction() {
     responsive_design_phone();
     var el = document.getElementById("texatrea_id_01");
     var val = el.value;

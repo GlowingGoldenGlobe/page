@@ -418,13 +418,12 @@ function responsive_design_phone() {
     var num = Number(w);
     alert(num + " " + typeof num);
     if(num <= 1150) {
-      alert("true phone screen is on!");
+      var device_type = window.navigator.userAgent;
+      alert("true phone screen is on! " + device_type);
         //  device has a smartphone screen size
-        //var el_1 = document.getElementById("menu_bar_id_02");
-        //var el_2 = document.getElementById("content_text_id_01");
-        //el_1.style.display = "none";
-        //el_2.style.display = "none";
-        setTimeout(openForPhoneScreenSize(), 3000);
+        if(device_type == "phone" || device_type == "tablet") {
+            setTimeout(openForPhoneScreenSize(), 3000);
+        }
     }else{
         return null;
     }

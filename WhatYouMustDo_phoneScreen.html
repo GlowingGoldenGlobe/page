@@ -68,7 +68,7 @@ body {
 }
 .b_class_01 {
   background-color: white;
-  color: darkblue;
+  color: black;
   width: auto;
   height: auto;
   font-family: "Times New Roman", serif;
@@ -470,6 +470,7 @@ function hide_header() {
         document.getElementById("header_id").style.width = "90%";
         document.getElementById("header_id").style.height = "auto";
         document.getElementById("button_id_01").value = "Hide";
+        document.getElementById("button_id_01").style.borderColor = "blue";
         document.getElementById("div_display_01").style.opacity = ".6";
         document.getElementById("div_display_02").style.opacity = ".6";
       saveData.innerHTML = 0;
@@ -488,6 +489,7 @@ function animate_header() {
     var val_2 = Number(75);
     if(num >= val) {
         document.getElementById("button_id_01").value = "Show";
+        document.getElementById("button_id_01").style.borderColor = "grey";
         document.getElementById("header_id").style.height = "65px";
         saveData.innerHTML = 1;
         return null;

@@ -410,18 +410,22 @@ function openForPhoneScreenSize() {
 function responsive_design_phone() {
     var w = window.innerWidth;
     var h = window.innerHeight;
-    //alert(w + " " + h);
+    //  alert(w + " " + h);
     // test if device is a smartphone screen size
     // ref. "Most mobile phones have a device-width of 480px or lower..."
     // ref. http://www.javascriptkit.com
     var num = Number(w);
-    if(num <= 700) {
+    //  alert(num + " " + typeof num);
+      var device_type = window.navigator.userAgent;
+      //  alert("device type \n\n " + device_type);
+    if(num <= 1150) {
         //  device has a smartphone screen size
-        //var el_1 = document.getElementById("menu_bar_id_02");
-        //var el_2 = document.getElementById("content_text_id_01");
-        //el_1.style.display = "none";
-        //el_2.style.display = "none";
-        setTimeout(openForPhoneScreenSize(), 3000);
+        device_type = device_type.toLowerCase();
+        if(device_type.search("mobi") >= 0) {
+            setTimeout(openForPhoneScreenSize(), 3000);
+        }else{
+          return null;
+        }
     }else{
         return null;
     }

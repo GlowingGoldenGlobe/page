@@ -417,12 +417,15 @@ function responsive_design_phone() {
     // ref. http://www.javascriptkit.com
     var num = Number(w);
     alert(num + " " + typeof num);
-    if(num <= 1150) {
       var device_type = window.navigator.userAgent;
-      alert("true phone screen is on! " + device_type);
+      alert("device type \n\n " + device_type);
+    if(num <= 1150) {
         //  device has a smartphone screen size
-        if(device_type == "phone" || device_type == "tablet") {
+        device_type = device_type.toLowerCase();
+        if(device_type.search("mobi") >= 0) {
             setTimeout(openForPhoneScreenSize(), 3000);
+        }else{
+          return null;
         }
     }else{
         return null;

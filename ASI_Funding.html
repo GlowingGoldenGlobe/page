@@ -44,7 +44,7 @@ body {
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   font-family: "Times New Roman", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   letter-spacing: .75px;
   font-weight: normal;
   text-shadow: .2px .2px .2px black;
@@ -58,7 +58,20 @@ body {
   margin: 0px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
   font-family: "Times New Roman", sans-serif;
-  font-size: 16px;
+  font-size: 20px;
+  letter-spacing: .75px;
+  font-weight: normal;
+  text-shadow: .2px .2px .2px black;
+  position: absolute;
+  top: auto;
+  left: 10%;
+}
+.output_class_03 {
+  background-color: transparent;
+  margin: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  font-family: "Times New Roman", sans-serif;
+  font-size: 20px;
   letter-spacing: .75px;
   font-weight: normal;
   text-shadow: .2px .2px .2px black;
@@ -164,6 +177,11 @@ body {
 <p>
 <b>ASI Funding Methods</b>
 </p>
+</div>
+<div id="methods_primary_method" >
+<!--  Here is the general concept of how to fund robots for the workforce  -  it's pretty much the same way you fund your automobile, but easier.  -->
+<iframe src="https://glowinggoldenglobe.github.io/page/Robots.html" title="Robots">
+</iframe>
 </div>
 <div id="methods_contents" >
 <p>
@@ -378,14 +396,14 @@ are mentioned as tentative ideas, not as news of current events.
 </div>
 <div id="div_id_02" class="div_class_02" >
   <input id="button_id_01" type="button" class="button_class_03" value="1 of 8" onclick="#" />
-<img src="left arrow_green.jpg" alt=">>" width="50%" height="50%" style="position: absolute; top: 50%; left: 0; z-index: 3;" >
+<img src="https://glowinggoldenglobe.github.io/page/left%20arrow_green.jpg" alt=">>" width="50%" height="50%" style="position: absolute; top: 50%; left: 0; z-index: 3;" >
   <input type="button" class="button_class_01" value="" onclick="onclick_01()" />
-<img src="right arrow_green.jpg" alt=">>" width="50%" height="50%" style="position: absolute; top: 50%; left: 50%; z-index: 3;" >
+<img src="https://glowinggoldenglobe.github.io/page/right%20arrow_green.jpg" alt=">>" width="50%" height="50%" style="position: absolute; top: 50%; left: 50%; z-index: 3;" >
   <input type="button" class="button_class_02" value="" onclick="onclick_02()" />
 </div>
 <p id="paragraph_saveData_01" class="hidden_class" >0</p>
 <p id="paragraph_saveData_02" class="hidden_class" >0</p>
-<p id="paragraph_saveData_03" class="hidden_class" >0</p>
+<p id="paragraph_saveData_03" class="hidden_class" >70</p>
 <textarea id="textarea_saveData_03" class="hidden_class" style="border: 0px solid black; outline: none;" >0</textarea>
 <p id="paragraph_saveData_04" class="hidden_class" >0</p>
 <!--<p id="p_test" ></p>-->
@@ -761,7 +779,7 @@ const animate_text_02 = function () {
             split_3 = replace_1.split("#>#");
             str_4 = split_3[1];
             o_div = "<div id=\"display_div_01\" class=\"output_class_01\" style=\"opacity: 0;\" >";
-            output = o_div + str_4 + "</div>";
+            output = o_div + str_4 + "</div>" + "<iframe id=\"iframe_id_robots_phoneView\" class=\"output_class_03\" src=\"https://glowinggoldenglobe.github.io/page/Robots_phoneView.html\" title=\"Robots\" width=\"80%\" height=\"150%\" style='background-color: transparent; margin-top:15%;border:0px solid transparent;'></iframe>";
         }
         if(num_page == 4) {
 //  method_1
@@ -829,14 +847,30 @@ const animate_text_02 = function () {
     num_count_to_animate = Number(num_count_to_animate);
     num_count_to_animate = (num_count_to_animate - 1);
     saveNum.innerHTML = num_count_to_animate; 
-    if(num_page != 8) {
+    if(num_page != 8 && num_page != 3) {
         el_display.style.height = "60%";
+        el_display.style.overflow = "none";
+    }
+    else if(num_page == 3) {
+    //  iframe_id_robots_phoneView
+        if(num_count_to_animate == 69) {
+            var height_3 = get_height_3();
+            var height_3_px = height_3 + "px";
+            el_display.style.height = height_3_px;
+            el_display.style.overflow = "none";
+        }else{
+          var x_null = "";
+        }
     }
     else if(num_page == 8) {
-        var height_1 = get_height_1();
-        var height_px = height_1 + "px";
+        if(num_count_to_animate == 69) {
+            var height_1 = get_height_1();
+            var height_px = height_1 + "px";
 //alert(height_px);
-        el_display.style.height = height_px;
+            el_display.style.height = height_px;
+        }else{
+            var x_null_2 = "";
+        }
     }
 //  i left off here [_________here________]
 /*  test
@@ -847,6 +881,7 @@ document.body.innerHTML +=
 return null;
 */
     if(num_count_to_animate <= 0) {
+        saveNum.innerHTML = "70";
         return null;
     }
     var val = ""; 
@@ -899,7 +934,15 @@ const page_onclick = function() {
 //  return page number selected by user
         return new_val;
 }
-const  get_height_1 = function () {
+const get_height_3 = function () {
+    var el = document.getElementById("iframe_id_robots_phoneView");
+    var el_height = el.clientHeight;
+    var num = Number(el_height);
+    num = (num + 0);
+    el_height = num; 
+    return el_height;
+}
+const get_height_1 = function () {
     var el = document.getElementById("display_div_01");
     var el_height = el.clientHeight;
     var num = Number(el_height);

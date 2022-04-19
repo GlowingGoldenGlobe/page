@@ -149,7 +149,7 @@ function function_next() {
     new_el.src = "https://glowinggoldenglobe.github.io/page/Robots_Page_2.html";
     new_el.title = "Robots_Page_2";
     new_el.className = "class_iframe_1";
-    new_el.onload = "iframe_dimensions()";
+    new_el.onload = function() { iframe_dimensions(); };
     var el_1 = document.getElementById("id_div_all_bodyElement_content");
     el_1.innerHTML = "";
     el_1.appendChild(new_el);

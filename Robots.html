@@ -141,15 +141,32 @@ h1 {
 </div>
 </div>
 </div><!--  id="id_div_all_bodyElement_content"  -->
+<div style="display: none;">
+  <p id="id_page_number" >1</p>  
+</div>
 <script>
 function function_next() {
 //  var var_iframe = "<iframe src="https://glowinggoldenglobe.github.io/page/Robots_Page_2.html" title="Robots_Page_2" ></iframe>";
     var new_el = document.createElement("iframe");
     new_el.id = "id_iframe_1";
-    new_el.src = "https://glowinggoldenglobe.github.io/page/Robots_Page_2.html";
     new_el.title = "Robots_Page_2";
     new_el.className = "class_iframe_1";
     new_el.onload = function() { iframe_dimensions(); };
+    var str_page_number = page_number();
+    var num_page_number = Number(str_page_number);
+    num_next_page_number = (num_page_number + 1);
+    var el_page_number = document.getElementById("id_page_number");
+    if(num_next_page_number == 1) {
+        new_el.src = "https://glowinggoldenglobe.github.io/page/Robots_Page_1.html";  
+        el_1.innerHTML = num_next_page_number;
+    }
+    else if(num_next_page_number == 2) {
+        new_el.src = "https://glowinggoldenglobe.github.io/page/Robots_Page_2.html"; 
+        el_1.innerHTML = num_next_page_number; 
+    }
+    else if(num_next_page_number >= 3) {
+       return null; 
+    }
     var el_1 = document.getElementById("id_div_all_bodyElement_content");
     el_1.innerHTML = "";
     el_1.appendChild(new_el);
@@ -165,6 +182,7 @@ function iframe_dimensions() {
     if(test01 == -1) {
         var num_w = Number(w01);
         num_w = num_w * 0.99;
+        num_w = num_w - 2;
         var new_w = num_w.toString() + "px";
         w01 = w01 + "px";
         h01 = h01 + "px";
@@ -172,9 +190,15 @@ function iframe_dimensions() {
     var el_1 = document.getElementById("id_iframe_1");
     document.body.style.width = w01;    
     document.body.style.height = h01;   
-//    document.body.style.overflow = "none";
+    document.body.style.overflow = "none";
     el_1.style.width = new_w;
     el_1.style.height = h01;
+}
+const page_number = function() {
+    var el_1 = document.getElementById("id_page_number");
+    var str_page_number = el_1.innerHTML;
+//  var num_page_number = Number(str_page_number);
+    return str_page_number;
 }
 </script>
 </body>

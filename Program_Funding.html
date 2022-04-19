@@ -783,7 +783,6 @@ const animate_text_02 = function () {
             str_4 = split_3[1];
             o_div = "<div id=\"display_div_01\" class=\"output_class_01\" style=\"opacity: 0;\" >";
             output = o_div + str_4 + "</div>";
-            alert(output);
         }
         if(num_page == 4) {
 //  method_1
@@ -845,9 +844,7 @@ const animate_text_02 = function () {
             o_div = "<div id=\"display_div_01\" class=\"output_class_02\" style=\"opacity: 0;\" >";
             output = o_div + str_4 + "</div>";
         }
-        alert("before");
         el_display.innerHTML = output;
-        alert("after");
     }
     var num_count_to_animate = saveNum.innerHTML;
     num_count_to_animate = Number(num_count_to_animate);

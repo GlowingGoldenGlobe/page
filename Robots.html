@@ -133,7 +133,16 @@ h1 {
 </div>
 </div><!--  id="id_div_all_bodyElement_content"  -->
 <script>
-  
+function function_next() {
+//  var var_iframe = "<iframe src="https://glowinggoldenglobe.github.io/page/Robots_Page_2.html" title="Robots_Page_2" ></iframe>";
+    var new_el = document.createElement("iframe");
+    new_el.id = "id_iframe_1";
+    new_el.src = "https://glowinggoldenglobe.github.io/page/Robots_Page_2.html";
+    new_el.title = "Robots_Page_2";
+    var el_1 = document.getElementById("id_div_all_bodyElement_content");
+    el_1.innerHTML = "";
+    el_1.appendChild(new_el);
+}
 </script>
 </body>
 </html>

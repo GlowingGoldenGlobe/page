@@ -163,16 +163,17 @@ function iframe_dimensions() {
     var test01 = h01.search("px");
     test01 = Number(test01);
     if(test01 == -1) {
-        var num = Number(w01);
-        num = num * 0.99;
+        var num_w = Number(w01);
+        num_w = num_w * 0.99;
+        var new_w = num_w.toString() + "px";
         w01 = w01 + "px";
         h01 = h01 + "px";
     }
     var el_1 = document.getElementById("id_iframe_1");
     document.body.style.width = w01;    
     document.body.style.height = h01;   
-    document.body.style.overflow = "none";
-    el_1.style.width = w01;
+//    document.body.style.overflow = "none";
+    el_1.style.width = new_w;
     el_1.style.height = h01;
 }
 </script>

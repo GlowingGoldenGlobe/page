@@ -155,7 +155,22 @@ function function_next() {
     el_1.appendChild(new_el);
 }
 function iframe_dimensions() {
-    alert("called function iframe_dimensions() !"); 
+//    alert("called function iframe_dimensions() !"); 
+    var windowWidth01 = window.innerWidth;
+    var w01 = windowWidth01.toString();
+    var windowHeight01 = window.innerHeight;
+    var h01 = windowHeight01.toString();
+    var test01 = h01.search("px");
+    test01 = Number(test01);
+    if(test01 == -1) {
+        w01 = w01 + "px";
+        h01 = h01 + "px";
+    }
+    var el_1 = document.getElementById("id_iframe_1");
+    //document.body.style.width = w01;    
+    //document.body.style.height = h01;   
+    el_1.style.width = w01;
+    el_1.style.height = h01;
 }
 </script>
 </body>

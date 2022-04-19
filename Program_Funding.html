@@ -774,15 +774,11 @@ const animate_text_02 = function () {
         if(num_page == 3) {
             split_1 = str_1.split("methods_introduction");
             str_2 = split_1[1];
-            alert(str_2);
             split_2 = str_2.split("</div>");
             str_3 = split_2[0];
-            alert(str_3);
             replace_1 = str_3.replace(">", "#>#");
             split_3 = replace_1.split("#>#");
-            alert(split_3);
             str_4 = split_3[1];
-            alert(str_4);
             o_div = "<div id=\"display_div_01\" class=\"output_class_01\" style=\"opacity: 0;\" >";
             output = o_div + str_4 + "</div>";
         }

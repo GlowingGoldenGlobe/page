@@ -157,7 +157,7 @@ function function_back() {
 }
 function function_next(arg_1) {
 //  var var_iframe = "<iframe src="https://glowinggoldenglobe.github.io/page/Robots_Page_2.html" title="Robots_Page_2" ></iframe>";
-    if(arg_1 == undefined) {arg_1 = "";}
+    if(arg_1 == undefined || arg_1 == "" || arg_1 = null) {arg_1 = "";}
     var str_arg_1 = arg_1.toString();
     var result_NaN = "";
     var str_page_number = "";

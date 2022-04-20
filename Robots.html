@@ -28,8 +28,8 @@ div {
   text-justify: inter-word;
 }
 .class_div_all {
-  width: 100%;
-  height: 100%;
+  width: 99%;
+  height: 99%;
   margin: 0 auto;
   padding: 1%;
 }
@@ -158,12 +158,10 @@ function function_back() {
 function function_next(arg_1) {
 //  var var_iframe = "<iframe src="https://glowinggoldenglobe.github.io/page/Robots_Page_2.html" title="Robots_Page_2" ></iframe>";
     if(arg_1 == undefined || arg_1 == "" || arg_1 == null) {arg_1 = "";}
-  alert("1");
     var str_arg_1 = arg_1.toString();
     var length_arg_1 = str_arg_1.length;
     var num_length_arg_1 = Number(length_arg_1);
     if(num_length_arg_1 <= 0) {str_arg_1 = NaN;} 
-  alert("2");
     var result_NaN = "";
     var str_page_number = "";
     if(isNaN(str_arg_1) == false) {
@@ -187,11 +185,11 @@ function function_next(arg_1) {
     var el_page_number = document.getElementById("id_page_number");
     if(num_next_page_number == 1) {
         new_el.src = "https://glowinggoldenglobe.github.io/page/Robots_Page_1.html";  
-        el_1.innerHTML = num_next_page_number;
+        el_page_number.innerHTML = num_next_page_number;
     }
     else if(num_next_page_number == 2) {
         new_el.src = "https://glowinggoldenglobe.github.io/page/Robots_Page_2.html"; 
-        el_1.innerHTML = num_next_page_number; 
+        el_page_number.innerHTML = num_next_page_number; 
     }
     else if(num_next_page_number >= 3) {
        return null; 

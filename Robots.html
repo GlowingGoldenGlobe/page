@@ -213,7 +213,10 @@ function iframe_dimensions() {
         var num_w = Number(w01);
         num_w = num_w * 0.98;
         //num_w = num_w - 2;
+        var num_h = Number(h01);
+        num_h = num_h * 0.98;
         var new_w = num_w.toString() + "px";
+        var new_h = num_h.toString() + "px";
         w01 = w01 + "px";
         h01 = h01 + "px";
     }
@@ -222,7 +225,7 @@ function iframe_dimensions() {
     document.body.style.height = h01;   
     document.body.style.overflow = "none";
     el_1.style.width = new_w;
-    el_1.style.height = h01;
+    el_1.style.height = new_h;
 }
 const page_number = function() {
     var el_1 = document.getElementById("id_page_number");

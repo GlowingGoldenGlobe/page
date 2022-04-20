@@ -86,8 +86,8 @@ h1 {
   background-color: #d9d9d9;  
 }
 .class_iframe_1 {
-  width: 100%;
-  height: 100%;
+  width: 98%;
+  height: 98%;
   margin: 0 auto;
   border: 0px solid transparent;
   outline: 0px solid transparent;
@@ -170,11 +170,11 @@ function function_next(arg_1) {
         result_NaN = false;
         str_page_number = str_arg_1;
     }else if(isNaN(str_arg_1) == true) {
-        alert("arg_1 is not a number");
+        //  alert("arg_1 is not a number");
         result_NaN = true;
         str_page_number = page_number();
     }
-  alert("str_page_number " + str_page_number);
+//   alert("str_page_number " + str_page_number);
     var new_el = document.createElement("iframe");
     new_el.id = "id_iframe_1";
     new_el.title = "Robots_Page_2";

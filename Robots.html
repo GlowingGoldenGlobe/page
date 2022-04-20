@@ -145,8 +145,12 @@ h1 {
   <p id="id_page_number" >1</p>  
 </div>
 <script>
+function function_back() {
+   function_next(); 
+}
 function function_next() {
 //  var var_iframe = "<iframe src="https://glowinggoldenglobe.github.io/page/Robots_Page_2.html" title="Robots_Page_2" ></iframe>";
+  alert("test");
     var new_el = document.createElement("iframe");
     new_el.id = "id_iframe_1";
     new_el.title = "Robots_Page_2";

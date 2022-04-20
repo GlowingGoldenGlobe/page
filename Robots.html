@@ -158,10 +158,11 @@ function function_back() {
 function function_next(arg_1) {
 //  var var_iframe = "<iframe src="https://glowinggoldenglobe.github.io/page/Robots_Page_2.html" title="Robots_Page_2" ></iframe>";
   alert("test");
+    if(arg_1 == undefined) {arg_1 = "";}
     var str_arg_1 = arg_1.toString();
     var result_NaN = "";
     var str_page_number = "";
-  alert("test 3");
+  alert("test 2");
     if(isNaN(str_arg_1) == false) {
         //  alert("arg_1 is a number");
         result_NaN = false;
@@ -171,7 +172,7 @@ function function_next(arg_1) {
         result_NaN = true;
         str_page_number = page_number();
     }
-  alert("test 2");
+  alert("test 3");
     var new_el = document.createElement("iframe");
     new_el.id = "id_iframe_1";
     new_el.title = "Robots_Page_2";

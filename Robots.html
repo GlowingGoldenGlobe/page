@@ -146,17 +146,36 @@ h1 {
 </div>
 <script>
 function function_back() {
-   function_next(); 
+   var str_page = page_number();
+   var num_page = Number(str_page);
+   var new_num_page = (num_page - 2);
+   // subtracting -2 from num_page, above; 
+   // the reason is because function_next() {} adds 1; 
+   // the result of function_back(){} will be next_page_number = (page_number - 1), in function_next(){}
+   // note - the code in function_next(){} handles the error event of: page = doesn't exist, where page_number >= 0
+   function_next(new_num_page); 
 }
-function function_next() {
+function function_next(arg_1) {
 //  var var_iframe = "<iframe src="https://glowinggoldenglobe.github.io/page/Robots_Page_2.html" title="Robots_Page_2" ></iframe>";
   alert("test");
+    var str_arg_1 = arg_1.toString();
+    var result_NaN = "";
+    var str_page_number = "";
+    if(isNaN(str_arg_1) == false) {
+        //  alert("arg_1 is a number");
+        result_NaN = false;
+        str_page_number = str_arg_1;
+    }else if(isNaN(str_arg_1) == true) {
+        //  alert("arg_1 is not a number");
+        result_NaN = true;
+        str_page_number = page_number();
+    }
     var new_el = document.createElement("iframe");
     new_el.id = "id_iframe_1";
     new_el.title = "Robots_Page_2";
     new_el.className = "class_iframe_1";
     new_el.onload = function() { iframe_dimensions(); };
-    var str_page_number = page_number();
+    //  var str_page_number = page_number();
     var num_page_number = Number(str_page_number);
     num_next_page_number = (num_page_number + 1);
     var el_page_number = document.getElementById("id_page_number");

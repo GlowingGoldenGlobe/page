@@ -231,9 +231,8 @@ function iframe_dimensions() {
     if(test01 == -1) {
         var num_w = Number(w01);
         num_w = num_w * 0.98;
-        //num_w = num_w - 2;
         var num_h = Number(h01);
-        //num_h = num_h * 0.96;
+        //id_div_all_bodyElement_content
         var new_w = num_w.toString() + "px";
         var new_h = num_h.toString() + "px";
         w01 = w01 + "px";
@@ -243,10 +242,17 @@ function iframe_dimensions() {
     document.body.style.width = w01;    
     document.body.style.height = h01;   
     document.body.style.overflow = "hidden";
-    //id_div_all_bodyElement_content
-    document.getElementById("id_div_all_bodyElement_content").style.overflowY = "scroll";
     el_1.style.width = new_w;
     el_1.style.height = new_h;
+    //id_div_all_bodyElement_content
+    var el_div_all = document.getElementById("id_div_all_bodyElement_content");
+    el_div_all.style.overflowY = "scroll";
+    var el_buttons = document.getElementById("id_buttons_container");
+    var w_buttons = el_buttons.clientHeight;
+    var num_w_buttons = Number(w_buttons);
+    var h_div_all = (num_w + num_w_buttons);
+    var h_div_all_px = h_div_all.toString() + "px";
+    el_div_all.style.height = h_div_all_px;
 }
 const page_number = function() {
     var el_1 = document.getElementById("id_page_number");

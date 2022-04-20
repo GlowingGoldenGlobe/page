@@ -140,9 +140,11 @@ h1 {
 -->
 </ol>
 </div><!--  id="id_div_subject_1_area_1"   -->
-<div id="next_buttons" class="margin_top class_font" >
+<div id="id_buttons_container" class="margin_top class_font" >
+<div id="next_buttons" style="margin: 0px 0px 0px 0px;" >
 <button class="class_next_buttons" onclick="function_back()" >Back</button>
 <button class="class_next_buttons" onclick="function_next()" >Next</button>
+</div>
 <div style="border-top: .5px solid white;" >
   <a href="https://glowinggoldenglobe.github.io/page/Program_Funding.html" class="class_menu_buttons" >Funding the Government Program for the Humanoid Workforce</a>
   <a href="https://glowinggoldenglobe.com" class="class_menu_buttons" style="border-top: .5px solid #e6e6e6" >glowinggoldenglobe.com</a>
@@ -207,9 +209,16 @@ function function_next(arg_1) {
     else if(num_next_page_number >= 3) {
        return null; 
     }
+    //id_buttons_container
+    var el_buttons = document.getElementById("id_buttons_container");
+    var el_buttons_html = el_buttons.innerHTML;
     var el_1 = document.getElementById("id_div_all_bodyElement_content");
     el_1.innerHTML = "";
     el_1.appendChild(new_el);
+    new_el = document.createElement("div");
+    new_el.id = "id_buttons_contaner";
+    new_el.className = "margin_top class_font";
+    el_1.innerHTML.append(new_el);
 }
 function iframe_dimensions() {
 //    alert("called function iframe_dimensions() !"); 
@@ -235,7 +244,7 @@ function iframe_dimensions() {
     document.body.style.height = h01;   
     document.body.style.overflow = "hidden";
     //id_div_all_bodyElement_content
-    document.getElementById("id_div_all_bodyElement_content").style.overflow = "none";
+    document.getElementById("id_div_all_bodyElement_content").style.overflowY = "scroll";
     el_1.style.width = new_w;
     el_1.style.height = new_h;
 }

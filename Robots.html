@@ -246,7 +246,7 @@ function iframe_dimensions() {
     test01 = Number(test01);
     if(test01 == -1) {
         var num_w = Number(w01);
-        num_w = num_w * 0.97;
+        num_w = num_w * 0.98;
         var num_h = Number(h01);
         //id_div_all_bodyElement_content
         var new_w = num_w.toString() + "px";
@@ -295,7 +295,7 @@ function iframe_dimensions() {
       px_h_2 = num_h_2.toString() + "px";
       el_1.style.height = px_h_2;
     }
-
+    el_1.style.overflow = "none";
 }
 const page_number = function() {
     var el_1 = document.getElementById("id_page_number");

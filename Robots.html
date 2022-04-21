@@ -281,7 +281,11 @@ function iframe_dimensions() {
     }else if(num_pg == 1) {
       var buttons_h = document.getElementById("id_buttons_container").offsetHeight;
       var num_buttons_h = Number(buttons_h);
-      num_h_2 = (doc_h - num_buttons_h);
+      if(num_doc_h < 900) {
+        num_h_2 = ((doc_h - num_buttons_h) * 0.95);
+      }else{
+        num_h_2 = (doc_h - num_buttons_h);
+      }
       px_h_2 = num_h_2.toString() + "px";
       el_1.style.height = px_h_2;
     }

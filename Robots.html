@@ -282,6 +282,8 @@ function iframe_dimensions() {
       var buttons_h = document.getElementById("id_buttons_container").offsetHeight;
       var num_buttons_h = Number(buttons_h);
       if(num_doc_h < 879) {
+        //the height of the silver laptop document.body.clientHeight is 879, but some bigger laptop screen displays allow for more space in the window,
+        //and this other available, said, space, makes the iframe wider and shorter in height; so, it leaves a gap below the iframe
         //when the dimensions are less than the silver laptop's dimensions of height, 
         //then the height of the div element is lesser, 
         //so the height of the iframe must be less, subtracting 0.95, as follows:

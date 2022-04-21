@@ -287,7 +287,9 @@ function iframe_dimensions() {
         //and this other available, said, space, makes the iframe wider and shorter in height; so, it leaves a gap below the iframe
         //when the dimensions are less than the silver laptop's dimensions of height, 
         //then the height of the div element is lesser, 
-        //so the height of the iframe must be less, subtracting 0.95, as follows:
+        //so the height of the iframe must be less, subtracting as *0.96, as follows:
+        //if subtracting less than as *.96 (such as *.95), 
+        //then an extra scroll bar, an iframe scroll bar, instead of only the div scroll bar, will appear
         num_h_2 = ((doc_h - num_buttons_h) * 0.96);
       }else{
         num_h_2 = (doc_h - num_buttons_h);

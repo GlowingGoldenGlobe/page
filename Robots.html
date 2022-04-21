@@ -275,7 +275,7 @@ function iframe_dimensions() {
     }else if(num_pg == 1) {
       var doc_h = document.getElementById("id_doc_h").innerHTML;
       var num_doc_h = Number(doc_h);
-      var buttons_h = document.getElementById("id_buttons_container").clientHeight;
+      var buttons_h = document.getElementById("id_buttons_container").offsetHeight;
       var num_buttons_h = Number(buttons_h);
       num_h_2 = (doc_h - num_buttons_h);
       px_h_2 = num_h_2.toString() + "px";

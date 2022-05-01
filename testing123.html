@@ -216,7 +216,31 @@ input {
   <p style="color: white; font-size: x-large;">test</p>
 </div>
 <script src="js01sim03.js"></script>
-<script>
+<script>  
+function openForPhoneScreenSize() {
+        window.open("https://glowinggoldenglobe.github.io/page/home_page.html", "_top");
+}
+function responsive_design_phone() {
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    //alert(w + &quot; &quot; + h);
+    // test if device is a smartphone screen size
+    // ref. --this ref is false, see next line, below-- &quot;Most mobile phones have a device-width of 480px or lower...&quot;
+    // I tested screen width on my phone versus my laptops:  phone window.innWidth = 980;  laptopSilver = 1590;  laptopBlack = 
+    // ref. https://www.javascriptkit.com
+    var num = Number(w);
+    if(num <= 1500) {
+        //  device has a smartphone screen size
+        //var el_1 = document.getElementById("menu_bar_id_02");
+        //var el_2 = document.getElementById("content_text_id_01");
+        //el_1.style.display = &quot;none&quot;;
+        //el_2.style.display = &quot;none&quot;;
+        setTimeout(openForPhoneScreenSize(), 3000);
+    }else{
+        return null;
+    }
+}
+responsive_design_phone();
 function onload02() {
     var windowHeight01 = window.innerHeight;
     var h01 = windowHeight01.toString();

@@ -223,15 +223,17 @@ function openForPhoneScreenSize() {
 function responsive_design_phone() {
     var w = window.innerWidth;
     var h = window.innerHeight;
-    //alert(w + &quot; &quot; + h);
+    alert(w + " " + h);
     // test if device is a smartphone screen size
     // ref. --this ref is false, see next line, below-- &quot;Most mobile phones have a device-width of 480px or lower...&quot;
     // I tested screen width on my phone versus my laptops:  phone window.innWidth = 980;  laptopSilver = 1590;  laptopBlack = 1366
     // ref. https://www.javascriptkit.com
     var num = Number(w);
     var num_height = Number(h);
-    alert(num/num_height);
-    if(num <= 1500) {
+    //alert(num/num_height);
+    //  ratio differences:  phone:  2.57~;  laptopSilver:  2.13~;  laptopBlack:  2.12~
+    //  it seems safe to say, that any screen with a ratio greater than 2.25 is a phone (if screen width is less than 2500)
+    if(num <= 1300) {
         //  device has a smartphone screen size
         //var el_1 = document.getElementById("menu_bar_id_02");
         //var el_2 = document.getElementById("content_text_id_01");

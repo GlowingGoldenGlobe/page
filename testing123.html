@@ -216,35 +216,50 @@ input {
   <p style="color: white; font-size: x-large;">test</p>
 </div>
 <script src="js01sim03.js"></script>
-<script>  
-function openForPhoneScreenSize() {
+<script> 
+function phoneView() {
         window.open("https://glowinggoldenglobe.github.io/page/UniversalObjectivesSummary_phoneView.html", "_top");
 }
-function responsive_design_phone() {
-    var w = window.innerWidth;
-    var h = window.innerHeight;
-    alert(w + " " + h);
-    // test if device is a smartphone screen size
-    // ref. --this ref is false, see next line, below-- &quot;Most mobile phones have a device-width of 480px or lower...&quot;
-    // I tested screen width on my phone versus my laptops:  phone window.innWidth = 980;  laptopSilver = 1590;  laptopBlack = 1366
-    // ref. https://www.javascriptkit.com
-    var num = Number(w);
-    var num_height = Number(h);
-    //alert(num/num_height);
-    //  ratio differences:  phone:  2.57~;  laptopSilver:  2.13~;  laptopBlack:  2.12~
-    //  it seems safe to say, that any screen with a ratio greater than 2.25 is a phone (if screen width is less than 2500)
-    if(num <= 1300) {
-        //  device has a smartphone screen size
-        //var el_1 = document.getElementById("menu_bar_id_02");
-        //var el_2 = document.getElementById("content_text_id_01");
-        //el_1.style.display = &quot;none&quot;;
-        //el_2.style.display = &quot;none&quot;;
-        setTimeout(openForPhoneScreenSize(), 3000);
-    }else{
-        return null;
+function responsiveDesign() {
+//width to height ratio;  
+//test phone screen size versus laptop;  
+//phones are more narrow than laptop screens;  
+//ratio will be substantially different.
+//  if it is taller than it is wide, then it is a phone, for sure.
+//  if the phone is on tilt length-wise is left to right greater than height (on it's side), then the device ratio is necessary to determine laptop versus phone;
+//  where phone ratio is a greater difference than a laptop screen ratio
+// some screens are greater than 2000px and are desktop monitors
+//alert(window.innerWidth);
+//alert(window.innerHeight);
+    var screen_width = window.innerWidth;
+    var screen_height = window.innerHeight;
+    var num_width = Number(screen_width);
+    var num_height = Number(screen_height);
+    var ratio = (num_width/num_height);
+    if(num_width <= 1300){
+        //  then the device is a phone
+        //  redirect url to phone view, here
+        setTimeout(phoneView, 3000);
+    }
+    else if(num_height > num_width) {
+        //  then the device is a phone, unless the width is > 2500
+        if(num_width >= 2500) {
+            //  then the device is a wide screen desktop monitor
+            //  then the device is not a phone
+            return null;
+        }else{
+            //  then the device is a phone
+            //  redirect url to phone view, here
+        setTimeout(phoneView, 3000);
+        }
+    }
+    else if(ratio >= 2.25) {
+        //  then the device is a phone
+        //  redirect url to phone view, here
+        setTimeout(phoneView, 3000);
     }
 }
-responsive_design_phone();
+responsiveDesign();
 function onload02() {
     var windowHeight01 = window.innerHeight;
     var h01 = windowHeight01.toString();

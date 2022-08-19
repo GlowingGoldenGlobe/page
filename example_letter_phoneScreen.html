@@ -451,6 +451,7 @@ const ret_num = function(param) {
 const copy_message = function() {
   var text_1 = document.getElementById("id_textarea_2").value;
   el = document.getElementById("id_confirmation_text");
+  el.style.backgroundColor = "white";
   el.style.color = "black";
   el.style.border = "3px groove lightgrey";
   navigator.clipboard.writeText(text_1);
@@ -459,6 +460,7 @@ const copy_message = function() {
 }
 const disappear_text = function() {
   el = document.getElementById("id_confirmation_text");
+  el.style.backgroundColor = "transparent";
   el.style.color = "transparent";
   el.style.border = "3px groove transparent";
 }

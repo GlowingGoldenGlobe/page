@@ -63,7 +63,7 @@ body {
   padding: 0px;
   position: absolute;
   box-shadow: 1px 4px 6px 1px transparent;
-  top: auto;
+  top: 4%;
   left: 0;
 }
 .b_class_01 {
@@ -475,14 +475,15 @@ const style_footer = function () {
     var height_1 = h_1 + p + b;
     var height_1_px = height_1 + "px";
     document.getElementById("footer_id_01").style.top = height_1_px;
-    var height_2 = height_1 + 140;
+    var height_2 = height_1 + 1500;
     var height_2_px = height_2 + "px";
     document.getElementById("div_display_02").style.top = height_2_px;
 //div_footer_03
 //  var xtra: height of footer = var xtra = 100px
-    var xtra = 100;
+    var xtra = 3000;
     var val_top = (h_1 + h_3 + p + b + 100 + xtra);
     var val_top_px = (val_top + "px");
+    alert("test 2 " + height_2_px);
     document.getElementById("div_footer_03").style.position = "absolute"; 
     document.getElementById("div_footer_03").style.top = val_top_px;
 }

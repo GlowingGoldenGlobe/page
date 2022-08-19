@@ -58,8 +58,8 @@ body {
   width: 96%;
   height: auto;
   font-family: "Times New Roman", Times, serif;
-  font-size: 24px;
-  line-height: 26px;
+  font-size: 18px;
+  line-height: 20px;
   text-align: justify;
   text-justify: inter-word;
   border: 0px outset grey;
@@ -73,8 +73,8 @@ body {
   width: 100%;
   height: 2000px;
   font-family: "Times New Roman", Times, serif;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 18px;
+  line-height: 20px;
   text-align: justify;
   text-justify: inter-word;
   border: 0px groove grey;
@@ -338,6 +338,7 @@ const onload_func = function() {
 onload_func();
 const incr = function() {
   var el_01 = document.getElementById("id_div_03");
+  var el_02 = document.getElementById("id_textarea_1");
   var font = el_01.style.fontSize;
   var str = font.toString();
   var spl = str.split("px");
@@ -346,6 +347,7 @@ const incr = function() {
   var new_num = num + 1;
   var output = new_num + "px";
   el_01.style.fontSize = output;
+  el_02.style.fontSize = output;
 }
 const decr = function() {
   var el_01 = document.getElementById("id_div_03");

@@ -132,11 +132,12 @@ body {
 <div id="id_div_02" class="class_div_02" >
 &nbsp;<input type="button" class="class_button_01" value=" + " onclick="incr()" />
 <input type="button" class="class_button_01" value=" - " onclick="decr()" />
+<input type="button" class="class_button_01" value=" Copy Text " onclick="copy_message()" />
 <br>
 </div>
 <div id="id_div_03" class="class_div_03" >
 
-<textarea class="class_textarea_01" >
+<textarea id="id_textarea_1" class="class_textarea_01" >
 I sent the following message to Congressman Mo Brooks on August 18, 2022.
 
 Top of this Message
@@ -369,6 +370,11 @@ const decr = function() {
   var new_num = num - 1;
   var output = new_num + "px";
   el_01.style.fontSize = output;
+}
+const copy_message = function() {
+  var text_1 = document.getElementById("id_textarea_1").value;
+  navigator.clipboard.writeText(text_1);
+  return null;
 }
 </script>
 </body>

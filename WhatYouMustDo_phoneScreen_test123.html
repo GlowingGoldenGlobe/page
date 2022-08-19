@@ -35,7 +35,7 @@ body {
   overflow-x: none;
   margin: 0px 0px 0px 0px;
   padding: 10px 40px 10px 40px;
-  opacity: .6;
+  opacity: .1;
   position: absolute;
   top: 10%;
   left: 0%;
@@ -110,6 +110,12 @@ h2 {
   border: 10px outset blue;
   cursor: pointer;
 }
+.class_header_2 {
+  border: 10px outset transparent;
+  position: absolute;
+  top: 4%;
+  left: 25%;
+}
 </style>
 </head>
 <body>
@@ -119,6 +125,9 @@ Building micro-robot-composite humanoid workforce robots is the equivalent of ma
 <br><br>
 <input type="button" id="button_id_01" class="button_class_01" value="Hide" onclick="hide_header()" />
 </h2>
+<div class="class_header_2" >
+<a href="https://glowinggoldenglobe.com" target="_top" >Glowing Golden Globe</a>
+</div>
 <div style="margin: 0; padding: 0;" >
 <textarea id="texatrea_id_01" class="hidden_01" >
 <p id="paragraph_id_01" class="paragraph_class_01" >
@@ -439,7 +448,7 @@ function responsive_design_phone() {
     }
 }
 function onloadFunction() {
-    responsive_design_phone();
+    //responsive_design_phone();
     var el = document.getElementById("texatrea_id_01");
     var val = el.value;
     //val = val.replaceAll("\n\n+", "");
@@ -495,8 +504,8 @@ function hide_header() {
         document.getElementById("header_id").style.height = "auto";
         document.getElementById("button_id_01").value = "Hide";
         document.getElementById("button_id_01").style.borderColor = "darkblue";
-        document.getElementById("div_display_01").style.opacity = ".6";
-        document.getElementById("div_display_02").style.opacity = ".6";
+        document.getElementById("div_display_01").style.opacity = ".1";
+        document.getElementById("div_display_02").style.opacity = ".1";
       saveData.innerHTML = 0;
       return null;
     }

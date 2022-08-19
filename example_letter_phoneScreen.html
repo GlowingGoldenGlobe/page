@@ -28,7 +28,7 @@ body {
   color: black;
   width: 100%;
   height: auto;
-  font-size: 10px;
+  font-size: 18px;
   text-align: left;
   margin: 0px 0px 0px 0px;
   padding: 10px 0px 0px 0px;
@@ -38,7 +38,7 @@ body {
 }
 .p_font_size {
   font-family: "Times New Roman", Times, serif;
-  font-size: 10px;
+  font-size: 18px;
   line-height: 18px;
 }
 .class_span_01 {
@@ -50,7 +50,7 @@ body {
   width: 80%;
   height: auto;
   font-family: "Times New Roman", Times, serif;
-  font-size: 10px;
+  font-size: 18px;
   line-height: 18px;
   text-align: justify;
   text-justify: inter-word;
@@ -65,7 +65,7 @@ body {
   width: 96%;
   height: auto;
   font-family: "Times New Roman", Times, serif;
-  font-size: 10px;
+  font-size: 18px;
   line-height: 18px;
   text-align: justify;
   text-justify: inter-word;
@@ -362,6 +362,7 @@ const incr = function() {
 }
 const decr = function() {
   var el_01 = document.getElementById("id_div_03");
+  var el_02 = document.getElementById("id_textarea_1");
   var font = el_01.style.fontSize;
   var str = font.toString();
   var spl = str.split("px");
@@ -370,6 +371,7 @@ const decr = function() {
   var new_num = num - 1;
   var output = new_num + "px";
   el_01.style.fontSize = output;
+  el_02.style.fontSize = output;
 }
 const copy_message = function() {
   var text_1 = document.getElementById("id_textarea_1").value;

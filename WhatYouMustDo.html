@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
 <head>
 <meta charcode="UTF-8" lang="ENG" />
 <title>Do This GlowingGoldenGlobe</title>
@@ -122,6 +122,14 @@ h2 {
   border: 10px outset blue;
   cursor: pointer;
 }
+#header_id {
+  margin-left: 0px;
+  padding-left: 30px;
+  position: absolute;
+  top:  50px;
+  left:  70px;
+  z-index: 1;
+}
 </style>
 </head>
 <body>
@@ -136,6 +144,23 @@ Building micro-robot-composite humanoid workforce robots is the equivalent of ma
 <input type="button" id="button_id_01" class="button_class_01" value="Hide" onclick="hide_header()" />
 </div>
 </h2>
+<style>
+#header_link {
+  width: 150px;
+  margin: 0px 0px 0px 0px;
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  z-index: 2;
+}
+#link_p, #link_a {
+  margin: 0px 0px 0px 0px;
+}
+</style>
+<div id="header_link" style="display: none;" >
+<a id="link_a" href="https://glowinggoldenglobe.github.io/page/EduPlanLearningGuide.html" location="_top" style="display: block;" >Learning Plan</a>
+<p id="link_p" style="font-size: 10px;" >My Computer Science Learning Plan</p>
+</div>
 <div style="margin: 0; padding: 0;" >
 <textarea id="texatrea_id_01" class="hidden_01" >
 <p id="paragraph_id_01" class="paragraph_class_01" >
@@ -513,6 +538,7 @@ function hide_header() {
         document.getElementById("header_id").style.width = "90%";
         document.getElementById("header_id").style.height = "auto";
         document.getElementById("button_id_01").value = "Hide";
+        document.getElementById("header_link").style.display = "none";
         document.getElementById("div_display_01").style.opacity = ".6";
         document.getElementById("div_display_02").style.opacity = ".6";
       saveData.innerHTML = 0;
@@ -531,6 +557,7 @@ function animate_header() {
     var val_2 = Number(83);
     if(num >= val) {
         document.getElementById("button_id_01").value = "Show";
+        document.getElementById("header_link").style.display = "block";
         saveData.innerHTML = 1;
         return null;
     }else{

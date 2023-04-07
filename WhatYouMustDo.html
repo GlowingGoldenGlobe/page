@@ -135,7 +135,7 @@ h2 {
 }
 </style>
 </head>
-<body>
+<body id="id_body_1" >
 <h2 id="header_id">
 <div style="font-size: 12px;" >
 Glowing Golden Globe &nbsp- &nbsp<a href="https://glowinggoldenglobe.com" target="_top" >https://glowinggoldenglobe.com</a>
@@ -158,6 +158,63 @@ Building micro-robot-composite humanoid workforce robots is the equivalent of ma
 }
 #link_p, #link_a {
   margin: 0px 0px 0px 0px;
+}
+.class_mb_1 {
+  background-color: white;
+  color: black;
+  width: 90%;
+  height: 90%;
+  font-size: 22px;
+  font-weight: normal;
+  border: 4px outset black;
+  position: fixed;
+  top: 5%;
+  left: 5%;
+}
+.class_mb_2 {
+  background-color: white;
+  color: black;
+  width: 90%;
+  height: 70%;
+  padding: 10px;
+  font-size: 22px;
+  font-weight: normal;
+  text-align: justify;
+  text-justify: inter-word;
+  border: 0px outset black;
+  position: relative;
+  top: 8%;
+  left: 5%;
+  resize: none;
+}
+.class_button_1 {
+  background-color: white;
+  color: grey;
+  width: auto;
+  height: auto;
+  margin-right: 10px;
+  padding: 10px;
+  font-size: 22px;
+  font-weight: normal;
+  text-align: center;
+  text-justify: none;
+  border: 1px solid orange;
+  position: absolute;
+  top: 1%;
+  right: 0%;
+  cursor: pointer;
+}
+.class_displayNone {
+  background-color: transparent;
+  color: transparent;
+  font: 6px;
+  display: none;
+  border: 0px solid transparent;
+  outline: 0px solid transparent;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -2;
 }
 </style>
 <div id="header_link" style="display: none;" >
@@ -237,17 +294,18 @@ for Workforce Robots Manufacturing".
 <p id="paragraph_id_03" class="paragraph_class_01" >Free Education Sites: AI/ML; Software App Scripting; 3-D programs; etc.</p>
 <p id="paragraph_id_04" class="paragraph_class_01" >The World Wide Web Consortium: Computer Programming Standards for the Web, learn the following:</i></p>
 <ul>
-  <li style="list-style-type: none;">Step 1.  <a href="https://www.w3schools.com/html/" location="_top">w3schools.com: HTML</a></li>
-  <li style="list-style-type: none;">Step 2.  <a href="https://www.w3schools.com/css/default.asp" location="_top">w3schools.com: CSS</a></li>
-  <li style="list-style-type: none;">Step 3.  <a href="https://www.w3schools.com/js/default.asp/" location="_top" >w3schools.com: JavaScript</a></li>
+  <li style="list-style-type: none;">Step 1.  <a href="https://www.w3schools.com/html/" location="_blank">w3schools.com: HTML</a><button onclick="function_message_1()" >Why</button></li>
+  <li style="list-style-type: none;">Step 2.  <a href="https://www.w3schools.com/css/default.asp" location="_blank">w3schools.com: CSS</a></li>
+  <li style="list-style-type: none;">Step 3.  <a href="https://www.w3schools.com/js/default.asp/" location="_blank" >w3schools.com: JavaScript</a></li>
   <li style="list-style-type: none;">
     Step 4.  <a href="https://www.w3schools.com/python/default.asp" location="_top" >w3schools.com: Python</a>
     <ul>
       <li>One of the uses of the Python programming language is AI (artificial intelligence).</li>
-      <li>A reference: <a href="https://www.springboard.com/blog/ai-machine-learning/best-programming-language-for-ai/" location="_top">www.springboard.com</a></li>
+      <li>A reference: <a href="https://www.springboard.com/blog/ai-machine-learning/best-programming-language-for-ai/" target="_blank" >www.springboard.com</a></li>
     </ul>
   </li>
-  <li style="list-style-type: none;">Step 5.  <a href="https://www.w3schools.com/ai/" location="_top" >w3schools.com: AI</a></li>  
+  <li style="list-style-type: none;">Step 5.  <a href="https://www.w3schools.com/ai/" location="_blank" >w3schools.com: AI</a></li>  
+  <li style="list-style-type: none;">Step 6.  <a href="https://azure.microsoft.com/en-us/blog/azure-previews-powerful-and-scalable-virtual-machine-to-help-customers-accelerate-ai/" location="_blank" >NVIDIA AI Supercomputer 3D Movie Generative Software in the Cloud - Azure Cloud Storage, option: with a subscription to GPT-4 or greater available with an Azure user account</a><button onclick="function_message_2()" >Why</button></li>
 </ul>
 <p id="paragraph_id_05" class="paragraph_class_01" >
 &nbsp;<a href="https://glowinggoldenglobe.com/" location="_top" >Glowing Golden Globe: Home Page</a>
@@ -494,6 +552,9 @@ function onloadFunction() {
     //val = val.replaceAll("\n\n+", "");
     var output_element = document.getElementById("div_display_01");
     output_element.innerHTML = val;
+    message_box();
+    f_style_1();
+    close_message_box();
 }
 onloadFunction();
 const style_footer = function () { 
@@ -589,6 +650,169 @@ function animate_header() {
         }
     }
     repeat_animate_header();
+}
+function function_message_1() {
+  var text = "Why\n\nGenerality - for the purpose of obtaining (for you, the reader/learner/user/developer/AI engineer, to obtain) a general knowledge of coding; a programmer (software developer; software engineer; AI/ML engineer) needs to understand the generality of the nature about the type of things (e.g.: (1) coding languages; (2) data; (3) machines) that said programmer will be working relative to."
+  + "\n\nElse\nSkip learning HTML, CSS, and JavaScript; learn only Python (also called, python3, and python3.10) programming, so that the reader (you/learner) can write Artificial Intelligence code software programs inside of Azure Cloud NVIDIA RGX H100 Supercomputers and understand-and-edit GPT-4 user-search results."
+  + "\n\nElse: Option 3\nLearn a lot of other things, in addition to those things mentioned, above, via a college or university tuition."
+  +"";
+  open_message_box();
+  var el_1 = document.getElementById("id_mb_textarea");
+  el_1.value = text;
+  return null;
+}
+function function_message_2() {
+  var text = "Why - The reason is because the developer (reader), organizations, companies, the US Federal Government and the people of the earth need to use such a high-quality, extreme-potential set of computers for the following genius method to produce very-smart-AI-workforce-humanoids, to result high global GDP, immortal anatomy, etc., as follows:\n\n\n\nProcedure\n\n1.  3D Humanoid design and initial testing - (1) design, (2) build (print with robot manufacturing equipment and/or 3D printer(s)), and (3) test the anatomy of the micro-robot-composite humanoid workforce robot.\n\n2.  Data - purpose: for AI/ML Software to extrapolate data to produce results for user queries to design robots, compile to code syntax, etc; store large quantities of data about: (1) resource acquisition locations, etc.; products and materials; actuators and engines; fittings designs; etc.; (2) human workplace motion behavior, and (3) documentation (procedures; policies; e-textbooks; etc.).\n\n3.  Build (make/code/create) the AI/ML Software which will translate data about human workplace body motions, to store it as 3D movie files.\n\n4.  Extrapolate stored 3D movie files (which the user made in step 3, the previous step) to build 3D movies of all probable motion behavior not captured in the initial movies.\n\n5.  Build or otherwise utilize (the developer might be able to use: GPT-4; NVIDIA; or Adobe Firefly) AI/ML software to compile (translate from one code to another; in this case, from 3D movies to Robot-Operating-System syntax) said extrapolated 3D movie files to ROS, ROS2 or whatever language the developer (you, or whatever team you work with in the future) made the humanoid. design to act by."
+  +"";
+  open_message_box();
+  var el_1 = document.getElementById("id_mb_textarea");
+  el_1.value = text;
+  var url_1 = "https://youtu.be/DiGB5uAYKAg";
+  var url_2 = "https://nvidianews.nvidia.com/news/nvidia-microsoft-accelerate-cloud-enterprise-ai";
+  var url_3 = "https://azure.microsoft.com/en-us/blog/azure-previews-powerful-and-scalable-virtual-machine-to-help-customers-accelerate-ai/";
+  var el_button_1 = document.createElement("a");
+  el_button_1.id = "id_button_2";//this the first of two extra buttons to be removed by id_indicator indication of "true" in function, "close_message_box()", below.
+  el_button_1.href = url_1;
+  el_button_1.target = "_blank";
+  el_button_1.innerHTML = "reference on YouTube - NVIDIA H100 Supercomputers; \"GTC 2023 Keynote with NVIDIA CEO Jensen Huang\", on YouTube";
+  var attr_font = "16px";
+  el_button_1.style.fontSize = attr_font;
+  var el_button_2 = document.createElement("a");
+  el_button_2.id = "id_button_3";//this is the second of two extra buttons to be removed by id_indicator indication of "true" in function, "close_message_box()", below.
+  el_button_2.href = url_2;
+  el_button_2.target = "_blank";
+  el_button_2.innerHTML = "reference - NVIDIA describes how Azure provides user-accounts the usage of NVIDIA supercomputers";
+  el_button_2.style.fontSize = attr_font;
+  var el_button_3 = document.createElement("a");
+  el_button_3.id = "id_button_3";//this is the second of two extra buttons to be removed by id_indicator indication of "true" in function, "close_message_box()", below.
+  el_button_3.href = url_3;
+  el_button_3.target = "_blank";
+  el_button_3.innerHTML = "reference - Azure describes how itself provides user-accounts the usage of NVIDIA supercomputers";
+  el_button_3.style.fontSize = attr_font;
+  var el_indicator = document.getElementById("id_indicator_1");
+  el_indicator.innerHTML = "true";
+  var el_div = document.createElement("div");
+  el_div.id = "id_buttons";
+  el_div.style.width = "100%";
+  el_div.style.textAlign = "left";
+  el_div.style.margin = "0";
+  el_div.style.marginTop = "5%";
+  el_div.style.padding = "10px";
+  el_div.style.border = "0px outset black";
+  var el_br = document.createElement("br");
+  var el_br_2 = document.createElement("br");
+  el_div.appendChild(el_button_1);
+  el_div.appendChild(el_br);
+  el_div.appendChild(el_button_2);
+  el_div.appendChild(el_br_2);
+  el_div.appendChild(el_button_3);
+  var el_2 = document.getElementById("id_mb_1");
+  el_2.appendChild(el_div);
+  var element_2 = document.getElementById("id_mb_textarea");
+  //  test area, as follows: {
+  //element_2.value = el_2.innerHTML;
+  // } end test area
+  return null;
+}
+function message_box() {
+  var element_1 = document.createElement("div");
+  var element_2 = document.createElement("textarea");
+  element_1.className = "class_mb_1";
+  element_2.className = "class_mb_2";
+  element_1.id = "id_mb_1";
+  element_1.style.overflowY = "scroll";
+  element_2.id = "id_mb_textarea";
+//  element_1.style.width = "500px";
+//  element_1.style.height = "700px";
+  element_1.appendChild(element_2);
+  var el_doc_body = document.getElementById("id_body_1");
+  el_doc_body.appendChild(element_1);
+  mbcb();
+  var el_indicator = document.createElement("p");//el_presentVsAbsentIndicator
+  el_indicator.id = "id_indicator_1";
+  el_indicator.className = "class_displayNone";
+  el_indicator.innerHTML = "";//False indicates that the extra buttons are absent; conversely, True indicates that the extra buttons are present.
+  element_1.appendChild(el_indicator);
+  var element_2 = document.getElementById("id_mb_textarea");
+  //  test area, as follows: {
+  //element_2.value = "test";
+  // } end test area
+  return null;
+}
+function close_message_box() {
+  var el_indicator = document.getElementById("id_indicator_1");
+  var indicator_bool = el_indicator.innerHTML;
+  var element_2 = document.getElementById("id_mb_textarea");
+  //  test area, as follows: {
+  //element_2.value = "test 3";
+  // } end test area
+  if(Boolean(indicator_bool)) {
+    var el_buttons = document.getElementById("id_buttons");
+    var el_parent = document.getElementById("id_mb_1");
+    el_parent.removeChild(el_buttons);
+    el_indicator.innerHTML = "";
+  }
+  var element_1 = document.getElementById("id_mb_1");
+  element_1.style.display = "none";
+  return null;
+}
+function open_message_box() {
+  var element_1 = document.getElementById("id_mb_1");
+  element_1.style.display = "block";
+  return null;
+}
+function f_style_1() {
+  //The width of the child element must be adjusted for the padding attribute value quantity assigned to the child element, so that the child element will fit within its parent element width.
+  //Procedure: Contents
+  //Step 1 - Find the parent element width.
+  //Step 2 - Subtract the padding value quantity from the parent element width, this results the child element width to-be.
+  //Step 3 - Assign the newly discovered child element width to-be to the child elment width.
+  var element_1 = document.getElementById("id_mb_1");
+  var element_2 = document.getElementById("id_mb_textarea");
+  var style_width = element_1.clientWidth;
+  //Procedures: Step 1: result
+  var parent_width = Number(style_width);
+  //Procedures: Step 2: result
+  var padding_1 = (10 + 10); //child_element_padding_value_quantity_width_only_left_side_plus_right_side
+  var difference_1 = (parent_width - padding_1);
+  //  test area, as follows: {
+  //element_2.value = "test 1 2 3";
+  //element_2.value = difference_1;
+  // } end test area
+  //Procedures: Step 3: result
+  var style_width_2 = difference_1 + "px";//child_new_width_px; where, px means pixels; where px (pixels) is a unit of measure of a tiny-size on a computer screen
+  element_2.style.width = style_width_2;
+  element_2.style.left = "0%";
+  element_2.style.outline = "none";
+  //subtract additional space from the width, for scroll bars
+  var difference_2 = (difference_1 - 20);
+  style_width_2 = difference_2 + "px";
+  element_2.style.width = style_width_2;
+  var element_2 = document.getElementById("id_mb_textarea");
+  //  test area, as follows: {
+  element_2.value = "test 2";
+  // } end test area
+  return null;
+}
+function mbcb() {//message_box_close_button
+  var newElement = document.createElement("button");
+  newElement.id = "id_button_1";
+  newElement.className = "class_button_1";
+  newElement.innerHTML = "Close";
+  newElement.onclick = close_message_box;
+//  newElement.onfocus = f_style_2; //deprecated
+//  newElement.onselect = f_style_2; //deprecated
+  var el_parent = document.getElementById("id_mb_1");
+  el_parent.appendChild(newElement);
+  return null;
+}
+function f_style_2() {//(1) deprecated - this isn't workable (this doesn't perform the intended event); the outline remains when onselect event is true, despite running the following script funtion code. (2) Solution - element_2.style.outline = "none";    which is located in function, "f_style_1()", above.
+  var el_button = document.getElementById("id_button_1");
+  el_button.style.outline = "none";
+  el_button.style.outline = "0px";
+  el_button.style.border = "none";
+  el_button.style.border = "0px";
+  return null;
 }
 </script>
 </body>

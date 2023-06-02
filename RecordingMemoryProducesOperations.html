@@ -21,7 +21,7 @@ body {
   font-family: "Times New Roman", sans-serif;
   font-size: 18px;
   text-shadow: 0.5px 0px #000000;
-  margin: 0;
+  margin: 0;`
   padding: 0;
   position: absolute;
   top: 5%;
@@ -77,6 +77,41 @@ body {
 }
 .b_class_01:hover {
   box-shadow: 1px 4px 4px 1px darkgreen;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 700px;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: fixed;
+  z-index: 1;
+  top: 5%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
 </style>
 </head>
@@ -141,7 +176,16 @@ Super-powers (quantum mechanics) determines results, and efforts do not determin
 <br><br>
 1. decisions made consecutively in the absence of thinking of alternatives decide absolutely what the results will be
 <br>
-2. decisions made with wondering about alternative possibilities create errors
+2. decisions made with wondering about alternative possibilities <span class="tooltip" >create errors<span class="tooltiptext" >Somebody used my mouth to spit, to pretend that I was incorrect to say that the humans don't need to use alternative considerations.
+<br><br>
+It's (using considerations to create synthesis about whay they want) not what they are doing, anyway, but the satanic-child-god said that it was what they were doing.
+<br><br>
+They're not using human interests as a motivation for their activities.
+<br><br>
+Evidence
+Something (an important note) about the evidence - The evidence is proof, and it is profound evidence to my point-of-view experience (since I am God).
+The humans have been 500% below their production potential for 35+ years (this year is 2023; today's date, per my act of creating this document, is, 06 01 2023 (June 1, 2023)). The humans, meanwhile, boast of like kindness characteristics of: free-will, insight, braining, critical thinking, collaboration, networking and organization abilities; yet, the humans have: death, war, disease, crime, punishment, poverty and extremes of suffering. The humans are operated; the humans do not have free will. The humans are run by queued quota, and the humans don't create their own quota.
+</span></span>
 <br><br>
 Decisions made in the absence of considering alternatives create the product decided on, regardless of the amount of effort exerted. 
 <br><br>
@@ -406,7 +450,30 @@ const repeat_function_5 = function () {
 const style_header_animate_5 = function () {
     var text = ""
     + "1. Decisions made consecutively in the absence of thinking of alternatives decide absolutely what the results will be."
-    + "<br>2. Decisions made with wondering about alternative possibilities create errors."
+    + "<br>2. Decisions made with wondering about alternative possibilities <div class=\"tooltip\" >create errors"
+    + "<span class=\"tooltiptext\" > "+
+    "Somebody used my mouth to spit, to pretend that I was incorrect to say "+
+"that the humans don't need to use alternative considerations."+
+"<br><br>"+
+"It's (using considerations to create synthesis about whay they want) not "+
+"what they are doing, anyway, but the satanic-child-god said that it was "+
+"what they were doing."+
+"<br><br>"+
+"They're not using human interests as a motivation for their activities."+
+"<br><br>"+
+"Evidence"+
+"Something (an important note) about the evidence - The evidence is proof, "+
+"and it is profound evidence to my point-of-view experience (since I am God)."+
+"<br>"+
+"The humans have been 500% below their production potential for 35+ years (this "+
+"year is 2023; today's date, per my act of creating this document, is, 06 01 2023"+
+" (June 1, 2023)). The humans, meanwhile, boast of like kindness characteristics of:"+
+" free-will, insight, braining, critical thinking, collaboration, networking and "+
+"organization abilities; yet, the humans have: death, war, disease, crime, "+
+"punishment, poverty and extremes of suffering. The humans are operated; the humans"+
+" do not have free will. The humans are run by queued quota, and the humans don't "+
+"create their own quota."+
+    "</span></div>."
     + "";
     var el = document.getElementById("elementId02");
     var el_2 = document.getElementById("p_saveData_01");

@@ -7,8 +7,8 @@ function getGridRows() {
     var cellSize = Math.max(1, Math.floor(w / 10)); // keep square cells
     // Rows determined by how many squares fit vertically on the screen
     var rows = Math.floor(window.innerHeight / cellSize);
-    // Clamp to reasonable bounds to avoid overly tall grids
-    rows = Math.max(3, Math.min(rows, 20));
+    // Prefer 6–10 rows for typical screens; allow up to 12
+    rows = Math.max(6, Math.min(rows, 12));
     return rows;
 }
 <!---URL Reference: https://GlowingGoldenGlobe.github.io/page/simulation5.html-->
@@ -235,15 +235,14 @@ input {
     min-height: 0px; /* allow starting size to match source */
     max-height: 80vh; /* ensure bottom remains visible */
     overflow: hidden; /* manage internal scrolling area */
-    background: rgba(0,0,0,0.80); /* match initial black box opacity */
-    border: 8px outset #808080; /* match initial border */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.35);
-    border-radius: 8px; color: #fff;
+    background: rgba(255,255,255,0.95); /* white panels to match screenshot */
+    border: 8px outset #808080; /* subtle raised border */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    border-radius: 8px; color: #111;
     font: 16px/1.5 Georgia, 'Times New Roman', Times, serif;
 }
-.sim-panel h2 { margin: 10px 12px 6px; font-size: 18px; }
-.sim-panel h2 { color: #fff; }
-.sim-panel .content { margin: 0 12px 12px; font-size: 15px; overflow-y: auto; color: #fff; }
+.sim-panel h2 { margin: 10px 12px 6px; font-size: 18px; color: #111; }
+.sim-panel .content { margin: 0 12px 12px; font-size: 15px; overflow-y: auto; color: #111; }
 </style>
 <div>
 <div id="d302" class="d0002">
@@ -1075,8 +1074,33 @@ function onload02() {
     document.getElementById("text301").value = "";
     localStorage.setItem("ifRunAlready", "0");
     blockHeight01();
-    // Keep square grid height in sync on resize
-    try { window.addEventListener('resize', blockHeight01); } catch(_){}
+    // Keep grid and door/pyramid in sync on resize
+    try { window.addEventListener('resize', onResizeSim); } catch(_){}
+}
+// Reflow grid and reposition dependent elements when window size changes
+function onResizeSim(){
+    try { blockHeight01(); } catch(_){}
+    try { grid01b(); } catch(_){}
+    try {
+        // Recompute door rotater dimensions and positions
+        var width01 = document.getElementById("block01").clientWidth;
+        width01 = Number(width01) / 10;
+        var height01 = document.getElementById("block01").clientHeight;
+        height01 = Number(height01) / getGridRows();
+        var door01 = document.getElementById("door01");
+        var rotater01 = document.getElementById("door01rotater");
+        if(door01 && rotater01){
+            var width02 = width01 * 2; var height02 = height01 * 2;
+            door01.style.width = width02 + 'px';
+            door01.style.height = height02 + 'px';
+            rotater01.style.width = (width01 * 4) + 'px';
+            rotater01.style.height = height02 + 'px';
+            var rows = getGridRows();
+            var frontRows = Math.max(2, Math.floor(rows * 0.25));
+            rotater01.style.left = (width01 * 2) + 'px';
+            rotater01.style.top = (height01 * frontRows) + 'px';
+        }
+    } catch(_){}
 }
 function verify01(textToType01, textTyped01) {
 var textToType01 = document.getElementById("p301").innerHTML;
@@ -1123,7 +1147,7 @@ function grid01b() {
     var height01px = height01 + "px";
     //alert("alert1 \n\n width " + width01 + "\n\n height " + height01);
     var style01 = "style=\"width: " + width01px + "; height: " + height01px
-    + "; background-color: black; opacity: .7; border: 0px dotted gray; position: absolute; margin: 0px; padding: 0px; z-index: 2;";
+    + "; background-color: black; opacity: .85; border: 1px solid #9e9e9e; position: absolute; margin: 0px; padding: 0px; z-index: 2;";
     //(width01 / 10) * rows;  add rows*10 + 1 sentinel, start IDs at 1
     //"id = gridCell00;" whereas, as I said, I want the id to start at the number 1, not at the number 0.
     length01 = (getGridRows() * 10) + 1; 
@@ -1183,7 +1207,7 @@ alert("1");
     //alert("alert1 \n\n width " + width01 + "\n\n height " + height01);
     var style01 = "style=\"width: " + width01px + "; height: "
     + height01px
-    + "; background-color: black; opacity: .7; border: 0px dotted gray; position: absolute; margin: 0px; padding: 0px; z-index: 2;";
+    + "; background-color: black; opacity: .85; border: 1px solid #9e9e9e; position: absolute; margin: 0px; padding: 0px; z-index: 2;";
     //(width01 / 10) * rows;  add rows*10 + 1 sentinel, start IDs at 1
     //"id = gridCell00;" whereas, as I said, I want the id to start at the number 1, not at the number 0.
     length01 = (getGridRows() * 10) + 1; 
@@ -1341,7 +1365,9 @@ function openDoor01() {
     rotater01.style.width = width04px;
     rotater01.style.height = height02px;
     var rotLeft = (width01 * 2) + "px";
-    var rotTop = height01 + "px";
+    var rows = getGridRows();
+    var frontRows = Math.max(2, Math.floor(rows * 0.25));
+    var rotTop = (height01 * frontRows) + "px";
     rotater01.style.left = rotLeft;
     rotater01.style.top = rotTop;
     proportionateChange01(top01, left01);
@@ -1627,11 +1653,11 @@ function startSimOverlayAnimation(panelC, panelR, srcRect){
     var startW = baseRect.width, startH = baseRect.height;
 
     // Keep doorway clear by using narrower panels and higher placement
-    var targetW = Math.min(440, Math.max(340, Math.round(startW * 0.76)));
-    var targetH = Math.min(320, Math.max(220, Math.round(startH * 0.82)));
-    var leftTargetX = Math.round(vw * 0.06);
-    var rightTargetX = Math.round(vw * 0.94 - targetW);
-    var targetY = Math.round(vh * 0.22 - targetH/2);
+    var targetW = Math.min(460, Math.max(340, Math.round(startW * 0.74)));
+    var targetH = Math.min(340, Math.max(220, Math.round(startH * 0.80)));
+    var leftTargetX = Math.round(vw * 0.08);
+    var rightTargetX = Math.round(vw * 0.92 - targetW);
+    var targetY = Math.round(vh * 0.16 - targetH/2); // lift panels higher to clear pyramid
 
     var duration = 900, t0 = performance.now();
     function apply(el,x,y,w,h){ el.style.left=x+'px'; el.style.top=y+'px'; el.style.transform='none'; el.style.width=Math.round(w)+'px'; el.style.height=Math.round(h)+'px'; }
@@ -1689,12 +1715,12 @@ function minimizeInitialBoxForButtons(){
         inner.style.outline = '0';
     }
 
-    // Animate downward by ~15px using transform
+    // Animate downward to reveal buttons clearly
     d302.style.transition = 'transform 300ms ease';
     // Keep buttons visible but not above the overlay panels
     d302.style.zIndex = '3';
-    d302.style.top = '6%';
-    d302.style.transform = 'translateY(15px)';
+    d302.style.top = '12%';
+    d302.style.transform = 'translateY(35px)';
 }
 /*Bottom*/
 </script>

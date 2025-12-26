@@ -217,10 +217,10 @@ input {
 }
 .sim-panel {
     position: absolute;
-    left: 50%; top: 42%; transform: translate(-50%,-50%);
-    width: 560px; /* wider box */
-    min-height: 240px; /* minimum height */
-    max-height: 70vh; /* ensure bottom remains visible */
+    left: 50%; top: 44%; transform: translate(-50%,-50%);
+    width: 620px; /* wider box */
+    min-height: 0px; /* allow starting size to match source */
+    max-height: 80vh; /* ensure bottom remains visible */
     overflow: hidden; /* manage internal scrolling area */
     background: rgba(255,255,255,0.92);
     border: 1px solid rgba(0,0,0,0.14);
@@ -1078,7 +1078,8 @@ l01 = Number(l01);
             grid01b();
                         // Task 2: show result boxes, wait 500ms, then move them
                         try {
-                            triggerSimResult('Input verified. Grid opened; door and pyramid moving.');
+                            // Start overlay without overriding texts; it will pull from #p301 and #text301
+                            triggerSimResult();
                         } catch(_){}
         }
     }
@@ -1507,29 +1508,50 @@ function triggerSimResult(text){
     __simOverlayWaiting = true;
     var cancelled = false;
     __simOverlayWaitCancel = function(){ cancelled = true; __simOverlayWaiting = false; };
+    // Build boxes immediately but keep them hidden until movement starts
+    buildSimOverlay(text || '');
+    var srcEl = document.querySelector('#d302 > div') || document.getElementById('p301');
+    var srcRect = null;
+    try { srcRect = srcEl.getBoundingClientRect(); } catch(_){ srcRect = null; }
     var t0 = performance.now();
     function waitLoop(t){
         if(cancelled) return;
         if(t - t0 >= 500){
             __simOverlayWaiting = false;
             __simOverlayStarted = true;
-            buildAndAnimateSimOverlay(text || '');
+            // Hide the original text box element once movement begins
+            try {
+                var d302 = document.getElementById('d302');
+                if(d302){ d302.style.display = 'none'; }
+            } catch(_){}
+            // Reveal overlay and start movement using the original box size
+            try {
+                var root = document.getElementById('simOverlayRoot');
+                if(root){ root.style.opacity = '1'; }
+            } catch(_){}
+            startSimOverlayAnimation(
+                document.getElementById('simPanelCenter'),
+                document.getElementById('simPanelRight'),
+                srcRect
+            );
         } else { requestAnimationFrame(waitLoop); }
     }
     requestAnimationFrame(waitLoop);
 }
 
-function buildAndAnimateSimOverlay(text){
+function buildSimOverlay(text){
     var root = document.getElementById('simOverlayRoot');
     if(!root){ root = document.createElement('div'); root.id = 'simOverlayRoot'; document.body.appendChild(root); }
     root.innerHTML = '';
+    // Keep overlay hidden until movement starts
+    try { root.style.opacity = '0'; } catch(_){}
 
     var center = document.createElement('div'); center.className = 'sim-panel'; center.id = 'simPanelCenter';
     var h2 = document.createElement('h2'); h2.textContent = 'Result';
-    var content = document.createElement('div'); content.className = 'content'; content.textContent = text;
+    var content = document.createElement('div'); content.className = 'content';
     center.appendChild(h2); center.appendChild(content);
 
-    var right = document.createElement('div'); right.className = 'sim-panel'; right.id = 'simPanelRight'; right.style.display = 'none';
+    var right = document.createElement('div'); right.className = 'sim-panel'; right.id = 'simPanelRight';
     right.appendChild(document.createElement('h2')).textContent = 'More';
     var rc = document.createElement('div'); rc.className = 'content'; right.appendChild(rc);
 
@@ -1539,7 +1561,7 @@ function buildAndAnimateSimOverlay(text){
     try {
         var vh = window.innerHeight;
         // allow content area to scroll if too tall
-        var maxPanelH = Math.max(280, Math.floor(vh * 0.7));
+        var maxPanelH = Math.max(360, Math.floor(vh * 0.8));
         center.style.maxHeight = maxPanelH + 'px';
         content.style.maxHeight = (maxPanelH - 40) + 'px'; // account for header + paddings
         content.style.overflowY = 'auto';
@@ -1547,31 +1569,36 @@ function buildAndAnimateSimOverlay(text){
         rc.style.maxHeight = (maxPanelH - 40) + 'px'; rc.style.overflowY = 'auto';
     } catch(_){}
 
-    // Split text roughly in half for two panels
-    var sentences = (text||'').split(/([.!?]\s+)/);
-    var firstHalf = sentences.slice(0, Math.ceil(sentences.length/2)).join('');
-    var secondHalf = sentences.slice(Math.ceil(sentences.length/2)).join('');
-    content.textContent = firstHalf || text || '';
-    rc.textContent = secondHalf || '';
-    right.style.display = 'block';
-
-    // Animate movement into left and right positions
-    startSimOverlayAnimation(center, right);
+    // Move actual texts from the initial elements into the two panels
+    var instructionText = '';
+    try {
+        var pEl = document.getElementById('p301');
+        instructionText = (pEl && (pEl.innerText || pEl.textContent)) || '';
+    } catch(_){}
+    var typedText = '';
+    try {
+        var tEl = document.getElementById('text301');
+        typedText = (tEl && tEl.value) || '';
+    } catch(_){}
+    // Move text into the fields
+    content.textContent = instructionText || '';
+    rc.textContent = typedText || '';
 }
 
-function startSimOverlayAnimation(panelC, panelR){
+function startSimOverlayAnimation(panelC, panelR, srcRect){
     var vw = window.innerWidth, vh = window.innerHeight;
-    var startRect = panelC.getBoundingClientRect();
-    var startX = Math.round((vw/2) - (startRect.width/2));
-    var startY = Math.round((vh*0.42) - (startRect.height/2));
-    var startW = startRect.width, startH = startRect.height;
+    // Start size should match the originally displayed text box element
+    var baseRect = (srcRect && srcRect.width && srcRect.height) ? srcRect : panelC.getBoundingClientRect();
+    var startX = Math.round((vw/2) - (baseRect.width/2));
+    var startY = Math.round((vh*0.44) - (baseRect.height/2));
+    var startW = baseRect.width, startH = baseRect.height;
 
     // Wider targets and taller minimums per requirement
-    var targetW = Math.max(480, Math.round(startW * 0.86));
-    var targetH = Math.max(300, Math.round(startH));
-    var leftTargetX = Math.round(vw*0.08);
-    var rightTargetX = Math.round(vw*0.92 - targetW);
-    var targetY = Math.round(vh*0.42 - targetH/2);
+    var targetW = Math.max(520, Math.round(startW * 0.88));
+    var targetH = Math.max(360, Math.round(startH));
+    var leftTargetX = Math.round(vw*0.06);
+    var rightTargetX = Math.round(vw*0.94 - targetW);
+    var targetY = Math.round(vh*0.44 - targetH/2);
 
     var duration = 900, t0 = performance.now();
     function apply(el,x,y,w,h){ el.style.left=x+'px'; el.style.top=y+'px'; el.style.transform='none'; el.style.width=Math.round(w)+'px'; el.style.height=Math.round(h)+'px'; }

@@ -222,10 +222,10 @@ input {
     min-height: 0px; /* allow starting size to match source */
     max-height: 80vh; /* ensure bottom remains visible */
     overflow: hidden; /* manage internal scrolling area */
-    background: rgba(255,255,255,0.92);
-    border: 1px solid rgba(0,0,0,0.14);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.16);
-    border-radius: 8px; color: #111;
+    background: rgba(0,0,0,0.88); /* match initial black style */
+    border: 0px solid transparent;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+    border-radius: 8px; color: #fff;
     font: 16px/1.5 Georgia, 'Times New Roman', Times, serif;
 }
 .sim-panel h2 { margin: 10px 12px 6px; font-size: 18px; }
@@ -1519,11 +1519,8 @@ function triggerSimResult(text){
         if(t - t0 >= 500){
             __simOverlayWaiting = false;
             __simOverlayStarted = true;
-            // Hide the original text box element once movement begins
-            try {
-                var d302 = document.getElementById('d302');
-                if(d302){ d302.style.display = 'none'; }
-            } catch(_){}
+            // Modify the initial box to keep buttons visible but remove text and shrink size
+            try { minimizeInitialBoxForButtons(); } catch(_){}
             // Reveal overlay and start movement using the original box size
             try {
                 var root = document.getElementById('simOverlayRoot');
@@ -1571,17 +1568,19 @@ function buildSimOverlay(text){
 
     // Move actual texts from the initial elements into the two panels
     var instructionText = '';
+    var instructionHTML = '';
     try {
         var pEl = document.getElementById('p301');
         instructionText = (pEl && (pEl.innerText || pEl.textContent)) || '';
+        instructionHTML = (pEl && pEl.innerHTML) || '';
     } catch(_){}
     var typedText = '';
     try {
         var tEl = document.getElementById('text301');
         typedText = (tEl && tEl.value) || '';
     } catch(_){}
-    // Move text into the fields
-    content.textContent = instructionText || '';
+    // Move text into the fields (preserve formatting from original box)
+    content.innerHTML = instructionHTML || instructionText || '';
     rc.textContent = typedText || '';
 }
 
@@ -1615,6 +1614,44 @@ function startSimOverlayAnimation(panelC, panelR, srcRect){
 }
 
 function lerp(a,b,t){ return a + (b - a) * t; }
+// Shrink initial box and keep buttons visible; move downward about 15px
+function minimizeInitialBoxForButtons(){
+    var d302 = document.getElementById('d302');
+    if(!d302) return;
+    var inner = d302.querySelector('div');
+    var p = document.getElementById('p301');
+    var btnHome = document.getElementById('button301');
+    var btnAbs = document.getElementById('button302');
+
+    // Ensure buttons are visible
+    if(btnHome) btnHome.style.display = 'block';
+    if(btnAbs) btnAbs.style.display = 'block';
+
+    // Remove text and borders from the text paragraph
+    if(p){
+        p.innerHTML = '';
+        p.style.backgroundColor = 'transparent';
+        p.style.border = '0';
+        p.style.padding = '0';
+        p.style.margin = '0';
+    }
+
+    // Hide the input box and reduce container size to fit buttons only
+    var t = document.getElementById('text301');
+    if(t){ t.style.display = 'none'; }
+
+    // Compute required height for container based on buttons
+    var h = 0;
+    if(btnAbs){ h += btnAbs.offsetHeight; }
+    if(btnHome){ h += btnHome.offsetHeight; }
+    // Add small padding
+    h += 8;
+    if(inner){ inner.style.paddingBottom = '0px'; inner.style.height = h + 'px'; }
+
+    // Animate downward by ~15px using transform
+    d302.style.transition = 'transform 300ms ease';
+    d302.style.transform = 'translateY(15px)';
+}
 /*Bottom*/
 </script>
 </body>

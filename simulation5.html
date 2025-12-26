@@ -222,14 +222,15 @@ input {
     min-height: 0px; /* allow starting size to match source */
     max-height: 80vh; /* ensure bottom remains visible */
     overflow: hidden; /* manage internal scrolling area */
-    background: rgba(0,0,0,0.88); /* match initial black style */
-    border: 0px solid transparent;
+    background: rgba(0,0,0,0.90); /* match initial black style */
+    border: 8px outset #808080; /* match initial border */
     box-shadow: 0 8px 16px rgba(0,0,0,0.35);
     border-radius: 8px; color: #fff;
     font: 16px/1.5 Georgia, 'Times New Roman', Times, serif;
 }
 .sim-panel h2 { margin: 10px 12px 6px; font-size: 18px; }
-.sim-panel .content { margin: 0 12px 12px; font-size: 15px; overflow-y: auto; }
+.sim-panel h2 { color: #fff; }
+.sim-panel .content { margin: 0 12px 12px; font-size: 15px; overflow-y: auto; color: #fff; }
 </style>
 <div>
 <div id="d302" class="d0002">
@@ -1087,16 +1088,15 @@ l01 = Number(l01);
     }
 }
 function blockHeight01() {
-    // Adjust grid height based on grid square size (10 columns, 4 rows of squares)
+    // Adjust grid height based on grid square size, but clamp to viewport for readability
     var block = document.getElementById("block01");
     if(!block){ return; }
     var w = block.clientWidth; // width of the grid container
     if(!w || w <= 0){ w = window.innerWidth; }
-    // Each cell width is one tenth of container width
-    var cellSize = Math.floor(w / 10);
-    // Height should be exactly 4 rows of squares
-    var targetH = cellSize * 4;
-    block.style.height = targetH + "px";
+    var cellSize = Math.floor(w / 10); // 10 columns
+    var targetH = cellSize * 4; // 4 rows
+    var maxH = Math.floor(window.innerHeight * 0.65);
+    block.style.height = Math.min(targetH, maxH) + "px";
 }
 function grid01b() {
     var i, length01, grid01html;
@@ -1527,6 +1527,8 @@ function triggerSimResult(text){
         if(t - t0 >= 500){
             __simOverlayWaiting = false;
             __simOverlayStarted = true;
+            // Copy latest text into overlay before clearing source
+            try { refreshOverlayContent(); } catch(_){}
             // Modify the initial box to keep buttons visible but remove text and shrink size
             try { minimizeInitialBoxForButtons(); } catch(_){}
             // Reveal overlay and start movement using the original box size
@@ -1574,23 +1576,33 @@ function buildSimOverlay(text){
         rc.style.maxHeight = (maxPanelH - 40) + 'px'; rc.style.overflowY = 'auto';
     } catch(_){}
 
-    // Move actual texts from the initial elements into the two panels
-    var instructionText = '';
-    var instructionHTML = '';
+    // Provisional content; will be refreshed at movement start
+    try {
+        var pEl0 = document.getElementById('p301');
+        content.innerHTML = (pEl0 && pEl0.innerHTML) || '';
+        var tEl0 = document.getElementById('text301');
+        rc.textContent = (tEl0 && (tEl0.value || tEl0.textContent || tEl0.innerText)) || '';
+    } catch(_){ }
+}
+
+// Copy latest text into panels, then clear the source paragraph
+function refreshOverlayContent(){
+    var instructionHTML = '', typedText = '';
     try {
         var pEl = document.getElementById('p301');
-        instructionText = (pEl && (pEl.innerText || pEl.textContent)) || '';
         instructionHTML = (pEl && pEl.innerHTML) || '';
-    } catch(_){}
-    var typedText = '';
-    try {
         var tEl = document.getElementById('text301');
-        typedText = (tEl && (tEl.value || tEl.innerText || tEl.textContent)) || '';
-    } catch(_){}
-    // Move text into the fields (preserve formatting from original box)
-    content.innerHTML = instructionHTML || instructionText || '';
-    // Show only the typed text in the right panel
-    rc.textContent = typedText || '';
+        typedText = (tEl && (tEl.value || tEl.textContent || tEl.innerText)) || '';
+    } catch(_){ }
+    try {
+        var center = document.getElementById('simPanelCenter');
+        var right = document.getElementById('simPanelRight');
+        var cc = center && center.querySelector('.content');
+        var rc = right && right.querySelector('.content');
+        if(cc){ cc.innerHTML = instructionHTML || ''; }
+        if(rc){ rc.textContent = typedText || ''; }
+    } catch(_){ }
+    try { var pEl2 = document.getElementById('p301'); if(pEl2){ pEl2.innerHTML = ''; } } catch(_){ }
 }
 
 function startSimOverlayAnimation(panelC, panelR, srcRect){
@@ -1601,12 +1613,12 @@ function startSimOverlayAnimation(panelC, panelR, srcRect){
     var startY = Math.round((vh*0.44) - (baseRect.height/2));
     var startW = baseRect.width, startH = baseRect.height;
 
-    // Wider targets and taller minimums per requirement
-    var targetW = Math.max(520, Math.round(startW * 0.88));
-    var targetH = Math.max(360, Math.round(startH));
-    var leftTargetX = Math.round(vw*0.06);
-    var rightTargetX = Math.round(vw*0.94 - targetW);
-    var targetY = Math.round(vh*0.44 - targetH/2);
+    // Keep doorway clear by using narrower panels and higher placement
+    var targetW = Math.min(480, Math.max(360, Math.round(startW * 0.80)));
+    var targetH = Math.min(340, Math.max(240, Math.round(startH * 0.85)));
+    var leftTargetX = Math.round(vw * 0.08);
+    var rightTargetX = Math.round(vw * 0.92 - targetW);
+    var targetY = Math.round(vh * 0.26 - targetH/2);
 
     var duration = 900, t0 = performance.now();
     function apply(el,x,y,w,h){ el.style.left=x+'px'; el.style.top=y+'px'; el.style.transform='none'; el.style.width=Math.round(w)+'px'; el.style.height=Math.round(h)+'px'; }

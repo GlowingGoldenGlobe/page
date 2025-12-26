@@ -208,6 +208,28 @@ input {
     border: 8px outset grey;
     box-shadow: 0px 2px 4px 0px white;
 }
+/* Result overlay panels (Task 2) */
+#simOverlayRoot {
+    position: fixed;
+    left: 0; top: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
+.sim-panel {
+    position: absolute;
+    left: 50%; top: 42%; transform: translate(-50%,-50%);
+    width: 560px; /* wider box */
+    min-height: 240px; /* minimum height */
+    max-height: 70vh; /* ensure bottom remains visible */
+    overflow: hidden; /* manage internal scrolling area */
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(0,0,0,0.14);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.16);
+    border-radius: 8px; color: #111;
+    font: 16px/1.5 Georgia, 'Times New Roman', Times, serif;
+}
+.sim-panel h2 { margin: 10px 12px 6px; font-size: 18px; }
+.sim-panel .content { margin: 0 12px 12px; font-size: 15px; overflow-y: auto; }
 </style>
 <div>
 <div id="d302" class="d0002">
@@ -1054,6 +1076,10 @@ l01 = Number(l01);
         else if(ifRun01 != "true") {
 //alert("true " + ifRun01);
             grid01b();
+                        // Task 2: show result boxes, wait 500ms, then move them
+                        try {
+                            triggerSimResult('Input verified. Grid opened; door and pyramid moving.');
+                        } catch(_){}
         }
     }
 }
@@ -1471,6 +1497,97 @@ function homePage01() {
 function openAbsoluteValueThoughts() {
     window.open("https://GlowingGoldenGlobe.github.io/page/AbsoluteValuesControl.html", "_top");
 }
+// ===== Task 2: 500ms delayed text boxes and movement =====
+var __simOverlayStarted = false;
+var __simOverlayWaiting = false;
+var __simOverlayWaitCancel = null;
+
+function triggerSimResult(text){
+    if(__simOverlayStarted || __simOverlayWaiting) return;
+    __simOverlayWaiting = true;
+    var cancelled = false;
+    __simOverlayWaitCancel = function(){ cancelled = true; __simOverlayWaiting = false; };
+    var t0 = performance.now();
+    function waitLoop(t){
+        if(cancelled) return;
+        if(t - t0 >= 500){
+            __simOverlayWaiting = false;
+            __simOverlayStarted = true;
+            buildAndAnimateSimOverlay(text || '');
+        } else { requestAnimationFrame(waitLoop); }
+    }
+    requestAnimationFrame(waitLoop);
+}
+
+function buildAndAnimateSimOverlay(text){
+    var root = document.getElementById('simOverlayRoot');
+    if(!root){ root = document.createElement('div'); root.id = 'simOverlayRoot'; document.body.appendChild(root); }
+    root.innerHTML = '';
+
+    var center = document.createElement('div'); center.className = 'sim-panel'; center.id = 'simPanelCenter';
+    var h2 = document.createElement('h2'); h2.textContent = 'Result';
+    var content = document.createElement('div'); content.className = 'content'; content.textContent = text;
+    center.appendChild(h2); center.appendChild(content);
+
+    var right = document.createElement('div'); right.className = 'sim-panel'; right.id = 'simPanelRight'; right.style.display = 'none';
+    right.appendChild(document.createElement('h2')).textContent = 'More';
+    var rc = document.createElement('div'); rc.className = 'content'; right.appendChild(rc);
+
+    root.appendChild(center); root.appendChild(right);
+
+    // Size panels based on content to avoid clipping bottom
+    try {
+        var vh = window.innerHeight;
+        // allow content area to scroll if too tall
+        var maxPanelH = Math.max(280, Math.floor(vh * 0.7));
+        center.style.maxHeight = maxPanelH + 'px';
+        content.style.maxHeight = (maxPanelH - 40) + 'px'; // account for header + paddings
+        content.style.overflowY = 'auto';
+        right.style.maxHeight = maxPanelH + 'px';
+        rc.style.maxHeight = (maxPanelH - 40) + 'px'; rc.style.overflowY = 'auto';
+    } catch(_){}
+
+    // Split text roughly in half for two panels
+    var sentences = (text||'').split(/([.!?]\s+)/);
+    var firstHalf = sentences.slice(0, Math.ceil(sentences.length/2)).join('');
+    var secondHalf = sentences.slice(Math.ceil(sentences.length/2)).join('');
+    content.textContent = firstHalf || text || '';
+    rc.textContent = secondHalf || '';
+    right.style.display = 'block';
+
+    // Animate movement into left and right positions
+    startSimOverlayAnimation(center, right);
+}
+
+function startSimOverlayAnimation(panelC, panelR){
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var startRect = panelC.getBoundingClientRect();
+    var startX = Math.round((vw/2) - (startRect.width/2));
+    var startY = Math.round((vh*0.42) - (startRect.height/2));
+    var startW = startRect.width, startH = startRect.height;
+
+    // Wider targets and taller minimums per requirement
+    var targetW = Math.max(480, Math.round(startW * 0.86));
+    var targetH = Math.max(300, Math.round(startH));
+    var leftTargetX = Math.round(vw*0.08);
+    var rightTargetX = Math.round(vw*0.92 - targetW);
+    var targetY = Math.round(vh*0.42 - targetH/2);
+
+    var duration = 900, t0 = performance.now();
+    function apply(el,x,y,w,h){ el.style.left=x+'px'; el.style.top=y+'px'; el.style.transform='none'; el.style.width=Math.round(w)+'px'; el.style.height=Math.round(h)+'px'; }
+    function ease(p){ return (p < 0.5) ? (2*p*p) : (1 - Math.pow(-2*p+2,2)/2); }
+    function step(t){
+        var p = Math.min(1, (t - t0)/duration);
+        var e = ease(p);
+        apply(panelC, lerp(startX,leftTargetX,e), lerp(startY,targetY,e), lerp(startW,targetW,e), lerp(startH,targetH,e));
+        var curXr = lerp(startX,rightTargetX,e), curYr = lerp(startY,targetY,e), curWr = lerp(startW,targetW,e), curHr = lerp(startH,targetH,e);
+        apply(panelR, curXr, curYr, curWr, curHr);
+        if(p < 1){ requestAnimationFrame(step); }
+    }
+    requestAnimationFrame(step);
+}
+
+function lerp(a,b,t){ return a + (b - a) * t; }
 /*Bottom*/
 </script>
 </body>

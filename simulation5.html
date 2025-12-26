@@ -1061,6 +1061,8 @@ function onload02() {
     document.getElementById("text301").value = "";
     localStorage.setItem("ifRunAlready", "0");
     blockHeight01();
+    // Keep square grid height in sync on resize
+    try { window.addEventListener('resize', blockHeight01); } catch(_){}
 }
 function verify01(textToType01, textTyped01) {
 var textToType01 = document.getElementById("p301").innerHTML;
@@ -1085,10 +1087,16 @@ l01 = Number(l01);
     }
 }
 function blockHeight01() {
-    var windowHeight01 = window.innerHeight;
-    var h01 = windowHeight01.toString();
-    h01 = h01 + "px";
-    document.getElementById("block01").style.height = h01;    
+    // Adjust grid height based on grid square size (10 columns, 4 rows of squares)
+    var block = document.getElementById("block01");
+    if(!block){ return; }
+    var w = block.clientWidth; // width of the grid container
+    if(!w || w <= 0){ w = window.innerWidth; }
+    // Each cell width is one tenth of container width
+    var cellSize = Math.floor(w / 10);
+    // Height should be exactly 4 rows of squares
+    var targetH = cellSize * 4;
+    block.style.height = targetH + "px";
 }
 function grid01b() {
     var i, length01, grid01html;
@@ -1577,10 +1585,11 @@ function buildSimOverlay(text){
     var typedText = '';
     try {
         var tEl = document.getElementById('text301');
-        typedText = (tEl && tEl.value) || '';
+        typedText = (tEl && (tEl.value || tEl.innerText || tEl.textContent)) || '';
     } catch(_){}
     // Move text into the fields (preserve formatting from original box)
     content.innerHTML = instructionHTML || instructionText || '';
+    // Show only the typed text in the right panel
     rc.textContent = typedText || '';
 }
 
@@ -1641,15 +1650,25 @@ function minimizeInitialBoxForButtons(){
     if(t){ t.style.display = 'none'; }
 
     // Compute required height for container based on buttons
+    // Force reflow to ensure offsets are up-to-date
+    void(d302.offsetHeight);
     var h = 0;
     if(btnAbs){ h += btnAbs.offsetHeight; }
     if(btnHome){ h += btnHome.offsetHeight; }
     // Add small padding
     h += 8;
-    if(inner){ inner.style.paddingBottom = '0px'; inner.style.height = h + 'px'; }
+    if(inner){
+        inner.style.paddingBottom = '0px';
+        inner.style.height = h + 'px';
+        inner.style.border = '0';
+        inner.style.outline = '0';
+    }
 
     // Animate downward by ~15px using transform
     d302.style.transition = 'transform 300ms ease';
+    // Put buttons above overlay and near top for visibility
+    d302.style.zIndex = '10000';
+    d302.style.top = '2%';
     d302.style.transform = 'translateY(15px)';
 }
 /*Bottom*/

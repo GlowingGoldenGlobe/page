@@ -1105,9 +1105,10 @@ function onResizeSim(){
             rotater01.style.width = (width01 * 4) + 'px';
             rotater01.style.height = height02 + 'px';
             var rows = getGridRows();
-            var frontRows = Math.max(2, Math.floor(rows * 0.25));
+            // Place the door vertically near grid center for all row counts
+            var centerRowTop = Math.max(0, Math.floor(rows / 2) - 1);
             rotater01.style.left = (width01 * 2) + 'px';
-            rotater01.style.top = (height01 * frontRows) + 'px';
+            rotater01.style.top = (height01 * centerRowTop) + 'px';
         }
         // Keep overlay panels anchored to the door after resize
         try { alignOverlayPanelsToDoor(); } catch(_){}
@@ -1385,8 +1386,9 @@ function openDoor01() {
     rotater01.style.height = height02px;
     var rotLeft = (width01 * 2) + "px";
     var rows = getGridRows();
-    var frontRows = Math.max(2, Math.floor(rows * 0.25));
-    var rotTop = (height01 * frontRows) + "px";
+    // Place the door vertically near grid center for consistency across row counts
+    var centerRowTop = Math.max(0, Math.floor(rows / 2) - 1);
+    var rotTop = (height01 * centerRowTop) + "px";
     rotater01.style.left = rotLeft;
     rotater01.style.top = rotTop;
     proportionateChange01(top01, left01);
@@ -1546,7 +1548,7 @@ function gridStyleChange01(x01) {
         document.getElementById("p301").style.border = "8px outset #808080";
         return null;
     }
-    if(i < 41) {
+    if(i < length01) {
         id02 = id01 + i;
         el01 = document.getElementById(id02);
         el01.style.border = "1px outset #808080";
@@ -1727,15 +1729,24 @@ function startSimOverlayAnimation(panelC, panelR, srcRect){
     // Compute door positions to place panels to the left and right of the door
     var rot = document.getElementById('door01rotater');
     var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
-    // Panel sizes
-    var targetW = Math.min(460, Math.max(340, Math.round(startW * 0.74)));
-    var targetH = Math.min(340, Math.max(220, Math.round(startH * 0.80)));
-    var margin = 12;
-    var leftTargetX = rotRect ? Math.max(margin, Math.round(rotRect.left - targetW - margin)) : Math.round(vw * 0.08);
-    var rightTargetX = rotRect ? Math.min(vw - targetW - margin, Math.round(rotRect.right + margin)) : Math.round(vw * 0.92 - targetW);
+    // Panel sizes: wider and taller for readability
+    var targetW = Math.min(540, Math.max(420, Math.round(startW * 0.90)));
+    var targetH = Math.min(360, Math.max(240, Math.round(startH * 0.85)));
+    // Position panels symmetrically with a fixed gap from the door
+    var gap = 60;
     var targetY = rotRect ? Math.round(rotRect.top + (rotRect.height/2) - targetH/2) : Math.round(vh * 0.16 - targetH/2);
+    var leftTargetX, rightTargetX;
+    if(rotRect){
+        var leftCenterX = Math.round(rotRect.left - gap);
+        var rightCenterX = Math.round(rotRect.right + gap);
+        leftTargetX = Math.max(8, leftCenterX - Math.round(targetW/2));
+        rightTargetX = Math.min(vw - targetW - 8, rightCenterX - Math.round(targetW/2));
+    } else {
+        leftTargetX = Math.round(vw * 0.26 - targetW/2);
+        rightTargetX = Math.round(vw * 0.74 - targetW/2);
+    }
 
-    var duration = 900, t0 = performance.now();
+    var duration = 1100, t0 = performance.now();
     function apply(el,x,y,w,h){ el.style.left=x+'px'; el.style.top=y+'px'; el.style.transform='none'; el.style.width=Math.round(w)+'px'; el.style.height=Math.round(h)+'px'; }
     function ease(p){ return (p < 0.5) ? (2*p*p) : (1 - Math.pow(-2*p+2,2)/2); }
     function step(t){
@@ -1760,13 +1771,22 @@ function alignOverlayPanelsToDoor(){
     var rot = document.getElementById('door01rotater');
     var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
     var vw = window.innerWidth, vh = window.innerHeight;
-    var margin = 12;
     var cRect = panelC.getBoundingClientRect();
     var rRect = panelR.getBoundingClientRect();
     var targetH = Math.max(cRect.height, rRect.height);
     var targetY = rotRect ? Math.round(rotRect.top + (rotRect.height/2) - targetH/2) : Math.round(vh * 0.16 - targetH/2);
-    var leftTargetX = rotRect ? Math.max(margin, Math.round(rotRect.left - cRect.width - margin)) : Math.round(vw * 0.08);
-    var rightTargetX = rotRect ? Math.min(vw - rRect.width - margin, Math.round(rotRect.right + margin)) : Math.round(vw * 0.92 - rRect.width);
+    // Mirror panels around the door with a fixed gap
+    var gap = 60;
+    var leftTargetX, rightTargetX;
+    if(rotRect){
+        var leftCenterX = Math.round(rotRect.left - gap);
+        var rightCenterX = Math.round(rotRect.right + gap);
+        leftTargetX = Math.max(8, leftCenterX - Math.round(cRect.width/2));
+        rightTargetX = Math.min(vw - rRect.width - 8, rightCenterX - Math.round(rRect.width/2));
+    } else {
+        leftTargetX = Math.round(vw * 0.26 - cRect.width/2);
+        rightTargetX = Math.round(vw * 0.74 - rRect.width/2);
+    }
     panelC.style.left = leftTargetX + 'px';
     panelC.style.top = targetY + 'px';
     panelC.style.transform = 'none';
@@ -1820,10 +1840,10 @@ function minimizeInitialBoxForButtons(){
     // Position the buttons box at the bottom of the door
     var rot = document.getElementById('door01rotater');
     var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
-    d302.style.transition = 'top 300ms ease, transform 300ms ease';
+    d302.style.transition = 'top 700ms ease, transform 700ms ease';
     d302.style.zIndex = '3';
     if(rotRect){
-        d302.style.top = Math.round(rotRect.bottom + 8) + 'px';
+        d302.style.top = Math.round(rotRect.bottom + 2) + 'px';
     } else {
         d302.style.top = '12%';
     }
@@ -1841,13 +1861,13 @@ function finalizeSimUI(){
         var btnAbs = document.getElementById('button302'); if(btnAbs){ btnAbs.style.display = 'block'; }
         var d302 = document.getElementById('d302');
         if(d302){
-            d302.style.transition = 'top 300ms ease';
+            d302.style.transition = 'top 700ms ease';
             d302.style.zIndex = '3';
             // Position the buttons box flush under the door rotater
             var rot = document.getElementById('door01rotater');
             var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
             if(rotRect){
-                d302.style.top = Math.round(rotRect.bottom + 8) + 'px';
+                d302.style.top = Math.round(rotRect.bottom + 2) + 'px';
             } else {
                 d302.style.top = '12%';
             }

@@ -1,17 +1,4 @@
-// Compute dynamic grid rows based on monitor height and square cell size
-function getGridRows() {
-    var block = document.getElementById("block01");
-    if(!block){ return 5; }
-    var w = block.clientWidth;
-    if(!w || w <= 0){ w = window.innerWidth; }
-    var cellSize = Math.max(1, Math.floor(w / 10)); // keep square cells
-    // Rows determined by how many squares fit vertically on the screen
-    var rows = Math.floor(window.innerHeight / cellSize);
-    // Prefer 6–10 rows for typical screens; allow up to 12
-    rows = Math.max(6, Math.min(rows, 12));
-    return rows;
-}
-<!---URL Reference: https://GlowingGoldenGlobe.github.io/page/simulation5.html-->
+<!-- URL Reference: https://GlowingGoldenGlobe.github.io/page/simulation5.html -->
 <!DOCTYPE html>
 <html>
 <head>

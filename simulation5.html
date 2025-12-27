@@ -1722,37 +1722,51 @@ function startSimOverlayAnimation(panelC, panelR, srcRect){
     var startX = Math.round((vw/2) - (baseRect.width/2));
     var startY = Math.round((vh*0.44) - (baseRect.height/2));
     var startW = baseRect.width, startH = baseRect.height;
-    // Compute door positions to place panels to the left and right of the door
+    // Compute door position for vertical alignment reference only
     var rot = document.getElementById('door01rotater');
     var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
-    // Panel sizes: wider and taller for readability
-    var targetW = Math.min(560, Math.max(440, Math.round(startW * 0.95)));
-    var targetH = Math.min(380, Math.max(260, Math.round(startH * 0.90)));
-    // Expand height to fit content (up to 80vh) so text fully shows without scrollbars
+
+    // Panel sizes: wider and taller for readability; ensure both panels and door fit
+    var edgeMargin = Math.round(Math.min(vw * 0.12, 120));
+    var doorGap = Math.round(Math.min(vw * 0.08, 96));
+    var availableForPanels = vw - (2 * edgeMargin) - (rotRect ? rotRect.width : 220) - doorGap;
+    var targetW = Math.min(560, Math.max(360, Math.floor(availableForPanels / 2)));
+    var targetH = Math.min(420, Math.max(280, Math.round(startH * 0.95)));
+
+    // Expand height to fit content (up to ~88vh) so remaining text shows
     try {
         var cc = panelC.querySelector('.content');
         var rc = panelR.querySelector('.content');
         var ch = cc ? cc.scrollHeight : 0;
         var rh = rc ? rc.scrollHeight : 0;
         var contentH = Math.max(ch, rh);
-        var maxPanelH = Math.floor(vh * 0.8);
-        targetH = Math.min(maxPanelH, Math.max(targetH, contentH + 60));
+        var maxPanelH = Math.floor(vh * 0.88);
+        targetH = Math.min(maxPanelH, Math.max(targetH, contentH + 64));
     } catch(_){}
-    // Position panels with equal edge gaps from the door
-    var gap = 60;
+
+    // Symmetric edge-based positioning: same margin from left/right edges
     var targetY = rotRect ? Math.round(rotRect.top + (rotRect.height/2) - targetH/2) : Math.round(vh * 0.16 - targetH/2);
-    var leftTargetX, rightTargetX;
+    var leftTargetX = edgeMargin;
+    var rightTargetX = vw - edgeMargin - targetW;
+
+    // Ensure panels don't collide with the door; if they do, push outward and/or shrink
     if(rotRect){
-        // Left panel right edge aligns to door left edge - gap
-        leftTargetX = Math.round(rotRect.left - gap - targetW);
-        // Right panel left edge aligns to door right edge + gap
-        rightTargetX = Math.round(rotRect.right + gap);
-        // Clamp to viewport
-        leftTargetX = Math.max(8, leftTargetX);
-        rightTargetX = Math.min(vw - targetW - 8, rightTargetX);
-    } else {
-        leftTargetX = Math.round(vw * 0.26 - targetW/2);
-        rightTargetX = Math.round(vw * 0.74 - targetW/2);
+        // If left panel would overlap door, reduce width or move further left within bounds
+        var leftRightEdge = leftTargetX + targetW;
+        if(leftRightEdge > rotRect.left - doorGap){
+            var maxLeftW = Math.max(280, rotRect.left - doorGap - edgeMargin);
+            targetW = Math.min(targetW, maxLeftW);
+            leftTargetX = Math.max(8, rotRect.left - doorGap - targetW);
+            rightTargetX = vw - edgeMargin - targetW; // keep symmetry
+        }
+        // If right panel would overlap door, adjust similarly
+        var rightLeftEdge = rightTargetX;
+        if(rightLeftEdge < rotRect.right + doorGap){
+            var maxRightX = Math.min(vw - edgeMargin - 280, vw - edgeMargin - targetW);
+            rightTargetX = Math.max(rotRect.right + doorGap, maxRightX);
+            // keep left symmetric distance from left edge
+            leftTargetX = edgeMargin;
+        }
     }
 
     var duration = 1200, t0 = performance.now();
@@ -1782,15 +1796,15 @@ function alignOverlayPanelsToDoor(){
     var vw = window.innerWidth, vh = window.innerHeight;
     var cRect = panelC.getBoundingClientRect();
     var rRect = panelR.getBoundingClientRect();
-    // Recompute height to fit content up to 80vh
+    // Recompute height to fit content up to ~88vh
     try {
         var cc = panelC.querySelector('.content');
         var rc = panelR.querySelector('.content');
         var ch = cc ? cc.scrollHeight : 0;
         var rh = rc ? rc.scrollHeight : 0;
         var contentH = Math.max(ch, rh);
-        var maxPanelH = Math.floor(vh * 0.8);
-        var targetH2 = Math.min(maxPanelH, Math.max(Math.max(cRect.height, rRect.height), contentH + 60));
+        var maxPanelH = Math.floor(vh * 0.88);
+        var targetH2 = Math.min(maxPanelH, Math.max(Math.max(cRect.height, rRect.height), contentH + 64));
         panelC.style.height = targetH2 + 'px';
         panelR.style.height = targetH2 + 'px';
         // recompute rects after sizing
@@ -1799,17 +1813,23 @@ function alignOverlayPanelsToDoor(){
     } catch(_){}
     var targetH = Math.max(cRect.height, rRect.height);
     var targetY = rotRect ? Math.round(rotRect.top + (rotRect.height/2) - targetH/2) : Math.round(vh * 0.16 - targetH/2);
-    // Mirror panels by edges with a fixed gap from door
-    var gap = 60;
-    var leftTargetX, rightTargetX;
+    // Symmetric edge-based positioning: same margin from left/right edges
+    var edgeMargin = Math.round(Math.min(vw * 0.12, 120));
+    var doorGap = Math.round(Math.min(vw * 0.08, 96));
+    var leftTargetX = edgeMargin;
+    var rightTargetX = vw - edgeMargin - rRect.width;
+
+    // Ensure panels aren't overlapping the door; if needed, push outward or shrink
     if(rotRect){
-        leftTargetX = Math.round(rotRect.left - gap - cRect.width);
-        rightTargetX = Math.round(rotRect.right + gap);
-        leftTargetX = Math.max(8, leftTargetX);
-        rightTargetX = Math.min(vw - rRect.width - 8, rightTargetX);
-    } else {
-        leftTargetX = Math.round(vw * 0.26 - cRect.width/2);
-        rightTargetX = Math.round(vw * 0.74 - rRect.width/2);
+        if(leftTargetX + cRect.width > rotRect.left - doorGap){
+            var maxLeftW = Math.max(280, rotRect.left - doorGap - edgeMargin);
+            panelC.style.width = Math.min(cRect.width, maxLeftW) + 'px';
+            cRect = panelC.getBoundingClientRect();
+            leftTargetX = Math.max(8, rotRect.left - doorGap - cRect.width);
+        }
+        if(rightTargetX < rotRect.right + doorGap){
+            rightTargetX = Math.max(rotRect.right + doorGap, vw - edgeMargin - rRect.width);
+        }
     }
     panelC.style.left = leftTargetX + 'px';
     panelC.style.top = targetY + 'px';
@@ -1867,7 +1887,8 @@ function minimizeInitialBoxForButtons(){
     d302.style.transition = 'top 1100ms ease, transform 1100ms ease';
     d302.style.zIndex = '3';
     if(rotRect){
-        d302.style.top = Math.round(rotRect.bottom - 6) + 'px';
+        // Lower the buttons slightly below the door to a mid position
+        d302.style.top = Math.round(rotRect.bottom + 28) + 'px';
     } else {
         d302.style.top = '12%';
     }
@@ -1891,7 +1912,8 @@ function finalizeSimUI(){
             var rot = document.getElementById('door01rotater');
             var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
             if(rotRect){
-                d302.style.top = Math.round(rotRect.bottom - 6) + 'px';
+                // Lower the buttons slightly below the door to a mid position
+                d302.style.top = Math.round(rotRect.bottom + 28) + 'px';
             } else {
                 d302.style.top = '12%';
             }

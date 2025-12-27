@@ -1059,6 +1059,16 @@ points="1.4974874371859386,1.4974874371859386 199.49748743718592,1.4974874371859
 <div id="d0end" class="face d000"> </div></div></div>
 <script src="js01sim03.js"></script>
 <script>
+// Compute dynamic grid rows based on monitor height and square cell size
+function getGridRows() {
+    var block = document.getElementById("block01");
+    var w = (block && block.clientWidth) ? block.clientWidth : window.innerWidth;
+    var cellSize = Math.max(1, Math.floor(w / 10)); // keep square cells (10 columns)
+    var rows = Math.floor(window.innerHeight / cellSize);
+    // Prefer 6–12 rows for typical screens
+    rows = Math.max(6, Math.min(rows, 12));
+    return rows;
+}
 function onload02() {
     var windowHeight01 = window.innerHeight;
     var h01 = windowHeight01.toString();
@@ -1637,10 +1647,42 @@ function refreshOverlayContent(){
         var right = document.getElementById('simPanelRight');
         var cc = center && center.querySelector('.content');
         var rc = right && right.querySelector('.content');
-        if(cc){ cc.innerHTML = instructionHTML || ''; }
-        if(rc){ rc.textContent = typedText || ''; }
+        // Split the instruction text into upper/lower halves
+        var halves = splitContentIntoHalves(instructionHTML || '');
+        if(cc){ cc.innerHTML = halves[0] || ''; }
+        if(rc){ rc.innerHTML = halves[1] || ''; }
     } catch(_){ }
     try { var pEl2 = document.getElementById('p301'); if(pEl2){ pEl2.innerHTML = ''; } } catch(_){ }
+}
+
+// Split HTML by paragraphs or character midpoint into two halves
+function splitContentIntoHalves(html){
+    try {
+        // Normalize block breaks into newlines
+        var raw = String(html || '');
+        raw = raw.replace(/<br\s*\/?>/gi, '\n');
+        raw = raw.replace(/<\/(p|div|section|article|h\d)>/gi, '\n');
+        // Strip remaining tags to text
+        var tmp = document.createElement('div'); tmp.innerHTML = raw;
+        var text = tmp.textContent || tmp.innerText || '';
+        // Split by lines if available, else by characters
+        var lines = text.split(/\n+/).filter(function(s){ return s && s.trim().length > 0; });
+        if(lines.length >= 2){
+            var midLine = Math.ceil(lines.length/2);
+            var leftText = lines.slice(0, midLine).join('\n');
+            var rightText = lines.slice(midLine).join('\n');
+            var leftHTML = leftText.split('\n').map(escapeHTML).join('<br>');
+            var rightHTML = rightText.split('\n').map(escapeHTML).join('<br>');
+            return [leftHTML, rightHTML];
+        } else {
+            var m = Math.floor(text.length/2);
+            return [escapeHTML(text.slice(0, m)), escapeHTML(text.slice(m))];
+        }
+    } catch(_){ return [html || '', '']; }
+}
+
+function escapeHTML(s){
+    try { return s.replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); } catch(_){ return s; }
 }
 
 function startSimOverlayAnimation(panelC, panelR, srcRect){
@@ -1650,13 +1692,16 @@ function startSimOverlayAnimation(panelC, panelR, srcRect){
     var startX = Math.round((vw/2) - (baseRect.width/2));
     var startY = Math.round((vh*0.44) - (baseRect.height/2));
     var startW = baseRect.width, startH = baseRect.height;
-
-    // Keep doorway clear by using narrower panels and higher placement
+    // Compute door positions to place panels to the left and right of the door
+    var rot = document.getElementById('door01rotater');
+    var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
+    // Panel sizes
     var targetW = Math.min(460, Math.max(340, Math.round(startW * 0.74)));
     var targetH = Math.min(340, Math.max(220, Math.round(startH * 0.80)));
-    var leftTargetX = Math.round(vw * 0.08);
-    var rightTargetX = Math.round(vw * 0.92 - targetW);
-    var targetY = Math.round(vh * 0.16 - targetH/2); // lift panels higher to clear pyramid
+    var margin = 12;
+    var leftTargetX = rotRect ? Math.max(margin, Math.round(rotRect.left - targetW - margin)) : Math.round(vw * 0.08);
+    var rightTargetX = rotRect ? Math.min(vw - targetW - margin, Math.round(rotRect.right + margin)) : Math.round(vw * 0.92 - targetW);
+    var targetY = rotRect ? Math.round(rotRect.top + (rotRect.height/2) - targetH/2) : Math.round(vh * 0.16 - targetH/2);
 
     var duration = 900, t0 = performance.now();
     function apply(el,x,y,w,h){ el.style.left=x+'px'; el.style.top=y+'px'; el.style.transform='none'; el.style.width=Math.round(w)+'px'; el.style.height=Math.round(h)+'px'; }
@@ -1667,7 +1712,7 @@ function startSimOverlayAnimation(panelC, panelR, srcRect){
         apply(panelC, lerp(startX,leftTargetX,e), lerp(startY,targetY,e), lerp(startW,targetW,e), lerp(startH,targetH,e));
         var curXr = lerp(startX,rightTargetX,e), curYr = lerp(startY,targetY,e), curWr = lerp(startW,targetW,e), curHr = lerp(startH,targetH,e);
         apply(panelR, curXr, curYr, curWr, curHr);
-        if(p < 1){ requestAnimationFrame(step); }
+        if(p < 1){ requestAnimationFrame(step); } else { try { finalizeSimUI(); } catch(_){} }
     }
     requestAnimationFrame(step);
 }
@@ -1699,27 +1744,53 @@ function minimizeInitialBoxForButtons(){
     var t = document.getElementById('text301');
     if(t){ t.style.display = 'none'; }
 
-    // Compute required height for container based on buttons
-    // Force reflow to ensure offsets are up-to-date
+    // Compute required height for container based on buttons and animate resize
     void(d302.offsetHeight);
     var h = 0;
     if(btnAbs){ h += btnAbs.offsetHeight; }
     if(btnHome){ h += btnHome.offsetHeight; }
-    // Add small padding
-    h += 8;
+    h += 8; // small padding
     if(inner){
         inner.style.paddingBottom = '0px';
-        inner.style.height = h + 'px';
         inner.style.border = '0';
         inner.style.outline = '0';
+        inner.style.display = 'flex';
+        inner.style.flexDirection = 'column';
+        inner.style.justifyContent = 'flex-end';
+        inner.style.transition = 'height 300ms ease';
+        inner.style.height = h + 'px';
     }
 
-    // Animate downward to reveal buttons clearly
-    d302.style.transition = 'transform 300ms ease';
-    // Keep buttons visible but not above the overlay panels
+    // Position the buttons box at the bottom of the door
+    var rot = document.getElementById('door01rotater');
+    var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
+    d302.style.transition = 'top 300ms ease, transform 300ms ease';
     d302.style.zIndex = '3';
-    d302.style.top = '12%';
-    d302.style.transform = 'translateY(35px)';
+    if(rotRect){
+        d302.style.top = Math.round(rotRect.bottom + 8) + 'px';
+    } else {
+        d302.style.top = '12%';
+    }
+    d302.style.transform = 'translateY(0px)';
+}
+// Move the "Author: Richard..." text from the middle box, then clear it and show buttons
+// Poll for the author text appearing and start movement automatically
+// Movement and overlay are triggered by verify01() when the user types the exact text.
+// Ensure final UI state after movement completes: clear middle text, show buttons
+function finalizeSimUI(){
+    try {
+        var p = document.getElementById('p301'); if(p){ p.innerHTML = ''; p.style.backgroundColor = 'transparent'; p.style.border = '0'; p.style.padding = '0'; p.style.margin = '0'; }
+        var t = document.getElementById('text301'); if(t){ t.style.display = 'none'; }
+        var btnHome = document.getElementById('button301'); if(btnHome){ btnHome.style.display = 'block'; }
+        var btnAbs = document.getElementById('button302'); if(btnAbs){ btnAbs.style.display = 'block'; }
+        var d302 = document.getElementById('d302');
+        if(d302){
+            d302.style.transition = 'transform 300ms ease';
+            d302.style.zIndex = '3';
+            d302.style.top = '12%';
+            d302.style.transform = 'translateY(35px)';
+        }
+    } catch(_){}
 }
 /*Bottom*/
 // Bootstrap: ensure functions run even if inline event handlers are blocked

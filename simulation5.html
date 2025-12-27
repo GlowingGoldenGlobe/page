@@ -1569,29 +1569,42 @@ function triggerSimResult(text){
     var srcEl = document.querySelector('#d302 > div') || document.getElementById('p301');
     var srcRect = null;
     try { srcRect = srcEl.getBoundingClientRect(); } catch(_){ srcRect = null; }
-    var t0 = performance.now();
-    function waitLoop(t){
+    // Wait until the instruction paragraph contains the Author text (or grows sufficiently),
+    // so we move the correct content instead of the initial instruction.
+    var maxWaitMs = 15000; // safety cap
+    var startMs = performance.now();
+    function readyForAuthor(){
+        try {
+            var pEl = document.getElementById('p301');
+            if(!pEl) return false;
+            var html = String(pEl.innerHTML || '');
+            var plain = (function(){ var tmp = document.createElement('div'); tmp.innerHTML = html; return tmp.textContent || tmp.innerText || ''; })();
+            // Explicit check for the expected author header, or a sufficiently long content block
+            if(/Author\s*:/i.test(plain)) return true;
+            // Avoid moving the short initial prompt text
+            return plain.trim().length > 160 && !/Show a grid, open a door, and move the pyramid\./i.test(plain);
+        } catch(_){ return false; }
+    }
+    function waitAuthorLoop(){
         if(cancelled) return;
-        if(t - t0 >= 500){
+        var now = performance.now();
+        if(readyForAuthor() || (now - startMs) >= maxWaitMs){
             __simOverlayWaiting = false;
             __simOverlayStarted = true;
-            // Copy latest text into overlay before clearing source
             try { refreshOverlayContent(); } catch(_){}
-            // Modify the initial box to keep buttons visible but remove text and shrink size
             try { minimizeInitialBoxForButtons(); } catch(_){}
-            // Reveal overlay and start movement using the original box size
-            try {
-                var root = document.getElementById('simOverlayRoot');
-                if(root){ root.style.opacity = '1'; }
-            } catch(_){}
+            try { var root = document.getElementById('simOverlayRoot'); if(root){ root.style.opacity = '1'; } } catch(_){}
             startSimOverlayAnimation(
                 document.getElementById('simPanelCenter'),
                 document.getElementById('simPanelRight'),
                 srcRect
             );
-        } else { requestAnimationFrame(waitLoop); }
+        } else {
+            // Poll at animation frame cadence for simplicity
+            requestAnimationFrame(waitAuthorLoop);
+        }
     }
-    requestAnimationFrame(waitLoop);
+    requestAnimationFrame(waitAuthorLoop);
 }
 
 function buildSimOverlay(text){
@@ -1785,10 +1798,17 @@ function finalizeSimUI(){
         var btnAbs = document.getElementById('button302'); if(btnAbs){ btnAbs.style.display = 'block'; }
         var d302 = document.getElementById('d302');
         if(d302){
-            d302.style.transition = 'transform 300ms ease';
+            d302.style.transition = 'top 300ms ease';
             d302.style.zIndex = '3';
-            d302.style.top = '12%';
-            d302.style.transform = 'translateY(35px)';
+            // Position the buttons box flush under the door rotater
+            var rot = document.getElementById('door01rotater');
+            var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
+            if(rotRect){
+                d302.style.top = Math.round(rotRect.bottom + 8) + 'px';
+            } else {
+                d302.style.top = '12%';
+            }
+            d302.style.transform = 'none';
         }
     } catch(_){}
 }

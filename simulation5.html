@@ -1738,15 +1738,18 @@ function startSimOverlayAnimation(panelC, panelR, srcRect){
         var maxPanelH = Math.floor(vh * 0.8);
         targetH = Math.min(maxPanelH, Math.max(targetH, contentH + 60));
     } catch(_){}
-    // Position panels symmetrically with a fixed gap from the door
+    // Position panels with equal edge gaps from the door
     var gap = 60;
     var targetY = rotRect ? Math.round(rotRect.top + (rotRect.height/2) - targetH/2) : Math.round(vh * 0.16 - targetH/2);
     var leftTargetX, rightTargetX;
     if(rotRect){
-        var leftCenterX = Math.round(rotRect.left - gap);
-        var rightCenterX = Math.round(rotRect.right + gap);
-        leftTargetX = Math.max(8, leftCenterX - Math.round(targetW/2));
-        rightTargetX = Math.min(vw - targetW - 8, rightCenterX - Math.round(targetW/2));
+        // Left panel right edge aligns to door left edge - gap
+        leftTargetX = Math.round(rotRect.left - gap - targetW);
+        // Right panel left edge aligns to door right edge + gap
+        rightTargetX = Math.round(rotRect.right + gap);
+        // Clamp to viewport
+        leftTargetX = Math.max(8, leftTargetX);
+        rightTargetX = Math.min(vw - targetW - 8, rightTargetX);
     } else {
         leftTargetX = Math.round(vw * 0.26 - targetW/2);
         rightTargetX = Math.round(vw * 0.74 - targetW/2);
@@ -1779,16 +1782,31 @@ function alignOverlayPanelsToDoor(){
     var vw = window.innerWidth, vh = window.innerHeight;
     var cRect = panelC.getBoundingClientRect();
     var rRect = panelR.getBoundingClientRect();
+    // Recompute height to fit content up to 80vh
+    try {
+        var cc = panelC.querySelector('.content');
+        var rc = panelR.querySelector('.content');
+        var ch = cc ? cc.scrollHeight : 0;
+        var rh = rc ? rc.scrollHeight : 0;
+        var contentH = Math.max(ch, rh);
+        var maxPanelH = Math.floor(vh * 0.8);
+        var targetH2 = Math.min(maxPanelH, Math.max(Math.max(cRect.height, rRect.height), contentH + 60));
+        panelC.style.height = targetH2 + 'px';
+        panelR.style.height = targetH2 + 'px';
+        // recompute rects after sizing
+        cRect = panelC.getBoundingClientRect();
+        rRect = panelR.getBoundingClientRect();
+    } catch(_){}
     var targetH = Math.max(cRect.height, rRect.height);
     var targetY = rotRect ? Math.round(rotRect.top + (rotRect.height/2) - targetH/2) : Math.round(vh * 0.16 - targetH/2);
-    // Mirror panels around the door with a fixed gap
+    // Mirror panels by edges with a fixed gap from door
     var gap = 60;
     var leftTargetX, rightTargetX;
     if(rotRect){
-        var leftCenterX = Math.round(rotRect.left - gap);
-        var rightCenterX = Math.round(rotRect.right + gap);
-        leftTargetX = Math.max(8, leftCenterX - Math.round(cRect.width/2));
-        rightTargetX = Math.min(vw - rRect.width - 8, rightCenterX - Math.round(rRect.width/2));
+        leftTargetX = Math.round(rotRect.left - gap - cRect.width);
+        rightTargetX = Math.round(rotRect.right + gap);
+        leftTargetX = Math.max(8, leftTargetX);
+        rightTargetX = Math.min(vw - rRect.width - 8, rightTargetX);
     } else {
         leftTargetX = Math.round(vw * 0.26 - cRect.width/2);
         rightTargetX = Math.round(vw * 0.74 - rRect.width/2);
@@ -1846,10 +1864,10 @@ function minimizeInitialBoxForButtons(){
     // Position the buttons box at the bottom of the door
     var rot = document.getElementById('door01rotater');
     var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
-    d302.style.transition = 'top 700ms ease, transform 700ms ease';
+    d302.style.transition = 'top 1100ms ease, transform 1100ms ease';
     d302.style.zIndex = '3';
     if(rotRect){
-        d302.style.top = Math.round(rotRect.bottom + 0) + 'px';
+        d302.style.top = Math.round(rotRect.bottom - 6) + 'px';
     } else {
         d302.style.top = '12%';
     }
@@ -1867,13 +1885,13 @@ function finalizeSimUI(){
         var btnAbs = document.getElementById('button302'); if(btnAbs){ btnAbs.style.display = 'block'; }
         var d302 = document.getElementById('d302');
         if(d302){
-            d302.style.transition = 'top 700ms ease';
+            d302.style.transition = 'top 1100ms ease';
             d302.style.zIndex = '3';
             // Position the buttons box flush under the door rotater
             var rot = document.getElementById('door01rotater');
             var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
             if(rotRect){
-                d302.style.top = Math.round(rotRect.bottom + 0) + 'px';
+                d302.style.top = Math.round(rotRect.bottom - 6) + 'px';
             } else {
                 d302.style.top = '12%';
             }

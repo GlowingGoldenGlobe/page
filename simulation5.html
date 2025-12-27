@@ -1109,16 +1109,26 @@ function onResizeSim(){
             rotater01.style.left = (width01 * 2) + 'px';
             rotater01.style.top = (height01 * frontRows) + 'px';
         }
+        // Keep overlay panels anchored to the door after resize
+        try { alignOverlayPanelsToDoor(); } catch(_){}
     } catch(_){}
 }
 function verify01(textToType01, textTyped01) {
+function normalizeText(s){
+    try {
+        var tmp = document.createElement('div');
+        tmp.innerHTML = String(s || '');
+        var t = tmp.textContent || tmp.innerText || '';
+        return t.replace(/\s+/g, ' ').trim();
+    } catch(_){ return String(s || '').replace(/\s+/g, ' ').trim(); }
+}
 var textToType01 = document.getElementById("p301").innerHTML;
 var textTyped01 = document.getElementById("text301").value;
 var l01 = textTyped01.split("");
 l01 = l01.length;
 l01 = Number(l01);
 //if(l01 >= 35){alert(textTyped01 + "\n\n" + textToType01);}
-    if(textToType01 == textTyped01) {
+    if(normalizeText(textToType01) === normalizeText(textTyped01)) {
         var ifRun01 = localStorage.getItem("ifRunAlready");
         localStorage.setItem("ifRunAlready", "true");
         if(ifRun01 == "true") {return null;}
@@ -1668,29 +1678,38 @@ function refreshOverlayContent(){
     try { var pEl2 = document.getElementById('p301'); if(pEl2){ pEl2.innerHTML = ''; } } catch(_){ }
 }
 
-// Split HTML by paragraphs or character midpoint into two halves
+// Split HTML into upper/lower halves, preserving <br> formatting
 function splitContentIntoHalves(html){
     try {
-        // Normalize block breaks into newlines
         var raw = String(html || '');
-        raw = raw.replace(/<br\s*\/?>/gi, '\n');
-        raw = raw.replace(/<\/(p|div|section|article|h\d)>/gi, '\n');
-        // Strip remaining tags to text
+        // Normalize <br> variants to a single form
+        raw = raw.replace(/<br\s*\/?>/gi, '<br>');
+        // Trim redundant leading/trailing breaks
+        raw = raw.replace(/^(<br>\s*)+/i, '').replace(/(\s*<br>)+$/i, '');
+
+        // Prefer splitting on paragraph breaks represented by double <br>
+        var paras = raw.split(/(?:\s*<br>\s*){2,}/i).filter(function(s){ return s && s.trim().length > 0; });
+        if(paras.length >= 2){
+            var mid = Math.ceil(paras.length / 2);
+            var leftHTML = paras.slice(0, mid).join('<br><br>');
+            var rightHTML = paras.slice(mid).join('<br><br>');
+            return [leftHTML, rightHTML];
+        }
+
+        // Fallback: split by single <br> line breaks
+        var lines = raw.split(/\s*<br>\s*/i).filter(function(s){ return s && s.trim().length > 0; });
+        if(lines.length >= 2){
+            var midLine = Math.ceil(lines.length / 2);
+            var leftHTML2 = lines.slice(0, midLine).join('<br>');
+            var rightHTML2 = lines.slice(midLine).join('<br>');
+            return [leftHTML2, rightHTML2];
+        }
+
+        // Last resort: split characters while preserving original HTML text
         var tmp = document.createElement('div'); tmp.innerHTML = raw;
         var text = tmp.textContent || tmp.innerText || '';
-        // Split by lines if available, else by characters
-        var lines = text.split(/\n+/).filter(function(s){ return s && s.trim().length > 0; });
-        if(lines.length >= 2){
-            var midLine = Math.ceil(lines.length/2);
-            var leftText = lines.slice(0, midLine).join('\n');
-            var rightText = lines.slice(midLine).join('\n');
-            var leftHTML = leftText.split('\n').map(escapeHTML).join('<br>');
-            var rightHTML = rightText.split('\n').map(escapeHTML).join('<br>');
-            return [leftHTML, rightHTML];
-        } else {
-            var m = Math.floor(text.length/2);
-            return [escapeHTML(text.slice(0, m)), escapeHTML(text.slice(m))];
-        }
+        var m = Math.floor(text.length / 2);
+        return [escapeHTML(text.slice(0, m)), escapeHTML(text.slice(m))];
     } catch(_){ return [html || '', '']; }
 }
 
@@ -1731,6 +1750,30 @@ function startSimOverlayAnimation(panelC, panelR, srcRect){
 }
 
 function lerp(a,b,t){ return a + (b - a) * t; }
+
+// After animation or on resize, align panels beside the door using current sizes
+function alignOverlayPanelsToDoor(){
+    if(!__simOverlayStarted) return;
+    var panelC = document.getElementById('simPanelCenter');
+    var panelR = document.getElementById('simPanelRight');
+    if(!panelC || !panelR) return;
+    var rot = document.getElementById('door01rotater');
+    var rotRect = (rot && rot.getBoundingClientRect) ? rot.getBoundingClientRect() : null;
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var margin = 12;
+    var cRect = panelC.getBoundingClientRect();
+    var rRect = panelR.getBoundingClientRect();
+    var targetH = Math.max(cRect.height, rRect.height);
+    var targetY = rotRect ? Math.round(rotRect.top + (rotRect.height/2) - targetH/2) : Math.round(vh * 0.16 - targetH/2);
+    var leftTargetX = rotRect ? Math.max(margin, Math.round(rotRect.left - cRect.width - margin)) : Math.round(vw * 0.08);
+    var rightTargetX = rotRect ? Math.min(vw - rRect.width - margin, Math.round(rotRect.right + margin)) : Math.round(vw * 0.92 - rRect.width);
+    panelC.style.left = leftTargetX + 'px';
+    panelC.style.top = targetY + 'px';
+    panelC.style.transform = 'none';
+    panelR.style.left = rightTargetX + 'px';
+    panelR.style.top = targetY + 'px';
+    panelR.style.transform = 'none';
+}
 // Shrink initial box and keep buttons visible; move downward about 15px
 function minimizeInitialBoxForButtons(){
     var d302 = document.getElementById('d302');
@@ -1810,6 +1853,8 @@ function finalizeSimUI(){
             }
             d302.style.transform = 'none';
         }
+        // Ensure panels are perfectly aligned beside the door after animation
+        try { alignOverlayPanelsToDoor(); } catch(_){}
     } catch(_){}
 }
 /*Bottom*/

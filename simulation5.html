@@ -1710,6 +1710,25 @@ function minimizeInitialBoxForButtons(){
     d302.style.transform = 'translateY(35px)';
 }
 /*Bottom*/
+// Bootstrap: ensure functions run even if inline event handlers are blocked
+try {
+    window.addEventListener('DOMContentLoaded', function(){
+        try { onload02(); } catch(_){}
+        try {
+            var t = document.getElementById('text301');
+            if(t){ t.addEventListener('keyup', function(){ try { verify01(); } catch(_){} }); }
+            var btnHome = document.getElementById('button301');
+            if(btnHome){ btnHome.addEventListener('click', function(){ try { homePage01(); } catch(_){} }); }
+            var btnAbs = document.getElementById('button302');
+            if(btnAbs){ btnAbs.addEventListener('click', function(){ try { openAbsoluteValueThoughts(); } catch(_){} }); }
+            var wrapper = document.getElementById('wrapper');
+            if(wrapper){
+                wrapper.addEventListener('mousemove', function(e){ try { mouseMove01(e); } catch(_){} });
+                wrapper.addEventListener('click', function(){ try { apconc(); } catch(_){} });
+            }
+        } catch(_){}
+    });
+} catch(_){}
 </script>
 </body>
 </html>

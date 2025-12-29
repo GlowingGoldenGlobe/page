@@ -1640,9 +1640,10 @@ function buildSimOverlay(text){
         var maxPanelH = Math.max(360, Math.floor(vh * 0.8));
         center.style.maxHeight = maxPanelH + 'px';
         content.style.maxHeight = (maxPanelH - 40) + 'px'; // account for header + paddings
-        content.style.overflowY = 'auto';
+        content.style.overflowX = 'hidden';
+        content.style.overflowY = 'scroll';
         right.style.maxHeight = maxPanelH + 'px';
-        rc.style.maxHeight = (maxPanelH - 40) + 'px'; rc.style.overflowY = 'auto';
+        rc.style.maxHeight = (maxPanelH - 25) + 'px'; rc.style.overflowY = 'auto';
     } catch(_){}
 
     // Provisional content; will be refreshed at movement start

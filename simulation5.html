@@ -230,10 +230,11 @@ input {
 .sim-panel {
     position: absolute;
     left: 50%; top: 44%; transform: translate(-50%,-50%);
-    width: 620px; /* wider box */
-    min-height: 0px; /* allow starting size to match source */
-    max-height: 80vh; /* ensure bottom remains visible */
-    overflow: hidden; /* manage internal scrolling area */
+    width: 420px; /* unified width for mirrored panels */
+    min-height: 0; /* start from intrinsic height */
+    height: auto; /* grow to fit content */
+    max-height: none; /* no cap so text shows fully */
+    overflow: visible; /* no internal scrollbars */
     background: rgba(255,255,255,0.95); /* white panels to match screenshot */
     border: 8px outset #808080; /* subtle raised border */
     box-shadow: 0 8px 16px rgba(0,0,0,0.25);
@@ -241,7 +242,7 @@ input {
     font: 16px/1.5 Georgia, 'Times New Roman', Times, serif;
 }
 .sim-panel h2 { margin: 10px 12px 6px; font-size: 18px; color: #111; }
-.sim-panel .content { margin: 0 12px 12px; font-size: 15px; overflow-y: auto; color: #111; }
+.sim-panel .content { margin: 0 12px 12px; font-size: 15px; overflow-y: visible; overflow-x: visible; color: #111; }
 </style>
 <div>
 <div id="d302" class="d0002">
@@ -1633,17 +1634,15 @@ function buildSimOverlay(text){
 
     root.appendChild(center); root.appendChild(right);
 
-    // Size panels based on content to avoid clipping bottom
+    // Display full text without internal scrollbars
     try {
-        var vh = window.innerHeight;
-        // allow content area to scroll if too tall
-        var maxPanelH = Math.max(360, Math.floor(vh * 0.8));
-        center.style.maxHeight = maxPanelH + 'px';
-        content.style.maxHeight = (maxPanelH - 40) + 'px'; // account for header + paddings
-        content.style.overflowX = 'hidden';
-        content.style.overflowY = 'auto';
-        right.style.maxHeight = maxPanelH + 'px';
-        rc.style.maxHeight = (maxPanelH - 40) + 'px'; rc.style.overflowY = 'auto';
+        center.style.maxHeight = '';
+        content.style.maxHeight = '';
+        content.style.overflowX = 'visible';
+        content.style.overflowY = 'visible';
+        right.style.maxHeight = '';
+        rc.style.maxHeight = '';
+        rc.style.overflowY = 'visible';
     } catch(_){}
 
     // Provisional content; will be refreshed at movement start
@@ -1730,9 +1729,9 @@ function startSimOverlayAnimation(panelC, panelR, srcRect){
     // Panel sizes: wider and taller for readability; ensure both panels and door fit
     var edgeMargin = Math.round(Math.min(vw * 0.12, 120));
     var doorGap = Math.round(Math.min(vw * 0.08, 96));
-    var availableForPanels = vw - (2 * edgeMargin) - (rotRect ? rotRect.width : 220) - doorGap;
-    var targetW = Math.min(560, Math.max(360, Math.floor(availableForPanels / 2)));
-    var targetH = Math.min(420, Math.max(280, Math.round(startH * 0.95)));
+    // Fixed width for mirrored panels; adjusted later if door overlaps
+    var targetW = 420;
+    var targetH = Math.max(280, Math.round(startH * 0.95));
 
     // Expand height to fit content (up to ~88vh) so remaining text shows
     try {
@@ -1741,8 +1740,8 @@ function startSimOverlayAnimation(panelC, panelR, srcRect){
         var ch = cc ? cc.scrollHeight : 0;
         var rh = rc ? rc.scrollHeight : 0;
         var contentH = Math.max(ch, rh);
-        var maxPanelH = Math.floor(vh * 0.88);
-        targetH = Math.min(maxPanelH, Math.max(targetH, contentH + 64));
+        // Expand height to fit content entirely
+        targetH = Math.max(targetH, contentH + 64);
     } catch(_){}
 
     // Symmetric edge-based positioning: same margin from left/right edges
@@ -1797,15 +1796,14 @@ function alignOverlayPanelsToDoor(){
     var vw = window.innerWidth, vh = window.innerHeight;
     var cRect = panelC.getBoundingClientRect();
     var rRect = panelR.getBoundingClientRect();
-    // Recompute height to fit content up to ~88vh
+    // Recompute height to fit content entirely (no internal scrollbars)
     try {
         var cc = panelC.querySelector('.content');
         var rc = panelR.querySelector('.content');
         var ch = cc ? cc.scrollHeight : 0;
         var rh = rc ? rc.scrollHeight : 0;
         var contentH = Math.max(ch, rh);
-        var maxPanelH = Math.floor(vh * 0.88);
-        var targetH2 = Math.min(maxPanelH, Math.max(Math.max(cRect.height, rRect.height), contentH + 64));
+        var targetH2 = Math.max(Math.max(cRect.height, rRect.height), contentH + 64);
         panelC.style.height = targetH2 + 'px';
         panelR.style.height = targetH2 + 'px';
         // recompute rects after sizing
